@@ -26,5 +26,5 @@
 ```
 
 ```python
-print("Пожарский Дмитрий Евгеньевич")
+print("Hello world")
 ```
