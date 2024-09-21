@@ -26,5 +26,5 @@
 ```
 
 ```python
-print("Кузьминов Илья Владимирович")
+print("Hello world")
 ```
