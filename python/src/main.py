@@ -3,5 +3,5 @@ def summ(a: int, b: int) -> int:
 
 
 if __name__ == "__main__":
-    print("Hello world")
+    print("Ivan Yashkov")
     print(summ(3, 4))
