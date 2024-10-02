@@ -1,0 +1,42 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func calculateY(a, b, x float64) float64 {
+	numeratorPart := b*b - x*x
+
+	logTerm := math.Log(numeratorPart) / math.Log(a)
+
+	denominator := math.Cbrt(math.Abs(x*x - a*a))
+
+	y := logTerm / denominator
+
+	return y
+}
+func main() {
+	a := 2.0
+	b := 4.1
+
+	// Задача A: вычисляем y для значений x от 0.77 до 1.77 с шагом 0.2
+	fmt.Println("Задача A:")
+	xStartA := 0.77
+	xEndA := 1.77
+	step := 0.2
+
+	for x := xStartA; x <= xEndA; x += step {
+		y := calculateY(a, b, x)
+		fmt.Printf("x = %.2f, y = %.5f\n", x, y)
+	}
+
+	fmt.Println("Задача B:")
+	xValuesB := []float64{1.24, 1.38, 2.38, 3.21, 0.68}
+
+	// Цикл для задачи B
+	for _, x := range xValuesB {
+		y := calculateY(a, b, x)
+		fmt.Printf("x = %.2f, y = %.5f\n", x, y)
+	}
+}
