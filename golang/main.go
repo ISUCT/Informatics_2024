@@ -7,6 +7,8 @@ import (
 )
 
 func main() {
+	fmt.Println("Zakharov Pavel Dmitrievich")
+
 	labs.Y_A()
 	fmt.Println("-------------------")
 	labs.Y_B()
