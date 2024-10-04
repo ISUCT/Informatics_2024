@@ -6,6 +6,7 @@ import (
 )
 
 // Функция по задаче 6
+// Задача 6.A
 func Y_A() {
 	var begin_x float64 = 0.2
 	var end_x float64 = 2.2
