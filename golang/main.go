@@ -16,12 +16,12 @@ func main() {
 	fmt.Println("\nзадача А:")
 	for i := 1.15; i < 3.05; i += 0.38 {
 		result = laba4.Colcul(a, b, i)
-		fmt.Printf("при x = %.2f, y = %.2f \n", i, result)
+		fmt.Printf("при x = %.2f, y = %.4f \n", i, result)
 	}
 
 	fmt.Println("\nзадача B:")
 	for i := 0; i < len(x); i++ {
 		result = laba4.Colcul(a, b, x[i])
-		fmt.Println("при x =", x[i], " y =", result)
+		fmt.Printf("при x = %.2f, y = %.4f \n", x[i], result)
 	}
 }
