@@ -1,4 +1,4 @@
-package lab4
+package main
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func f(x float64, a float64, b float64) float64 {
 	return math.Acos(math.Pow(x, 2)-math.Pow(b, 2)) / math.Asin(math.Pow(x, 2)-math.Pow(a, 2))
 }
 
-func lab4() {
+func main() {
 	//Задание А
 	fmt.Println("Задание А")
 	fmt.Println("x\ty")
