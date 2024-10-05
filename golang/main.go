@@ -12,5 +12,4 @@ func main() {
 	for _, x := range xs {
 		fmt.Println("y =", function.Uravnenie(b, x))
 	}
-
 }
