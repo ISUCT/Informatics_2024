@@ -1,8 +1,7 @@
-// package main
+package main
 
-// import "fmt"
+import "fmt"
 
-// func main() {
-// 	fmt.Println("Hello world")
-// 	fmt.Println("Соловьев Кирилл Михайлович")
-// }
+func main() {
+	fmt.Println("Соловьев Кирилл Михайлович")
+}
