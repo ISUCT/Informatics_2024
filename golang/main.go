@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"isuct.ru/informatics2022/lab4"
+	lab4 "isuct.ru/informatics2022/labs"
 )
 
 func main() {
@@ -11,12 +11,14 @@ func main() {
 	fmt.Println("Задача А")
 	for x := 0.33; x <= 1.23; x += 0.18 {
 		y := lab4.F(x)
-		fmt.Printf("x = %.2f\ty = %f\n", x, y)
+		fmt.Println(x, y)
+		fmt.Printf("x = %f\ty = %f\n", x, y)
 	}
 	fmt.Println()
 	fmt.Println("Задача В")
 	for _, x := range exb {
 		y := lab4.F(x)
-		fmt.Printf("x = %.2f\ty = %f\n", x, y)
+		fmt.Println(x, y)
+		fmt.Printf("x = %f\ty = %f\n", x, y)
 	}
 }
