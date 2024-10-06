@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	lab4 "isuct.ru/informatics2022/labs"
+	"isuct.ru/informatics2022/labs/lab4"
 )
 
 type Test struct {
