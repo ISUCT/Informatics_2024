@@ -24,4 +24,5 @@ func main() {
 	fmt.Printf("Объем жесткого диска нового компьютера: %d Gb\n", newPc.GetHdd())
 	newPc.SetHdd(1024)
 	fmt.Printf("Объем жесткого диска нового компьютера после изменений: %d Gb\n", newPc.GetHdd())
+	fmt.Printf("Объем оперативной памяти нового компьютера: %d Gb бренда %s\n", newPc.GetRam(), newPc.GetRamBrand())
 }
