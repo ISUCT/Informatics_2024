@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-
 	fmt.Print("Задача А\n")
 	var x_a float64 = 1.28
 	for i := 0; i < 6; i++ {
