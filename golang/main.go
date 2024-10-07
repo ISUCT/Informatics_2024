@@ -9,4 +9,6 @@ func main() {
 	lab4.TaskA(b, a, 1.25, 2.75, 0.3)
 	var p = [5]float64{2.2, 3.78, 4.51, 6.58, 1.2}
 	lab4.TaskB(a, b, p)
+
+	fmt.Println("Vanyagina_Anastasia_Olegovna")
 }
