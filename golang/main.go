@@ -3,22 +3,25 @@ package main
 import (
 	"fmt"
 
-	lab4 "isuct.ru/informatics2022/labs/lab4"
+	"isuct.ru/informatics2022/labs/lab5"
 )
 
 func main() {
-	var exb = []float64{1.24, 1.38, 2.38, 3.21, 0.68}
-	fmt.Println("Задача А")
-	for x := 0.33; x <= 1.23; x += 0.18 {
-		y := lab4.F(x)
-		fmt.Println(x, y)
-		fmt.Printf("x = %f\ty = %f\n", x, y)
-	}
+	myPc := lab5.Computer{Hdd: 512, HddBrand: "Asus", Ram: 16, RamBrand: "Corsair"}
+	fmt.Printf("Объем оперативной памяти: %d Gb\n", myPc.GetRam())
+	myPc.SetRam(32)
+	fmt.Printf("Объем оперативной памяти: %d Gb\n", myPc.GetRam())
+
+	fmt.Printf("Объем жесткого диска: %d Gb\n", myPc.GetHdd())
+	myPc.SetHdd(1024)
+	fmt.Printf("Объем жесткого диска: %d Gb\n", myPc.GetHdd())
+
+	fmt.Printf("Бренд жесткого диска: %s\nБренд оперативной памяти: %s\n", myPc.HddBrand, myPc.RamBrand)
+
 	fmt.Println()
-	fmt.Println("Задача В")
-	for _, x := range exb {
-		y := lab4.F(x)
-		fmt.Println(x, y)
-		fmt.Printf("x = %f\ty = %f\n", x, y)
-	}
+
+	newPc := lab5.NewComputer(2048, "WD Blue", 64, "HyperX")
+	fmt.Printf("Объем жесткого диска нового компьютера: %d Gb\n", newPc.GetHdd())
+	newPc.SetHdd(1024)
+	fmt.Printf("Объем жесткого диска нового компьютера после изменений: %d Gb\n", newPc.GetHdd())
 }
