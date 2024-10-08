@@ -1,5 +1,7 @@
 package lab5
 
+import "fmt"
+
 type Computer struct {
 	Hdd      int
 	HddBrand string
