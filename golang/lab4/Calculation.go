@@ -5,9 +5,6 @@ import (
 	"fmt"
 )
 
-const a float64 = 1.1
-const b float64 = 0.09
-
 func Calculation(a,b,x float64) float64 {
 	y := ((math.Log10(math.Pow(x,2)-1))/(math.Log(a*math.Pow(x,2)-b)/math.Log(5)))
 	return y
