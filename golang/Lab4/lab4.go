@@ -16,9 +16,7 @@ func Task_A() {
 	for x := 0.22; x <= 0.92; x += 0.14 {
 		result := calculate(x)
 		fmt.Printf("результат от %.2f : %.2f\n", x, result)
-
 	}
-
 }
 
 func Task_B() {
@@ -26,6 +24,5 @@ func Task_B() {
 	for _, x := range arr {
 		answer := calculate(x)
 		fmt.Println(answer)
-
 	}
 }
