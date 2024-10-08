@@ -13,7 +13,6 @@ func calculate(x float64) float64 {
 }
 
 func Task_A() {
-
 	for x := 0.22; x <= 0.92; x += 0.14 {
 		result := calculate(x)
 		fmt.Printf("результат от %.2f : %.2f\n", x, result)
