@@ -6,9 +6,7 @@ import (
 )
 
 func calculate(x float64) float64 {
-	var k float64 = 1
-	var l float64 = 7
-	var n float64 = k / l
+	n := 2.0 // Пример значения n
 	return math.Pow(math.Pow(math.Asin(x), 4)+math.Pow(math.Acos(x), 6), n)
 }
 
