@@ -1,0 +1,15 @@
+package lab4
+
+import (
+	"math"
+)
+
+
+
+//Вариант 5: Первое уравнение.
+//Функция для вычисления значения
+func CalculateY(x, a, float64) float64 {
+	numerator := math.Pow(math.Log10(math.Pow(a, 2)+x), 2)
+denominator := (a+x)*(a+x)
+return numerator/denominator
+}
