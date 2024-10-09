@@ -12,6 +12,7 @@ func calculate(x float64) float64 {
 	return math.Pow(math.Pow(math.Asin(x), 4)+math.Pow(math.Acos(x), 6), n)
 }
 
+// n = 1/7
 func Task_A() {
 	for x := 0.22; x <= 0.92; x += 0.14 {
 		result := calculate(x)
