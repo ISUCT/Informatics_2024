@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// Вариант 3
+// Вариант 33
 // Функция для вычисления значения y
 func calculateY(x, a, b float64) float64 {
 	numerator := 1 + math.Log2(x/a)
