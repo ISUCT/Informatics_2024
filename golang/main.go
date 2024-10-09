@@ -10,4 +10,6 @@ func main() {
 	fmt.Println("Semenenko Mikhail")
 	Lab4.Task_A()
 	Lab4.Task_B()
+
+
 }
