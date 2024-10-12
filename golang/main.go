@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"isuct.ru/informatics2022/laba4"
+	"isuct.ru/informatics2022/laba42"
+)
 
 func main() {
-	fmt.Println("Hljupina Daria")
+	laba4.CalculateY()
+	laba42.CalculateYYY()
 }
