@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello world")
 	a := 2.0
 	b := 4.1
 
@@ -30,4 +29,4 @@ func main() {
 		y := fourlaba.CalculateY(a, b, x)
 		fmt.Printf("x = %.2f, y = %.5f\n", x, y)
 	}
-}
+=======
