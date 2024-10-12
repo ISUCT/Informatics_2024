@@ -24,4 +24,6 @@ func main() {
 		result = laba4.Colcul(a, b, x[i])
 		fmt.Printf("при x = %.2f, y = %.4f \n", x[i], result)
 	}
+
+	fmt.Print(laba4.Colcul(1, 1, 1))
 }
