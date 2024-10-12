@@ -29,3 +29,4 @@ func main() {
 		y := fourlaba.CalculateY(a, b, x)
 		fmt.Printf("x = %.2f, y = %.5f\n", x, y)
 	}
+}
