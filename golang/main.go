@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"isuct.ru/informatics2022/laba42"
+)
 
 func main() {
-	fmt.Println("Hello world")
+	laba42.CalculateA()
+	laba42.CalculateB()
 }
