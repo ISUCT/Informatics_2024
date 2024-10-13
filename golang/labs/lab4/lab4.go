@@ -9,9 +9,10 @@ import (
 func calculate_y(x float64) float64 {
 	if math.Abs(x) >= 1 {
 		return math.Pow(1.2, x) - math.Pow(x, 1.2)
-	} else {
-		return math.Acos(x)
 	}
+
+	return math.Acos(x)
+
 }
 
 // Задача под А
