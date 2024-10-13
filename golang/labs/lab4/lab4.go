@@ -12,7 +12,6 @@ func calculate_y(x float64) float64 {
 	}
 
 	return math.Acos(x)
-
 }
 
 // Задача под А
