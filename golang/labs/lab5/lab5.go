@@ -1,6 +1,8 @@
 package lab5
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Computer struct {
 	Hdd      int
