@@ -7,21 +7,16 @@ import (
 )
 
 func main() {
-	var result float64
-
 	var a float64 = 2.5
 	var b float64 = 4.6
-	var x [5]float64 = [5]float64{1.2, 1.36, 1.57, 1.93, 2.25}
+	var xMin float64 = 1.15
+	var xMax float64 = 3.05
+	var xDelta float64 = 0.38
+	var x []float64 = []float64{1.2, 1.36, 1.57, 1.93, 2.25}
 
-	fmt.Println("\nзадача А:")
-	for i := 1.15; i < 3.05; i += 0.38 {
-		result = laba4.Colcul(a, b, i)
-		fmt.Printf("при x = %.2f, y = %.4f \n", i, result)
-	}
+	fmt.Print("задача А")
+	laba4.TaskA(a, b, xMin, xMax, xDelta)
 
-	fmt.Println("\nзадача B:")
-	for i := 0; i < len(x); i++ {
-		result = laba4.Colcul(a, b, x[i])
-		fmt.Printf("при x = %.2f, y = %.4f \n", x[i], result)
-	}
+	fmt.Print("задача B")
+	laba4.TaskB(a, b, x)
 }
