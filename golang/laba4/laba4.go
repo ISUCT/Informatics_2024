@@ -20,8 +20,8 @@ func TaskA(a, b, xMin, xMax, xDelta float64) {
 
 func TaskB(a, b float64, x []float64) {
 	var result float64
-	for i := 0; i < len(x); i++ {
-		result = Colcul(a, b, x[i])
-		fmt.Printf("при x = %.2f, y = %.4f \n", x[i], result)
+	for _, i := range x {
+		result = Colcul(a, b, i)
+		fmt.Printf("при x = %.2f, y = %.4f \n", i, result)
 	}
 }

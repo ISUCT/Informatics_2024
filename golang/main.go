@@ -14,9 +14,9 @@ func main() {
 	var xDelta float64 = 0.38
 	var x []float64 = []float64{1.2, 1.36, 1.57, 1.93, 2.25}
 
-	fmt.Print("задача А")
+	fmt.Println("задача А")
 	laba4.TaskA(a, b, xMin, xMax, xDelta)
 
-	fmt.Print("задача B")
+	fmt.Println("задача B")
 	laba4.TaskB(a, b, x)
 }
