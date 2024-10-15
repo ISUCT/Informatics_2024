@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"isuct.ru/informatics2022/laba4"
+	"isuct.ru/informatics2022/laba6"
 )
 
 func main() {
@@ -20,4 +21,10 @@ func main() {
 	fmt.Println(resultA)
 	var resultB []float64 = laba4.TaskB(a, b, x)
 	fmt.Println(resultB)
+
+	//лабороторная работа 6
+	chevrolet := laba6.NewCar("Шевроле", "синий", 60.0)
+	chevrolet.SetSpeed(80.0)
+	fmt.Println(chevrolet.GetSpeed())
+	fmt.Println(chevrolet.GetColor())
 }
