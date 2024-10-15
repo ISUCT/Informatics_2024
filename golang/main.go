@@ -12,12 +12,12 @@ func main() {
 	fmt.Println("Задача B \n")
 	for _, i := range elements {
 		res = lab4.Mathfunc(7.2, 1.3, i)
-		fmt.Println("При x =", i, "функция равна: \n", res)
+		fmt.Println("При x =", i, "функция равна: ", res)
 	}
 	fmt.Println("Задача А \n")
 	var xn, xk, xdel float64 = 1.56, 4.71, 0.63
 	for i := xn; i <= xk; i += xdel {
-		fmt.Println("При x =", i, "функция равна: \n", lab4.Mathfunc(7.2, 1.3, i))
+		fmt.Println("При x =", i, "функция равна: ", lab4.Mathfunc(7.2, 1.3, i))
 	}
 	fmt.Println("Нерабеев Кирилл Сергеевич")
 }
