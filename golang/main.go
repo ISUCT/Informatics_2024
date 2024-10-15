@@ -17,7 +17,6 @@ func main() {
 	for i := 0; i < 6; i++ {
 		y := lab4.Calculator(a, b, A[i])
 		fmt.Printf("X%d = %g\n", i, y)
-
 	}
 
 	fmt.Println("Задача B:")
