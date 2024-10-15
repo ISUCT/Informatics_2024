@@ -7,8 +7,8 @@ import (
 )
 
 func TestTaskA(t *testing.T) {
-	values := lab.TaskA(2.5, 1.28, 1.68, 0.4)
-	answer := []float64{0.6965184026921305, 0.7313025427889659}
+	values := lab.TaskA(2.5, 1.28, 2.08, 0.4)
+	answer := []float64{0.6965184026921305, 0.7313025427889659, 0.42530098762123236}
 	for index, value := range values {
 		if value != answer[index] {
 			t.Fatalf(`TaskA(2.5, 1.28, 2.08, 0.4) = %e error`, value)
