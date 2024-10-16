@@ -11,7 +11,6 @@ import (
 func main() {
 	a := -2.5
 
-	//Задача A
 	fmt.Println("Задача A:")
 xН := 3.5
 xК := 6.5
