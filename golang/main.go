@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+		"fmt"
 
+		labs "isuct.ru/informatics2022/labs/lab4"
+)
 func main() {
-	fmt.Println("Kuzminov Ilya Vladimirovich")
+	fmt.Println("Кузьминов Илья Владимирович")
+	results := labs.Laba4A()
+	for _, result := range results {
+		fmt.Println(result)
+	}
+	labs.Laba4B()
 }
+
+
