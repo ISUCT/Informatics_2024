@@ -1,8 +1,9 @@
 package lab4
 
-import "math"
-import "fmt"
-
+import(
+	"math"
+	"fmt"
+)
 func Calculate(x float64)  float64{
 	var y float64 = (math.Pow(1.2, x)) - (math.Pow(x, 1.2))
 	

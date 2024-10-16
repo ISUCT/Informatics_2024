@@ -13,3 +13,4 @@ func main() {
 	/*TaskB*/var p = [5]float64{0.1, 0.9, 1.2, 1.5, 2.3}
 	lab4.TaskB(p)
 }
+	
