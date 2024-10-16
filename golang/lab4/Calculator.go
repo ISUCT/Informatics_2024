@@ -5,19 +5,19 @@ import (
 	"fmt"
 )
 
-func Calc(a, b, x float64) float64 {
+func Calculator(a, b, x float64) float64 {
 	var y float64 = math.Asin(math.Pow(x,a)) + math.Acos(math.Pow(x,b))
-		return y
+	return y
 }
 
-func TaskA(b, Xn,  Xk, delX float64) {
+func TaskA(a, b, Xn,  Xk, delX float64) {
 	for x := Xn; x <= Xk; x += delX {
-		fmt.Println(Calc(b, x))
+		fmt.Println(Calculator(a, b, x))
 	}
 }
 
-func TaskB(b float64, x [5]float64) {
+func TaskB(a float64, b float64, x [5]float64) {
 	for _, value := range x {
-		fmt.Println(Calc(b, value))
+		fmt.Println(Calculator(a, b, value))
 	}
 }
