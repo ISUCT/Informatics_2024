@@ -1,30 +1,35 @@
 package labs_test
 
 import (
-  "math"
-  "testing"
+	"fmt"
+	"testing"
 
-  "isuct.ru/informatics2022/labs"
+	"github.com/stretchr/testify/assert"
+	"isuct.ru/informatics2022/labs"
 )
 
-func TestF(t *testing.T) {
-  a := 0.05
-  b := 0.06
-  testValues := []float64{0.2, 0.2345, 1.23, 0.132}
+func TestEquation(t*testing.T){
+	a:=0.05
+	b:=0.06
 
-  for _, x := range testValues {
-    result := labs.F(x, a, b)
-
-    resulta := labs.F(math.Acos(math.Pow(x, 2)-math.Pow(b, 2)), a, b)
-    resultb := labs.F(math.Asin(math.Pow(x, 2)-math.Pow(a, 2)), a, b)
-
-    if result < 0 {
-      t.Fatalf(`F(%f, %f, %f) = %f; ожидается положительное значение`, x, a, b, result)
-    }
-
-    if resultb != 0 && resulta/resultb == 0 {
-      t.Fatalf(`F(%f, %f, %f) = %f; ожидается NaN`, x, a, b, result)
-    }
-  }
-
+	tests :=[]struct{
+		x float64
+		want float64
+	}{
+		{0.2, 40.91},
+		{0.5, 5.29},
+		{0.65, 2.63},
+		{0.8, 1.27},
+		{0.15, 77.59}, 
+		{0.26, 23.13}, 
+		{0.37, 10.66},
+		{0.48, 5.84}, 
+		{0.56, 3.97},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("Euation(%f)", tt.x), func(t *testing.T) {
+			result := labs.Euation(tt.x, a,b)
+			assert.InDelta(t, tt.want, result, 0.01, "Expected %f but got %f", tt.want, result)
+		})
+	}
 }

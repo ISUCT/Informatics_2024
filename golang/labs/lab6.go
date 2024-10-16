@@ -13,20 +13,20 @@ type Table struct {
 	length float64
 }
 
-// получение размеров
+
 func (t *Table) GetSize() (float64, float64, float64) {
 	return t.width, t.length, t.height
 }
 
-// установка размеров
+
 func (t *Table) SetSize(width, length, height float64) {
 	t.width = width
 	t.length = length
 	t.height = height
 }
 
-// площадь
-func (t *Table) Area() float64 {
+
+func (t *Table) CalculateArea() float64 {
 	return t.length * t.width
 }
 
@@ -35,6 +35,7 @@ func WorkWithTable() {
 	myTable.SetSize(1.28, 2.34, 0.76)
 	width, length, height := myTable.GetSize()
 	fmt.Printf("Размеры стола: Ширина = %.2f, Длина = %.2f, Высота = %.2f\n", width, length, height)
-	stable := myTable.Area()
+	stable := myTable.CalculateArea()
 	fmt.Printf("Площадь стола: %.2f м²\n", stable)
 }
+
