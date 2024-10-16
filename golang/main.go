@@ -13,3 +13,5 @@ func main() {
 	}
 	labs.Laba4B()
 }
+
+
