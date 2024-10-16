@@ -12,7 +12,7 @@ type Test struct {
 	out float64
 }
 
-func TestColcul(t *testing.T) {
+func TestFunction(t *testing.T) {
 	var tests []Test = []Test{
 		{1.15, 0.6097818153301673},
 		{1.5299999999999998, math.NaN()},
