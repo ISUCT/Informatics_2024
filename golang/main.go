@@ -6,6 +6,7 @@ import (
 	"isuct.ru/informatics2022/lab4"
 )
 
+// ddd
 const a float64 = 2.0
 const b float64 = 0.95
 
