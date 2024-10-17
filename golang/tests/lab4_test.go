@@ -1,25 +1,35 @@
-package tests
+package labs_test
 
 import (
-	"fmt"
 	"math"
 	"testing"
+
+	"isuct.ru/informatics2022/labs"
 )
 
-func y(x float64, a float64, b float64) float64 {
-	return math.Pow(a+b*x, 2.5)/1 + math.Log10(a+b*x)
+type Test struct {
+	in  float64
+	out float64
 }
 
-func TestY(t *testing.T) {
-	a := 2.01
-	b := 2.02
-	xvalues := []float64{1.52, 5.46, 2.33}
-	for _, x := range xvalues {
-		result := y(x, a, b)
-		if result < 0 {
-			fmt.Println("Ожидается положительное значение")
+var tests = []Test{
+	{1.2, 95.65974212841763},
+	{1.28, 105.92978633506368},
+	{1.36, 116.8010604328461},
+	{-1, math.NaN()},
+}
+
+func TestLab4(t *testing.T) {
+	for _, test := range tests {
+		got := labs.Calculate_y(test.in, 2.5, 4.6)
+		if math.IsNaN(test.out) {
+			if !math.IsNaN(got) {
+				t.Errorf("F(%f) = %f, want NaN", test.in, got)
+			}
 		} else {
-			fmt.Println("ок")
+			if got != test.out {
+				t.Errorf("F(%f) = %f, want %f", test.in, got, test.out)
+			}
 		}
 	}
 }

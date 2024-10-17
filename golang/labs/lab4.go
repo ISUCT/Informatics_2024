@@ -6,25 +6,28 @@ import (
 )
 
 func RunLab4() {
-	xn := 1.1
-	xk := 3.6
-	deltax := 0.5
-	x1 := 1.2
-	x2 := 1.28
-	x3 := 1.36
-	x4 := 1.46
-	x5 := 2.35
-	//Задание А
-	fmt.Println("значения функции у для хn-хk с шагом дельта х:")
-	for x := xn; x <= xk; x += deltax {
-		fmt.Println(y(x))
-	}
-	//Задание В
-	fmt.Println("значения функции у для х1-х5:", y(x1), ",", y(x2), ",", y(x3), ",", y(x4), ",", y(x5))
+	fmt.Println(TaskA(1.1, 3.6, 0.5))
+	arr := []float64{1.2, 1.28, 1.36, 1.46, 2.35}
+	fmt.Println(TaskB(arr))
 }
 
-func y(x float64) float64 {
-	a := 2.5
-	b := 4.6
-	return math.Pow(a+b*x, 2.5)/1 + math.Log10(a+b*x)
+func TaskA(xn, xk, deltax float64) []float64 {
+	var yValues []float64
+	for x := xn; x <= xk; x += deltax {
+		yValues = append(yValues, Calculate_y(x, 2.5, 4.6))
+	}
+	return yValues
+}
+
+func TaskB(values []float64) []float64 {
+	var yValues []float64
+	for _, x := range values {
+		yValues = append(yValues, Calculate_y(x, 2.5, 4.6))
+	}
+	return yValues
+}
+
+func Calculate_y(x float64, a float64, b float64) float64 {
+	y := math.Pow(a+b*x, 2.5) / (1 + math.Log10(a+b*x))
+	return y
 }
