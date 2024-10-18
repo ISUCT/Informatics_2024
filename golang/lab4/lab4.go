@@ -9,14 +9,6 @@ func СalculateY(x float64) float64 {
 	return y
 }
 
-/*
-func Stroka(yValues []float64) {
-	for i := 0; i < len(yValues); i++ {
-		fmt.Println(yValues)
-	}
-}
-*/
-
 func TaskA(xn, xk, xdel float64) []float64 {
 	var yValues []float64
 	for x := xn; x <= xk; x += xdel {
