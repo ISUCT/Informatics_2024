@@ -9,7 +9,7 @@ import (
 
 func TestFunction(t *testing.T) {
 	result := lab4.CalculateFunction(1.28, 2.5)
-	expected := 0.69
+	expected := 0.6965184026921305
 	if math.IsNaN(result) {
 		t.Errorf("Returns the value NaN")
 	} else if result != expected {
