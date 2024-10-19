@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	labs "isuct.ru/informatics2022/labs/lab4"
+)
 
 func main() {
-	fmt.Println("Hello world")
+	fmt.Println("Васильев Никита Глебович")
+	labs.RunLab4()
 }
