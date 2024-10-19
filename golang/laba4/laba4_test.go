@@ -4,6 +4,8 @@ import (
 	"math"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"isuct.ru/informatics2022/laba4"
 )
 
@@ -14,6 +16,7 @@ type Test struct {
 }
 
 func TestFunction(t *testing.T) {
+	var result float64
 	var tests []Test = []Test{
 		{
 			name: "проверка задачи А",
@@ -36,20 +39,25 @@ func TestFunction(t *testing.T) {
 			out:  0.588690605680308,
 		},
 		{
-			name: "проверка задачи B с большим значением после запятой",
+			name: "проверка задачи B с NaN",
 			in:   1.93,
 			out:  math.NaN(),
 		},
 	}
 
 	for _, test := range tests {
-		var result float64 = laba4.CalculateFunction(2.5, 4.6, test.in)
+		t.Run(test.name, func(t *testing.T) {
+			result = laba4.CalculateFunction(2.5, 4.6, test.in)
 
-		if (math.IsNaN(test.out)) && (!math.IsNaN(result)) {
-			t.Errorf("Function(2.5, 4.6, %v) = %v, want %v, error", test.in, result, test.out)
-		}
-		if (!math.IsNaN(test.out)) && (result != test.out) {
-			t.Errorf("Function(2.5, 4.6, %v) = %v, want %v, error", test.in, result, test.out)
-		}
+			if math.IsNaN(test.out) {
+				assert.True(t, math.IsNaN(result))
+			} else {
+				assert.Equal(
+					t,
+					result,
+					test.out,
+				)
+			}
+		})
 	}
 }
