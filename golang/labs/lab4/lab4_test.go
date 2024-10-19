@@ -33,7 +33,7 @@ func TestCalculateY(t *testing.T) {
 // Тест для функции Task_A
 func TestTask_A(t *testing.T) {
 	epsilon := 1e-9
-	result := Task_A(0.2, 2.2, 0.4)
+	result := task_A(0.2, 2.2, 0.4)
 	expected := []float64{
 		calculate_y(0.2),
 		calculate_y(0.6),
@@ -53,7 +53,7 @@ func TestTask_A(t *testing.T) {
 func TestTask_B(t *testing.T) {
 	epsilon := 1e-9
 	arr := []float64{0.1, 0.9, 1.2, 1.5, 2.3}
-	result := Task_B(arr)
+	result := task_B(arr)
 	expected := []float64{
 		calculate_y(0.1),
 		calculate_y(0.9),
