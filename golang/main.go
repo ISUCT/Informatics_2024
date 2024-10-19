@@ -10,4 +10,5 @@ func main() {
 	fmt.Println("Kulikov Ruslan Igorevich")
 	labs.RunLab4()
 	labs.WorkWithTable()
+
 }
