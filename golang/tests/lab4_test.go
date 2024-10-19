@@ -12,7 +12,6 @@ var a float64 = 0.05
 var b float64 = 0.06
 
 func TestEquation(t *testing.T) {
-
 	tests := []struct {
 		x    float64
 		want float64
@@ -30,8 +29,8 @@ func TestEquation(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		t.Run(fmt.Sprintf("Euation(%f)", tt.x), func(t *testing.T) {
-			result := labs.Calculate_y(tt.x, a, b)
+		t.Run(fmt.Sprintf("Equation(%f)", tt.x), func(t *testing.T) {
+			result := labs.CalculateY(tt.x, a, b)
 			assert.InDelta(t, tt.want, result, 0.01, "Expected %f but got %f", tt.want, result)
 		})
 	}
