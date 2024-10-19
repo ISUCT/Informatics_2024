@@ -1,0 +1,25 @@
+package Lab_4
+
+import (
+	"fmt"
+	"math"
+)
+
+func Calc(a float64, b float64, x float64) float64 {
+	return (math.Cbrt(x-a) + math.Pow(x+b, 1.0/5.0)) /
+		(math.Pow(x, 1.0/7.0) - math.Pow(x*x-(a+b)*(a+b), 1.0/9.0))
+}
+
+func TaskA(a float64, b float64, Xn float64, Xk float64, delX float64) {
+	for x := Xn; x <= Xk; x += delX {
+		result := Calc(a, b, x)
+		fmt.Printf("При x = %.2f: результат y = %.4f\n", x, result)
+	}
+}
+
+func TaskB(a float64, b float64, x [5]float64) {
+	for _, value := range x {
+		result := Calc(a, b, value)
+		fmt.Printf("При x = %.2f: результат y = %.4f\n", value, result)
+	}
+}
