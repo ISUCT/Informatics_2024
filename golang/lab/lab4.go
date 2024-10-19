@@ -17,7 +17,7 @@ func TaskA(b, Xn, Xk, delX float64) []float64 {
 	return arr
 }
 
-func TaskB(b float64, x [5]float64) []float64 {
+func TaskB(b float64, x []float64) []float64 {
 	var arr []float64
 	for _, value := range x {
 		arr = append(arr, Calc(b, value))
