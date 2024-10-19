@@ -14,34 +14,34 @@ func calculateY(a, b, x float64) float64 {
 	log5 := logarifm(x, 5)
 	logValue := math.Log(x - 1)
 	lgkub := math.Pow(logValue, 3)
+
 	return (a*koren - b*log5) / lgkub
 }
 
-func taskA(a, b float64) {
+func taskA(a, b, xn, xk, xd float64) {
 	fmt.Println("Задача A:")
-	for x := 1.5; x <= 3.5; x += 0.4 {
+	for x := xn; x <= xk; x += xd {
 		y := calculateY(a, b, x)
 		fmt.Printf("x = %.2f, y = %.6f\n", x, y)
 	}
 }
 
-func taskB(a, b float64) {
+func taskB(a, b float64, xValues []float64) {
 	fmt.Println("\nЗадача B:")
-	xValues := []float64{1.9, 2.15, 2.34, 2.74, 3.16}
 	for _, x := range xValues {
 		y := calculateY(a, b, x)
 		fmt.Printf("x = %.2f, y = %.6f\n", x, y)
 	}
 }
 
-func runlab4() {
-	var a float64 = 4.1
-	var b float64 = 2.7
+func Runlab4() {
+	a := 4.1
+	b := 2.7
+	xn := 1.5
+	xk := 3.5
+	xd := 0.4
+	taskA(a, b, xn, xk, xd)
 
-	taskA(a, b)
-	taskB(a, b)
-}
-
-func main() {
-	runlab4()
+	xValues := []float64{1.9, 2.15, 2.34, 2.74, 3.16}
+	taskB(a, b, xValues)
 }
