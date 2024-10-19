@@ -10,7 +10,7 @@ import (
 
 var a = 0.05
 var b = 0.06
-
+//
 func TestEquation(t *testing.T) {
 	tests := []struct {
 		x    float64
