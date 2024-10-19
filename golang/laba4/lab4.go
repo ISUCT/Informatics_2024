@@ -14,7 +14,7 @@ func taskA(xstartA, xendA, stepA float64) []float64 {
 	var result []float64
 
 	for x := xstartA; x < xendA; x += stepA {
-		result = append(result, Value_Y(x))
+		result = append(result, value_Y(x))
 	}
 
 	return result
@@ -23,16 +23,16 @@ func taskA(xstartA, xendA, stepA float64) []float64 {
 func taskB(Bslice []float64) []float64 {
 	var result []float64
 	for _, x := range Bslice {
-		result = append(result, Value_Y(x))
+		result = append(result, value_Y(x))
 	}
 	return result
 }
 
 func RunLab4() {
 	fmt.Println("Задача A:")
-	fmt.Println(TaskA(1.2, 2.7, 0.3))
+	fmt.Println(taskA(1.2, 2.7, 0.3))
 	fmt.Println()
 	fmt.Println("Задача Б:")
 	x2 := []float64{1.31, 1.39, 1.44, 1.56, 1.92}
-	fmt.Println(TaskB(x2))
+	fmt.Println(taskB(x2))
 }
