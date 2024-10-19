@@ -1,4 +1,4 @@
-package lab4
+paсkage lab4
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ func logarifm(x, base float64) float64 {
 func calculateY(a, b, x float64) float64 {
 	koren := math.Cbrt(x)
 	log5 := logarifm(x, 5)
-	lgkub := math.Pow(math.Log(x-1), 3)
-
+	logValue := math.Log(x - 1)
+	lgkub := math.Pow(logValue, 3)
 	return (a*koren - b*log5) / lgkub
 }
 
@@ -40,4 +40,8 @@ func runlab4() {
 
 	taskA(a, b)
 	taskB(a, b)
+}
+
+func main() {
+	runlab4()
 }
