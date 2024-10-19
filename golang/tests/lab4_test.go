@@ -8,8 +8,8 @@ import (
 	"isuct.ru/informatics2022/labs"
 )
 
-var a float64 = 0.05
-var b float64 = 0.06
+var a = 0.05
+var b = 0.06
 
 func TestEquation(t *testing.T) {
 	tests := []struct {
