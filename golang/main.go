@@ -10,6 +10,6 @@ import (
 func main() {
 	fmt.Println("Ткачёв Михаил Александрович")
 
-	laba4.СompleteLaba4()
-	laba6.СompleteLaba6()
+	laba4.CompleteLaba4()
+	laba6.CompleteLaba6()
 }

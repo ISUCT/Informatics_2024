@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func СalculateFunction(a, b, x float64) float64 {
+func CalculateFunction(a, b, x float64) float64 {
 	y := (math.Pow(math.Sin(a+b*x), 3.5)) / (1 + math.Cos(math.Log10(a+b*x)))
 	return y
 }
@@ -13,7 +13,7 @@ func СalculateFunction(a, b, x float64) float64 {
 func completeTaskA(a, b, xMin, xMax, xDelta float64) []float64 {
 	var result []float64
 	for i := xMin; i < xMax; i += xDelta {
-		result = append(result, СalculateFunction(a, b, i))
+		result = append(result, CalculateFunction(a, b, i))
 	}
 	return result
 }
@@ -21,12 +21,12 @@ func completeTaskA(a, b, xMin, xMax, xDelta float64) []float64 {
 func completeTaskB(a, b float64, x []float64) []float64 {
 	var result []float64
 	for _, i := range x {
-		result = append(result, СalculateFunction(a, b, i))
+		result = append(result, CalculateFunction(a, b, i))
 	}
 	return result
 }
 
-func СompleteLaba4() {
+func CompleteLaba4() {
 	var a float64 = 2.5
 	var b float64 = 4.6
 	var xMin float64 = 1.15

@@ -19,7 +19,7 @@ func (c *Car) SetSpeed(speed float64) { c.Speed = speed }
 func (c Car) GetSpeed() float64       { return c.Speed }
 func (c Car) GetColor() string        { return c.Color }
 
-func СompleteLaba6() {
+func CompleteLaba6() {
 	chevrolet := NewCar("Шевроле", "синий", 60.0)
 	chevrolet.SetSpeed(80.0)
 	fmt.Println(chevrolet.GetSpeed())

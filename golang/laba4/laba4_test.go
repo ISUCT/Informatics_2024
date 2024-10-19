@@ -43,7 +43,7 @@ func TestFunction(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		var result float64 = laba4.СalculateFunction(2.5, 4.6, test.in)
+		var result float64 = laba4.CalculateFunction(2.5, 4.6, test.in)
 
 		if (math.IsNaN(test.out)) && (!math.IsNaN(result)) {
 			t.Errorf("Function(2.5, 4.6, %v) = %v, want %v, error", test.in, result, test.out)
