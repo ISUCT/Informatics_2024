@@ -13,18 +13,15 @@ type Table struct {
 	length float64
 }
 
-
 func (t *Table) GetSize() (float64, float64, float64) {
 	return t.width, t.length, t.height
 }
-
 
 func (t *Table) SetSize(width, length, height float64) {
 	t.width = width
 	t.length = length
 	t.height = height
 }
-
 
 func (t *Table) CalculateArea() float64 {
 	return t.length * t.width
@@ -38,4 +35,3 @@ func WorkWithTable() {
 	stable := myTable.CalculateArea()
 	fmt.Printf("Площадь стола: %.2f м²\n", stable)
 }
-
