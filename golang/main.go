@@ -11,5 +11,5 @@ func main() {
 	fmt.Println("Ткачёв Михаил Александрович")
 
 	laba4.СompleteLaba4()
-	laba6.Laba6()
+	laba6.СompleteLaba6()
 }
