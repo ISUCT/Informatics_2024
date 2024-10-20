@@ -1,4 +1,4 @@
-gipackage lab4
+package lab4
 
 import (
 	"math"
