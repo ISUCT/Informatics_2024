@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-
 	var a float64 = 2.0
 	var b float64 = 0.95
 	var xb float64 = 1.25
@@ -22,5 +21,4 @@ func main() {
 	fmt.Println(lab4.B(a, b, x))
 
 	fmt.Println("Шумская Дарья")
- 
 }
