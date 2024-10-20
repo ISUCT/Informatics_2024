@@ -6,8 +6,7 @@ import (
 )  
   
 const a float64 = 2.0  
-  
 func main() {  
-    fmt.Println("Рукина Полина Владимировна")  
-    lab4.RunLab4Tasks() 
+  fmt.Println("Рукина Полина Владимировна")  
+  lab4.RunLab4Tasks() 
 }
