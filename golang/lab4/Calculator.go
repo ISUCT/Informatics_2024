@@ -7,7 +7,6 @@ import (
 
 func Calculator(a, b, x float64) float64 {
 	return (1 + math.Pow(math.Log10(x/a), 2)) / (b - math.Pow(2.7, x/a))
-
 }
 
 func TaskA(a, b, Xn, Xk, delX float64) {
