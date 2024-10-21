@@ -9,6 +9,7 @@ const a float64 = 2.0
 
 func main() {
     fmt.Println("Рукина Полина Владимировна")
+<<<<<<< Updated upstream
 
     valuesA := lab4.TaskA(a, 1.08, 1.88, 0.16)
     var slice = [5]float64{1.16, 1.35, 1.48, 1.52, 1.96}
@@ -22,3 +23,7 @@ func main() {
         fmt.Println(value)
     }
 }
+=======
+    lab4.RunLab4Tasks()
+}
+>>>>>>> Stashed changes
