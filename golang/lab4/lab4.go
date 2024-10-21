@@ -1,8 +1,8 @@
 package lab4 
  
 import ( 
-	"math"
-	"fmt"
+    "math"
+    "fmt"
 ) 
  
 func  CalculateExpression (a float64, x float64) float64 { 
@@ -27,8 +27,7 @@ func TaskB(a float64, x [5]float64) []float64 {
 
 
 func RunLab4Tasks() {
-    const a float64 = 2.0
-
+    a := 2.0
     fmt.Println(TaskA(a, 1.08, 1.88, 0.16))
 	var s = [5]float64{1.16, 1.35, 1.48, 1.52, 1.96}
 	fmt.Println(TaskB(a,s))
