@@ -21,5 +21,4 @@ func TaskB(a, b float64, x []float64) []float64 {
 		res = append(res, Calculate(a, b, i))
 	}
 	return res
-
 }
