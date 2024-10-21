@@ -1,3 +1,4 @@
+
 package lab4 
  
 import ( 
