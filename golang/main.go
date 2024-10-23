@@ -9,4 +9,5 @@ import (
 func main() {
 	fmt.Println("Белов Дмитрий Алексеевич")
 	lab.RunLab4Tasks()
+	lab.RunLab6Tasks()
 }
