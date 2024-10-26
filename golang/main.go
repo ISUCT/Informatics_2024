@@ -16,9 +16,9 @@ func main() {
 	var x []float64 = []float64{2.2, 3.78, 4.51, 6.58, 1.2}
 
 	fmt.Print("task A ")
-	fmt.Println(lab4.A(a, b, xb, xe, xd))
+	fmt.Println(lab4.TaskA(a, b, xbegin, xend, xdelt))
 	fmt.Print("task B ")
-	fmt.Println(lab4.B(a, b, x))
+	fmt.Println(lab4.TaskB(a, b, x))
 
 	fmt.Println("Шумская Дарья")
 }
