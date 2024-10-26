@@ -31,7 +31,6 @@ func taskB(Bslice []float64) []float64 {
 func RunLab4() {
 	fmt.Println("Задача A:")
 	fmt.Println(taskA(1.2, 2.7, 0.3))
-	fmt.Println()
 	fmt.Println("Задача Б:")
 	x2 := []float64{1.31, 1.39, 1.44, 1.56, 1.92}
 	fmt.Println(taskB(x2))
