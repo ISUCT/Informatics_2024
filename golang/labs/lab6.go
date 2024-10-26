@@ -20,7 +20,7 @@ func (t Sydno) Displacement() float64 {
 	return t.height * t.width * t.polnota
 }
 
-func PrintSydnoInfo(sydno Sydno) {
+func RunLab6(sydno Sydno) {
 	width, height, osadka, polnota := sydno.Size()
 	fmt.Printf("Размеры судна: Ширина = %.2f, Высота = %.2f, Осадка судна = %.2f, Коэффициент полноты = %.2f\n", width, height, osadka, polnota)
 	fmt.Printf("Площадь судна: %.2f м²\n", sydno.Calculate_Area(width, height))
