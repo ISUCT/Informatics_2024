@@ -11,7 +11,7 @@ func Calculate(a, b, x float64) float64 {
 
 func CompleteTaskA(a, b, xbegin, xend, xdelt float64) []float64 {
 	var result []float64
-	for x := xbegin; x <= xend; x += xdelt {
+	for _, x := xbegin; x <= xend; x += xdelt {
 		result = append(reslt, Calculate(a, b, x))
 	}
 	return result
@@ -19,7 +19,7 @@ func CompleteTaskA(a, b, xbegin, xend, xdelt float64) []float64 {
 
 func CompleteTaskB(a, b float64, x []float64) []float64 {
 	var result []float64
-	for i := 0; i < len(x); i++ {
+	for _, i := 0; i < len(x); idelt++ {
 		result = append(result, Calculate(a, b, x[i]))
 	}
 	return result
