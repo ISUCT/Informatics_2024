@@ -11,15 +11,15 @@ type Cat struct {
 }
 
 func (cat *Cat) SetAge(age int) {
-	(*cat).Age = age
+	cat.Age = age
 }
 
 func (cat *Cat) SetName(name string) {
-	(*cat).Name = name
+	cat.Name = name
 }
 
 func (cat *Cat) SetBreed(breed string) {
-	(*cat).Breed = breed
+	cat.Breed = breed
 }
 
 func (cat Cat) GetInfo () (string){
