@@ -1,4 +1,4 @@
-package labs
+package lab4
 
 import (
 	"fmt"
