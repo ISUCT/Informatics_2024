@@ -10,15 +10,15 @@ import (
 func main() {
 	fmt.Printf("Бейлин Алексей Борисович")
 
-	lab4.Ans_lab4()
+	lab4.AnsLab4()
 
 	var cat = lab6.Cat{Name: "Имя", Age: 18, Breed: "Парода"}
 
-	fmt.Println(lab6.Cat.GetStatus(cat))
+	fmt.Println(cat.GetInfo())
 	
 	cat.SetName("Мурзик")
 	cat.SetAge(10)
 	cat.SetBreed("Сфинкс")
 
-	fmt.Println(cat.GetStatus())
+	fmt.Println(cat.GetInfo())
 }
