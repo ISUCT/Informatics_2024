@@ -1,15 +1,13 @@
 package main
 
 import (
-	"fmt"
-
-	"isuct.ru/informatics2022/laba4"
-	"isuct.ru/informatics2022/laba6"
+	todo "isuct.ru/informatics2022/todo"
+	"isuct.ru/informatics2022/todo/console"
 )
 
 func main() {
-	fmt.Println("Ткачёв Михаил Александрович")
+	var list todo.Todo
 
-	laba4.CompleteLaba4()
-	laba6.CompleteLaba6()
+	list.AddTask(console.InputTask())
+	list.OutputTodo()
 }
