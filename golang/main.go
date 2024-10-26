@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	fourlaba "isuct.ru/informatics2022/4lab"
+)
 
 func main() {
 	fmt.Println("Семенов Алексей Дмитриевич")
+	fourlaba.StartLab4()
 }
