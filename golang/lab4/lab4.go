@@ -9,15 +9,15 @@ func Calculate(a, b, x float64) float64 {
 	return y
 }
 
-func A(a, b, xb, xe, xd float64) []float64 {
+func TaskA(a, b, xb, xe, xd float64) []float64 {
 	var y []float64
-	for x := xb; x <= xe; x += xd {
+	for x := xbegin; x <= xend; x += xdelt {
 		y = append(y, Calculate(a, b, x))
 	}
 	return y
 }
 
-func B(a, b float64, x []float64) []float64 {
+func TaskB(a, b float64, x []float64) []float64 {
 	var t []float64
 	for i := 0; i < len(x); i++ {
 		t = append(t, Calculate(a, b, x[i]))
