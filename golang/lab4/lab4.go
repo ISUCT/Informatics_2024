@@ -9,7 +9,7 @@ func Calculate(a, b, x float64) float64 {
 	return y
 }
 
-func TaskA(a, b, xb, xe, xd float64) []float64 {
+func TaskA(a, b, xbegin, xend, xdelt float64) []float64 {
 	var y []float64
 	for x := xbegin; x <= xend; x += xdelt {
 		y = append(y, Calculate(a, b, x))
