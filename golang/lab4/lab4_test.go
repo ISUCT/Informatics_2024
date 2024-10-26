@@ -23,7 +23,7 @@ func TestFunction(t *testing.T) {
 		{2.25, 0.008019238155234967},
 	}
 	for _, test := range tests {
-		var result float64 = lab4.Function(2.5, 4.6, test[0])
+		var result float64 = lab4.Calculation(2.5, 4.6, test[0])
 
 		if math.IsNaN(test[1]) {
 			if !math.IsNaN(result) {
