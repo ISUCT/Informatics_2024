@@ -1,15 +1,13 @@
 package main
 
-import (
-	"fmt"
-
-	"isuct.ru/informatics2022/laba4"
-	"isuct.ru/informatics2022/laba6"
-)
+import lab6 "isuct.ru/informatics2022/laba6"
 
 func main() {
-	fmt.Println("Ткачёв Михаил Александрович")
+	// var list todo.Todo
 
-	laba4.CompleteLaba4()
-	laba6.CompleteLaba6()
+	// list.AddTask(console.InputTask())
+	// list.AddTask(console.InputTask())
+
+	// list.OutputTodo()
+	lab6.Laba6()
 }
