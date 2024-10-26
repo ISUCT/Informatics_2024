@@ -35,15 +35,15 @@ func (m Movie) getDuration() int {
 func Runlab6() {
 	movie := Movie{Title: "Гарри Поттер и Филасовский камень", Director: "Джоан Роулинг", Duration: 120}
 
-	fmt.Printf("Название фильма %s\n", movie.getTitle())
+	fmt.Printf("Название фильма : %s\n", movie.getTitle())
 	movie.setTitle("Гарри Поттер и Узник Аскабана")
-	fmt.Printf("Название фильма %s\n", movie.getTitle())
+	fmt.Printf("Название фильма : %s\n", movie.getTitle())
 
-	fmt.Printf("Автор Фильма %s\n", movie.getDirector())
+	fmt.Printf("Автор Фильма : %s\n", movie.getDirector())
 	movie.setDirector("Джон Роулинг")
-	fmt.Printf("Автор Фильма %s\n", movie.getDirector())
+	fmt.Printf("Автор Фильма : %s\n", movie.getDirector())
 
-	fmt.Printf("Длительность Фильма %d\n", movie.getDuration())
+	fmt.Printf("Длительность Фильма - %d\n", movie.getDuration())
 	movie.setDuration(130)
-	fmt.Printf("Длительность Фильма %d\n", movie.getDuration())
+	fmt.Printf("Длительность Фильма - %d\n", movie.getDuration())
 }
