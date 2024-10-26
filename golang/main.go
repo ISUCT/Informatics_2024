@@ -9,5 +9,5 @@ import (
 func main() {
 	fmt.Println("Панова Милана Седатовна")
 	labs.RunLab4()
-	labs.RunLab6(labs.Sydno{})
+	labs.RunLab6()
 }

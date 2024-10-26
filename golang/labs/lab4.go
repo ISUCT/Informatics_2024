@@ -6,14 +6,14 @@ import (
 )
 
 func RunLab4() {
-	fmt.Println(TaskA(1.1, 3.6, 0.5))
-	arr := []float64{1.2, 1.28, 1.36, 1.46, 2.35}
-	fmt.Println(TaskB(arr))
-}
-
-func TaskA(xn, xk, deltax float64) []float64 {
 	a := 2.5
 	b := 4.6
+	fmt.Println(TaskA(1.1, 3.6, 0.5, a, b))
+	arr := []float64{1.2, 1.28, 1.36, 1.46, 2.35}
+	fmt.Println(TaskB(arr, a, b))
+}
+
+func TaskA(xn, xk, deltax, a, b float64) []float64 {
 	var yValues []float64
 	for x := xn; x <= xk; x += deltax {
 		yValues = append(yValues, Calculate_y(x, a, b))
@@ -21,9 +21,7 @@ func TaskA(xn, xk, deltax float64) []float64 {
 	return yValues
 }
 
-func TaskB(values []float64) []float64 {
-	a := 2.5
-	b := 4.6
+func TaskB(values []float64, a, b float64) []float64 {
 	var yValues []float64
 	for _, x := range values {
 		yValues = append(yValues, Calculate_y(x, a, b))
