@@ -1,7 +1,11 @@
-package main
+package main 
+ 
+import ( 
+    "fmt" 
+    "isuct.ru/informatics2022/lab4" 
+) 
 
-import "fmt"
-
-func main() {
-	fmt.Println("Rukina_Polina_Vladimirovna")
+func main() {  
+    fmt.Println("Рукина Полина Владимировна")  
+    lab4.RunLab4Tasks() 
 }
