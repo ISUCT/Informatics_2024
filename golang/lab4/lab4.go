@@ -1,4 +1,4 @@
-package Lab4
+package lab4
 
 import (
 	"math"
@@ -23,5 +23,4 @@ func TaskB(xv []float64) []float64 {
 		yValues = append(yValues, calculateY(x))
 	}
 	return yValues
-
 }
