@@ -16,7 +16,7 @@ func NewPerson(name, age, height string) *Person {
 	return p
 }
 
-func (p *Person) SetName(name string) { (*p).Name = name }
+func (p *Person) SetName(name string) { p.Name = name }
 
 func (p *Person) UpdateStruct(new_name, new_age, new_height string) {
 	(*p).Name = new_name
