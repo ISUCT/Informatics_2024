@@ -19,9 +19,9 @@ func NewPerson(name, age, height string) *Person {
 func (p *Person) SetName(name string) { p.Name = name }
 
 func (p *Person) UpdateStruct(new_name, new_age, new_height string) {
-	(*p).Name = new_name
-	(*p).Age = new_age
-	(*p).Height = new_height
+	p.Name = new_name
+	p.Age = new_age
+	p.Height = new_height
 }
 
 func (p Person) GetName() string   { return p.Name }
