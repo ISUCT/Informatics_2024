@@ -12,13 +12,10 @@ func main() {
 	var xbegin float64 = 1.25
 	var xend float64 = 2.75
 	var xdelt float64 = 0.3
-
 	var x []float64 = []float64{2.2, 3.78, 4.51, 6.58, 1.2}
-
 	fmt.Print("task A ")
 	fmt.Println(lab4.CompleteTaskA(a, b, xbegin, xend, xdelt))
 	fmt.Print("task B ")
 	fmt.Println(lab4.CompleteTaskB(a, b, x))
-
 	fmt.Println("Шумская Дарья")
 }
