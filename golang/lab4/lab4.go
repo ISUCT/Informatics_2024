@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-func Colcul(a, b, x float64) float64 {
+func CalculateValue(a, b, x float64) float64 {
 	if x == 0 {
 		return 0
 	}
