@@ -26,7 +26,7 @@ func (d Document) get_name() string {
 func (d Document) get_aboutdoc() [3]string {
 	return [3]string{d.type_doc, (fmt.Sprintf("%g", d.wight)), (fmt.Sprintf("%g", d.lenth))}
 }
-func Go_lab6() {
+func RunLab6() {
 	var doc = new(Document)
 	doc.set_name("фото")
 	doc.set_size(3, 4)
