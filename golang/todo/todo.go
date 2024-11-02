@@ -31,5 +31,6 @@ func (T *Todo) AddTask(newName string, newTime int, newTeg string) {
 	)
 }
 
-func (T *Todo) RemoveTask() {
+func (T *Todo) RemoveTask(num string) {
+	//T.list = T.list[num:]
 }

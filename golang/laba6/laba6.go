@@ -1,27 +1,40 @@
-package laba6
+package lab6
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type Car struct {
-	Name  string
-	Color string
-	Speed float64
+type Fox struct {
+	Name       string
+	Age        int
+	Wool_color string
 }
 
-func NewCar(name, color string, speed float64) *Car {
-	c := new(Car)
-	c.Name = name
-	c.Color = color
-	c.Speed = speed
-	return c
+func NewFox(name string, age int, wool_color string) *Fox {
+	f := &Fox{
+		Name:       name,
+		Age:        age,
+		Wool_color: wool_color,
+	}
+	return f
 }
-func (c *Car) SetSpeed(speed float64) { c.Speed = speed }
-func (c Car) GetSpeed() float64       { return c.Speed }
-func (c Car) GetColor() string        { return c.Color }
 
-func CompleteLaba6() {
-	chevrolet := NewCar("Шевроле", "синий", 60.0)
-	chevrolet.SetSpeed(80.0)
-	fmt.Println(chevrolet.GetSpeed())
-	fmt.Println(chevrolet.GetColor())
+func (f Fox) GetView() string {
+	a := "  /\\   /\\  \n" + " {  ---'  } \n" + " {  O   O  } \n" + " >  V  < \n" + "  \\ \\|/ \n" + "   -----'____ \n" + "   /     \\    \\_ \n" + "  {       }\\  )_ \\_   _ \n" + "  |  \\_/  |/ /   \\_\\_/ \n" + "   \\__/  /(_/ \n" + "     (__/ \n"
+	return a
+}
+
+func (f Fox) DisplayInfo() {
+	fmt.Printf("Имя: %dnВозраст: %dnЦвет: %sn", f.Name, f.Age, f.Wool_color)
+}
+
+func (f Fox) Speak(message string) string {
+	return fmt.Sprintf("%s говорит: \"%s\"", f.Name, message)
+}
+
+func Laba6() {
+	myFox := NewFox("Лиса", 3, "Рыжий")
+	myFox.DisplayInfo()
+	//fmt.Println(myFox.GetView())
+	fmt.Println(myFox.Speak("Wow-wow"))
 }
