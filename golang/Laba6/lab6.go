@@ -19,8 +19,21 @@ func NewFox(name string, age int, wool_color string) *Fox {
 	return f
 }
 
-func (f *Fox) GetView() string {
-	a := "  /\\   /\\  \n" + " {  ---'  } \n" + " {  O   O  } \n" + " >  V  < \n" + "  \\ \\|/ \n" + "   -----'____ \n" + "   /     \\    \\_ \n" + "  {       }\\  )_ \\_   _ \n" + "  |  \\_/  |/ /   \\_\\_/ \n" + "   \\__/  /(_/ \n" + "     (__/ \n"
+func (f Fox) GetView() []string {
+	a := []string{
+		"  /\\   /\\  \n",
+		" {  ---'  } \n",
+		" {  O   O  } \n",
+		" >  V  < \n",
+		"  \\ \\|/ \n",
+		"   -----'____ \n",
+		"   /     \\    \\_ \n",
+		"  {       }\\  )_ \\_   _ \n",
+		"  |  \\_/  |/ /   \\_\\_/ \n",
+		"   \\__/  /(_/ \n",
+		"     (__/ \n",
+	}
+
 	return a
 }
 
