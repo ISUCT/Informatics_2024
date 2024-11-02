@@ -1,21 +1,36 @@
 package lab4
 
-import(
-	"math"
+import (
 	"fmt"
+	"math"
 )
-func Calculate(x float64)  float64{
-	var y float64 = (math.Pow(1.2, x)) - (math.Pow(x, 1.2))
+
+func Calculate(x float64) float64 {
+	if math.Abs(x) >= 1 {
+		var y float64 = (math.Pow(1.2, x)) - (math.Pow(x, 1.2))
+		return y
+	} else {
+		var y float64 = math.Acos(x)
+		return y
+	}
+
+}
+
+func TaskA(Xmin, Xmax, delX float64) []float64 {
+	var y []float64
+	for x := Xmin; x <= Xmax; x += delX {
+		y = append(y, Calculate(x))
+	}
 	return y
 }
-func TaskA(Xn, Xk, delX float64){
-	for x := Xn; x <= Xk; x += delX {
-		if math.Abs(x) >= 1{
-			fmt.Println(Calculate(x))}
-		}
-	}
-func TaskB(x [5]float64) {
+func TaskB(x [5]float64) []float64 {
+	var y []float64
 	for _, value := range x {
-		fmt.Println(Calculate(value))
+		y = append(y, Calculate(value))
 	}
+	return y
+}
+func RunLab4() {
+	fmt.Println(TaskA(0.2, 2.2, 0.4))
+	fmt.Println(TaskB([5]float64{0.1, 0.9, 1.2, 1.5, 1.3}))
 }
