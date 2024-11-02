@@ -1,27 +1,20 @@
 package main
 
 import (
-	"isuct.ru/informatics2022/lab4"
-	"fmt"
-	"math"
+"fmt"
+
+"isuct.ru/informatics2022/lab4"
 )
 
 func main() {
-	a := -2.5
-	xН := 3.5
-	xК := 6.5
-	deltax := 0.6
-	xValues := []float64{2.89, 3.54, 5.21, 6.28, 3.48}
-
-fmt.Println("Задача A:")
-for x := xН; x <= xК; x += deltax {
-	y := lab4.CalculateY(x, a)
-	fmt.Printf("x = %.2f, y = %.4f\n", x, y)
-}
-
-fmt.Println("Задача B:")
-for _, x:= range xValues {
-y := lab4.CalculateY(x, a)
-fmt.Printf("x = %.2f, y = %.4f\n", x, y)
-}
+var a float64 = -2.5
+var x []float64 = []float64{2.89, 3.54, 5.21, 6.28, 3.48}
+var xn float64 = 3.5
+var xk float64 = 6.5
+var xdel float64 = 0.6
+var resA []float64 = lab4.TaskA(a, xn, xk, xdel)
+fmt.Println("Задача А", resA)
+var resB []float64 = lab4.TaskB(a, x)
+fmt.Println("Задача В", resB)
+fmt.Println("Гоголев Александр Сергеевич")
 }
