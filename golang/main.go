@@ -8,6 +8,5 @@ import (
 
 func main() {
 	fmt.Println("Корнюшкин Егор Юрьевич")
-
 	Lab4.RunLab4()
 }
