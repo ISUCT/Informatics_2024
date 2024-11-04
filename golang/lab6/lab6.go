@@ -3,19 +3,27 @@ package main
 import "fmt"
 
 type PC struct {
-	diskSize int
+	HDD      int    // объем жесткого диска в ГБ
+	RAM      int    // объем оперативной памяти в ГБ
+	CPUModel string // модель процессора
 }
 
-func (p *PC) SetDiskSize(size int) {
-	p.diskSize = size
+func NewPC(hdd int, ram int, cpuModel string) *PC {
+	return &PC{
+		HDD:      hdd,
+		RAM:      ram,
+		CPUModel: cpuModel,
+	}
 }
 
-func (p *PC) GetDiskSize() int {
-	return p.diskSize
+func (c *PC) GetHDD() int {
+	return c.HDD
 }
 
-func main() {
-	minePC := PC{}
-	minePC.SetDiskSize(500)
-	fmt.Printf("Размер диска: %d GB\n", minePC.GetDiskSize())
+func (c *PC) SetHDD(newHDD int) {
+	c.HDD = newHDD
+}
+
+func (c *PC) Info() {
+	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD)
 }
