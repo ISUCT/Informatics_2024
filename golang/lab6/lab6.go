@@ -25,7 +25,9 @@ func (d Dish) GetDescription() string            { return d.Description }
 func (d Dish) GetName() string                 { return d.Name }
 
 func CompleteLab6() {
-  pasta := NewDish("Паста Карбонара", 450, "Спагетти с мелкими кусочками гуанчиале или панчетты, смешанные с соусом из яиц, сыра пекорино романо, соли и свежемолотого чёрного перца.")
+  pasta := NewDish("Паста Карбонара", 4.50, 
+ "Спагетти с мелкими кусочками гуанчиале или панчетты, смешанные с соусом из яиц, "+
+ "сыра пекорино романо, соли и свежемолотого чёрного перца.")
   fmt.Println("Название:", pasta.GetName())
   fmt.Println("Цена:", pasta.GetPrice())
   fmt.Println("Описание:", pasta.GetDescription())
