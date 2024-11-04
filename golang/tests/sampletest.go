@@ -47,5 +47,3 @@ func main() {
 	fmt.Println("Задание B")
 	for _, pair := range TaskB(a, b, xValue) {
 		fmt.Printf("x = %.2f\ty = %f\n", pair[0], pair[1])
-	}
-}
