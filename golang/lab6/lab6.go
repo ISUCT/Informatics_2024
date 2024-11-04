@@ -43,7 +43,7 @@ func Runlab6() {
  fmt.Println(fox.GetInfo())
 
  fox.SetAge(4)
- fox.SetColor("orange")
+ fox.SetColor("white")
 
  fmt.Println(fox.GetInfo())
 }
