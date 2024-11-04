@@ -5,9 +5,9 @@ import (
 )
 
 type Dish struct {
-	Name string
-	Price float64
-	Description string
+  Name string
+  Price float64
+  Description string
 }
 
 func NewDish(name string, price float64, description string) *Dish {
