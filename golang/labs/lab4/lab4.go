@@ -17,9 +17,7 @@ func Lab4B(xv []float64) float64 {
 	fmt.Println("\nЗадача B\n")
 	for i := 0; i < len(xv); i++ {
 		fmt.Printf("y(%f) = %f\n", xv[i], Lab4Y(xv[i]))
-
 	}
-
 	return 0
 }
 

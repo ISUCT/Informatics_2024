@@ -1,6 +1,6 @@
 package lab6
 
-import "fmt" // Добавьте эту строку
+import "fmt"
 
 type Dog struct {
 	Name  string
@@ -28,7 +28,7 @@ func (d *Dog) Bark() string {
 	return "Woof!"
 }
 
-func Lab6() {
+func Start6lab() {
 	dog := NewDog("Ster", 5, "dusyaT")
 	fmt.Println("Возраст собаки:", dog.GetAge())
 	dog.SetAge(6)
