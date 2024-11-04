@@ -1,29 +1,14 @@
-package main
-
-import (
-    "fmt"
-    "isuct.ru/informatics2022/lab4"
-)
-
-const a float64 = 2.0
-
-func main() {
-    fmt.Println("Рукина Полина Владимировна")
-<<<<<<< Updated upstream
-
-    valuesA := lab4.TaskA(a, 1.08, 1.88, 0.16)
-    var slice = [5]float64{1.16, 1.35, 1.48, 1.52, 1.96}
-    valuesB := lab4.TaskB(a, slice)
-
-    for _, value := range valuesA {
-        fmt.Println(value)
-    }
+package main  
+  
+import (  
+    "fmt"  
+    "isuct.ru/informatics2022/lab4" 
+    "isuct.ru/informatics2022/lab6" 
+)  
     
-    for _, value := range valuesB {
-        fmt.Println(value)
-    }
+  
+func main() {  
+    fmt.Println("Рукина Полина Владимировна")  
+    lab4.RunLab4Tasks() 
+    lab6.Runlab6()
 }
-=======
-    lab4.RunLab4Tasks()
-}
->>>>>>> Stashed changes
