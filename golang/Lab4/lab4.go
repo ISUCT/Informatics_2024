@@ -19,6 +19,7 @@ func TaskA(Xmin, Xmax, Xdel float64) []float64 {
 	}
 	return y
 }
+
 func TaskB(x [5]float64) []float64 {
 	var y []float64
 	for _, value := range x {
