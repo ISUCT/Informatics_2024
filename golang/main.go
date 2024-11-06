@@ -9,6 +9,6 @@ import (
 func main() {
 	fmt.Println("Головин Даниил Александрович")
 	lab4.RunLab4()
-	lab6.RunLab6()
+  lab6.RunLab6()
 }
 
