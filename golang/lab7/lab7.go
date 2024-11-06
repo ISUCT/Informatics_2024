@@ -17,14 +17,14 @@ func CompleteLab7() {
 		cucumber,
 	}
 
-	fmt.Printf("общяя стоимость товара до скидок: %v \n", GetTotalСost(ProductList))
+	fmt.Printf("общяя стоимость товара до скидок: %v \n", GetTotalCost(ProductList))
 	for _, product := range ProductList {
 		err = product.SetDiscount(10)
 		if err != nil {
 			panic(err)
 		}
 	}
-	fmt.Printf("общяя стоимость товара после скидок в 10 процентов: %v \n", GetTotalСost(ProductList))
+	fmt.Printf("общяя стоимость товара после скидок в 10 процентов: %v \n", GetTotalCost(ProductList))
 
 	err = bentli.SetColor("белый")
 	if err != nil {
