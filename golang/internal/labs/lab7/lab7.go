@@ -116,5 +116,4 @@ func RunLab7() {
 	tshirt.SetPrice(25)
 	fmt.Println("Price of T-Shirt after changes:", tshirt.GetPrice())
 	fmt.Println("Name of T-Shirt after changes:", tshirt.GetName())
-
 }
