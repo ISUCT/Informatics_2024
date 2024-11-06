@@ -6,11 +6,10 @@ import (
 )
 
 func Calculate(x float64) float64 {
-	var y float64 = math.Acos(x)
 	if math.Abs(x) >= 1 {
-		y = (math.Pow(1.2, x)) - (math.Pow(x, 1.2))
+		return (math.Pow(1.2, x)) - (math.Pow(x, 1.2))
 	}
-	return y
+	return math.Acos(x)
 }
 
 func TaskA(Xmin, Xmax, Xdel float64) []float64 {
