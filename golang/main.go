@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello world")
-	labs.Lab6()
+
+	labs.Lab6() 
 }
