@@ -1,6 +1,5 @@
 package lab4
 
-
 import (
 	"fmt"
 	"math"
@@ -28,6 +27,7 @@ func TaskB(x [5]float64) []float64 {
 	}
 	return y
 }
+
 
 func RunLab4() {
 	fmt.Println(TaskA(0.2, 2.2, 0.4))

@@ -28,3 +28,4 @@ func RunLab6() {
 	fmt.Println("Оператор сотовой связи:", phone.GetOp())
 	fmt.Println("Номер телефона пользователя:", phone.GetNumber())
 }
+
