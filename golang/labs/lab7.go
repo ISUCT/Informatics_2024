@@ -7,7 +7,7 @@ import (
 type Product interface {
 	sale(discount float64)
 	price() float64
-	product_feature() string
+	productFeature() string
 }
 
 type Electronics struct {
@@ -25,7 +25,7 @@ func (e *Electronics) price() float64 {
 	return e.Price
 }
 
-func (e *Electronics) product_feature() string {
+func (e *Electronics) productFeature() string {
 	return fmt.Sprintf("Name: %s, Brand: %s, Model: %s, Price: %.2f", e.Name, e.Brand, e.Model, e.Price)
 }
 
@@ -44,7 +44,7 @@ func (c *Clothing) price() float64 {
 	return c.Price
 }
 
-func (c *Clothing) product_feature() string {
+func (c *Clothing) productFeature() string {
 	return fmt.Sprintf("Name: %s, Size: %s, Color: %s, Price: %.2f", c.Name, c.Size, c.Color, c.Price)
 }
 
@@ -62,7 +62,7 @@ func (f *Food) price() float64 {
 	return f.Price
 }
 
-func (f *Food) product_feature() string {
+func (f *Food) productFeature() string {
 	return fmt.Sprintf("Name: %s, Weight: %.2f kg, Price: %.2f", f.Name, f.Weight, f.Price)
 }
 
@@ -85,7 +85,7 @@ func RunLab7() {
 	products := []Product{product1, product2, product3}
 
 	for _, product := range products {
-		fmt.Println(product.product_feature())
+		fmt.Println(product.productFeature())
 	}
 
 	total := GeneralPrice(products)
