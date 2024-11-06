@@ -28,6 +28,7 @@ func TaskB(x [5]float64) []float64 {
 	}
 	return y
 }
+
 func RunLab4() {
 	fmt.Println(TaskA(0.2, 2.2, 0.4))
 	fmt.Println(TaskB([5]float64{0.1, 0.9, 1.2, 1.5, 1.3}))
