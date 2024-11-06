@@ -61,11 +61,11 @@ func Write(PList []Product) {
 	}
 }
 
-func GetTotalCost(ProductList []Product) float64 {
-	var totalСost float64
+func GetTotalPrice(ProductList []Product) float64 {
+	var totalPrice float64
 
 	for _, product := range ProductList {
-		totalСost += product.GetPrice()
+		totalPrice += product.GetPrice()
 	}
-	return totalСost
+	return totalPrice
 }
