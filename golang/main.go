@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
+
  fmt.Println("Дружинин Кирилл Александрович")
  laba4.Y_B()
  lab6.Laba6Run()
 }
+
