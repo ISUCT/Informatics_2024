@@ -2,7 +2,7 @@ package lab7
 
 import "fmt"
 
-func Lab7() {
+func CompleteLab7() {
 	var err error
 
 	bentli := NewCar(0, "бентли", 100000, "красный", 200)

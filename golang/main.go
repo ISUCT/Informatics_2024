@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lab7.Lab7()
+	lab7.CompleteLab7()
 }
