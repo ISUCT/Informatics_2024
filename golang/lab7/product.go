@@ -61,7 +61,7 @@ func Write(PList []Product) {
 	}
 }
 
-func GetTotalCost(ProductList []Product) float64 {
+func GetTotalPrice(ProductList []Product) float64 {
 	var totalСost float64
 
 	for _, product := range ProductList {
