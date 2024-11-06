@@ -27,3 +27,13 @@ func (c *PC) SetHDD(newHDD int) {
 func (c *PC) Info() {
 	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD)
 }
+
+func main() {
+	comp := NewPC(500, 16, "Intel Core i5-9600f")
+
+	comp.Info()
+
+	comp.SetHDD(1000)
+
+	comp.Info()
+}
