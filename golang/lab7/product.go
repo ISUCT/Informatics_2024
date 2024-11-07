@@ -1,18 +1,8 @@
 package lab7
 
-import (
-	"errors"
-	"fmt"
-)
+import "errors"
 
-//const err = errors.New("the wrong percentage value")
-
-type Product interface {
-	SetDiscount(float64) error
-	GetDiscount() float64
-	GetPrice() float64
-	GetName() string
-}
+var ErrPercentageValue error = errors.New("the wrong percentage value")
 
 type product struct {
 	id       int
@@ -29,7 +19,7 @@ func (p product) GetDiscount() float64 { return p.discount }
 
 func (p *product) SetDiscount(percent float64) error {
 	if percent < 1 || percent > 100 {
-		return errors.New("the wrong percentage value")
+		return ErrPercentageValue
 	}
 	p.discount = percent
 
@@ -50,22 +40,4 @@ func newProduct(id int, name string, price float64) product {
 		price:    price,
 		discount: 0,
 	}
-}
-
-func Write(PList []Product) {
-	fmt.Println("____список товаров_____")
-	for _, p := range PList {
-		fmt.Printf(
-			"________________________\nтовар \"%v\" стоит %v$ благодоря скидке в %v процентов\n",
-			p.GetName(), p.GetPrice(), p.GetDiscount())
-	}
-}
-
-func GetTotalPrice(ProductList []Product) float64 {
-	var totalPrice float64
-
-	for _, product := range ProductList {
-		totalPrice += product.GetPrice()
-	}
-	return totalPrice
 }
