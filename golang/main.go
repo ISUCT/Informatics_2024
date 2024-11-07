@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("Лутохин Никита Евгеньевич")
 	labs.RunLab4()
 	labs.RunLab6()
+	labs.RunLab7()
 }
