@@ -1,6 +1,9 @@
 package lab7
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func CompleteLab7() {
 	var err error
@@ -21,18 +24,18 @@ func CompleteLab7() {
 	for _, product := range ProductList {
 		err = product.SetDiscount(10)
 		if err != nil {
-			panic(err)
+			log.Fatal(err)
 		}
 	}
 	fmt.Printf("общяя стоимость товара после скидок в 10 процентов: %v \n", GetTotalPrice(ProductList))
 
 	err = bentli.SetColor("белый")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	err = sofa.SetMaterial("Фанера")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	Write(ProductList)
