@@ -10,4 +10,5 @@ func main() {
 	fmt.Println("Панова Милана Седатовна")
 	labs.RunLab4()
 	labs.RunLab6()
+	labs.RunLab7()
 }
