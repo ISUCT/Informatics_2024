@@ -13,5 +13,4 @@ func main() {
 	fourlaba.StartLab4()
 	sixlab.Start6lab()
 	sevenlab.Start7lab()
-
 }
