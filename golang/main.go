@@ -5,10 +5,13 @@ import (
 
 	fourlaba "isuct.ru/informatics2022/4lab"
 	sixlab "isuct.ru/informatics2022/6lab"
+	sevenlab "isuct.ru/informatics2022/7lab"
 )
 
 func main() {
 	fmt.Println("Семенов Алексей Дмитриевич")
 	fourlaba.StartLab4()
 	sixlab.Start6lab()
+	sevenlab.Start7lab()
+
 }
