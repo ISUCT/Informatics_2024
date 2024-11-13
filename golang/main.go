@@ -11,7 +11,5 @@ func main() {
 	fmt.Print("Пурышев Владислав Витальевич")
 
 	lab4.Laba()
-
 	lab6.Completelaba()
-
 }
