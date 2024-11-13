@@ -1,12 +1,12 @@
 package main
 
 import (
-"fmt"
-
-"isuct.ru/informatics2022/lab4"
+  "fmt"
+  
+  "isuct.ru/informatics2022/lab4"
 )
 
-  func main() {
+func main() {
   var a float64 = -2.5
   var x []float64 = []float64{2.89, 3.54, 5.21, 6.28, 3.48}
   var xn float64 = 3.5
