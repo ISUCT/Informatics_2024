@@ -53,5 +53,4 @@ func RunLab7Task() {
 		fmt.Printf("%s-------%.2f $\n", product.getName(), product.getPrice())
 	}
 	fmt.Printf("Цена корзины после скидки: %.2f $\n", calculateDiscount(listOfProduct))
-
 }
