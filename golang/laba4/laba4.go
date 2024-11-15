@@ -26,6 +26,24 @@ func CompleteTaskB(a, b float64, x []float64) []float64 {
 	return result
 }
 
+// func ReadFile() {
+// 	file, err := os.Open("hello.txt")
+// 	if err != nil {
+// 		os.Exit(1)
+// 		log.Fatal(err)
+// 	}
+// 	defer file.Close()
+// 	var result string
+// 	data := make([]byte, 64)
+// 	for {
+// 		n, err := file.Read(data)
+// 		if err == io.EOF {
+// 			break
+// 		}
+// 		result = string(data[:n])
+// 	}
+// }
+
 func CompleteLaba4() {
 	var a float64 = 2.5
 	var b float64 = 4.6
