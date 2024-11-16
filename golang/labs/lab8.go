@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// останется сделать поиск текста в файле
 func RunFileLab() {
 	file, err := os.Create("text.txt")
 	if err != nil {
