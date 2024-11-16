@@ -1,52 +1,56 @@
 package lab8
 
 import (
+	"bufio"
 	"fmt"
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 func CompleteLaba8() {
-	CreateFile("lab8.txt")
-	WriteFile()
-	ReadFile()
+	path := "lab8/lab8.txt"
+	CreateFile(path)
+	WriteFile(path)
+	ReadFile(path)
 }
 
-func CreateFile(name string) {
-	_, errStat := os.Stat(name)
+func CreateFile(path string) {
+	_, errStat := os.Stat(path)
 	if errStat != nil {
-		os.Exit(1)
-		log.Fatal(errStat)
-	}
 
-	file, errCreate := os.Create(name)
-	if errCreate != nil {
-		os.Exit(1)
-		log.Fatal(errCreate)
+		file, errCreate := os.Create(path)
+		if errCreate != nil {
+			log.Fatal(errCreate)
+			os.Exit(1)
+		}
+		file.Close()
 	}
-	file.Close()
 }
 
-func WriteFile() {
-	file, err := os.Open("hello.txt")
+func WriteFile(path string) {
+	file, err := os.Open(path)
 	if err != nil {
-		os.Exit(1)
 		log.Fatal(err)
+		os.Exit(1)
 	}
 	defer file.Close()
 
-	//ввод текста
-	var text string = "текст"
+	var in *bufio.Reader = bufio.NewReader(os.Stdin)
+
+	fmt.Print("Введите текст: ")
+	text, _ := in.ReadString('\n')
+	text = strings.Replace(text, "\n", "", -1)
 
 	file.WriteString(text + " ")
 }
 
-func ReadFile() {
-	file, err := os.Open("test.txt")
+func ReadFile(path string) {
+	file, err := os.Open(path)
 	if err != nil {
-		os.Exit(1)
 		log.Fatal(err)
+		os.Exit(1)
 	}
 	defer file.Close()
 
