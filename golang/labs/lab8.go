@@ -6,13 +6,13 @@ import (
 )
 
 func RunFileLab() {
-
 	file, err := os.Create("text.txt")
 	if err != nil {
 		fmt.Println("Ошибка создания файла:", err)
 		os.Exit(1)
 	}
 	defer file.Close()
+
 	var name string
 	var age int
 	var city string
@@ -24,7 +24,7 @@ func RunFileLab() {
 	fmt.Print("Введите город: ")
 	fmt.Fscan(os.Stdin, &city)
 
-	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s", name, age, city)
+	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\n", name, age, city)
 	if err != nil {
 		fmt.Println("Ошибка записи в файл:", err)
 		os.Exit(1)
@@ -38,6 +38,5 @@ func RunFileLab() {
 		fmt.Println("Ошибка чтения файла:", err)
 		os.Exit(1)
 	}
-	fmt.Println("Содержимое файла:\\n", string(fileData))
-	// останется найти текст в файле
+	fmt.Println("Содержимое файла:", string(fileData))
 }
