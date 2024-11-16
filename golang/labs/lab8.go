@@ -24,7 +24,7 @@ func RunFileLab() {
 	fmt.Print("Введите город: ")
 	fmt.Fscan(os.Stdin, &city)
 
-	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\n%sГород:\n", name, age, city)
+	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s", name, age, city)
 	if err != nil {
 		fmt.Println("Ошибка записи в файл:", err)
 		os.Exit(1)
