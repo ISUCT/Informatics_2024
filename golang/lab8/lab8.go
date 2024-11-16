@@ -1,67 +1,31 @@
 package lab8
 
 import (
-	"bufio"
 	"fmt"
-	"io"
 	"log"
-	"os"
-	"strings"
+
+	"isuct.ru/informatics2022/laba4"
 )
 
 func CompleteLaba8() {
 	path := "lab8/lab8.txt"
-	CreateFile(path)
-	WriteFile(path)
-	ReadFile(path)
-}
 
-func CreateFile(path string) {
-	_, errStat := os.Stat(path)
-	if errStat != nil {
-
-		file, errCreate := os.Create(path)
-		if errCreate != nil {
-			log.Fatal(errCreate)
-			os.Exit(1)
-		}
-		file.Close()
+	errCreateFile := CreateFile(path)
+	if errCreateFile != nil {
+		log.Println(errCreateFile)
 	}
-}
 
-func WriteFile(path string) {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-		os.Exit(1)
+	errWriteFile := WriteFile(path)
+	if errWriteFile != nil {
+		log.Fatal(errWriteFile)
 	}
-	defer file.Close()
 
-	var in *bufio.Reader = bufio.NewReader(os.Stdin)
+	fmt.Print(ReadFile(path))
 
-	fmt.Print("Введите текст: ")
-	text, _ := in.ReadString('\n')
-	text = strings.Replace(text, "\n", "", -1)
-
-	file.WriteString(text + " ")
-}
-
-func ReadFile(path string) {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-		os.Exit(1)
+	result, errReadFileForLab4 := ReadFileForLab4()
+	if errReadFileForLab4 != nil {
+		log.Fatal(errReadFileForLab4)
 	}
-	defer file.Close()
-
-	var result string
-	data := make([]byte, 64)
-	for {
-		n, err := file.Read(data)
-		if err == io.EOF {
-			break
-		}
-		result = string(data[:n])
-	}
-	fmt.Print(result)
+	fmt.Println(laba4.CompleteTaskA(result[0], result[1], result[2], result[3], result[4]))
+	fmt.Println(laba4.CompleteTaskB(result[0], result[1], result[5:]))
 }

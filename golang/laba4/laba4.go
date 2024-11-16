@@ -2,11 +2,7 @@ package laba4
 
 import (
 	"fmt"
-	"io"
-	"log"
 	"math"
-	"os"
-	"strings"
 )
 
 func CalculateFunction(a, b, x float64) float64 {
@@ -30,28 +26,6 @@ func CompleteTaskB(a, b float64, x []float64) []float64 {
 	return result
 }
 
-func ReadFile() {
-	var result []string
-	file, err := os.Open("laba4/input.txt")
-	if err != nil {
-		log.Fatal(err)
-		os.Exit(1)
-	}
-	defer file.Close()
-	var text string
-	data := make([]byte, 64)
-	for {
-		n, err := file.Read(data)
-		if err == io.EOF {
-			break
-		}
-		text = string(data[:n])
-	}
-
-	result = strings.Split(text, "\n")
-	fmt.Println(result)
-}
-
 func CompleteLaba4() {
 	var a float64 = 2.5
 	var b float64 = 4.6
@@ -59,8 +33,6 @@ func CompleteLaba4() {
 	var xMax float64 = 3.05
 	var xDelta float64 = 0.38
 	var x []float64 = []float64{1.2, 1.36, 1.57, 1.93, 2.25}
-
-	ReadFile()
 
 	var resultA []float64 = CompleteTaskA(a, b, xMin, xMax, xDelta)
 	fmt.Println(resultA)
