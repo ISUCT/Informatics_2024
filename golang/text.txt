@@ -1,0 +1,3 @@
+Имя: Ruslan
+Возраст: 15
+IvanovoГород: %!d(MISSING)
