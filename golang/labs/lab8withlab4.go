@@ -33,8 +33,7 @@ func readDataFromFile(filename string) ([]float64, error) {
 	return floats, nil
 }
 
-func CalculateY(x float64, a float64, b float64) float64 {
-
+func CalculateY(x, a, b float64) float64 {
 	y := math.Acos(math.Pow(x, 2)-math.Pow(b, 2)) / math.Asin(math.Pow(x, 2)-math.Pow(a, 2))
 	return y
 }
