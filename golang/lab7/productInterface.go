@@ -9,7 +9,7 @@ type Product interface {
 	GetName() string
 }
 
-func Write(PList []Product) {
+func displayListProducts(PList []Product) {
 	fmt.Println("____список товаров_____")
 	for _, p := range PList {
 		fmt.Printf(

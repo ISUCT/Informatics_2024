@@ -38,5 +38,5 @@ func CompleteLab7() {
 		log.Fatal(err)
 	}
 
-	Write(ProductList)
+	displayListProducts(ProductList)
 }
