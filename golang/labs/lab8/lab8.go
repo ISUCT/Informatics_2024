@@ -4,32 +4,40 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strconv"
+	"strings"
 )
 
-func ReadDataFromFile(filename string) ([]float64, error) {
-	f, err := os.OpenFile(fmt.Sprintf("D:/Informatics/Informatics_2024/golang/labs/lab8/%s", filename), os.O_RDONLY, 0600)
-	if err != nil {
-		return nil, fmt.Errorf("ошибка открытия файла")
-	}
-	fileScanner := bufio.NewScanner(f)
-	var values []float64
-	for fileScanner.Scan() {
-		chislo, err := strconv.ParseFloat(fileScanner.Text(), 64)
-		if err != nil {
-			return nil, fmt.Errorf("ошибка при переводе числа")
-		}
-		values = append(values, chislo)
-	}
-	return values, nil
-
-}
-
-func main() {
-	values, err := ReadDataFromFile("input.txt")
+func RunLab8() {
+	var filename, strForFind string
+	fmt.Println("Введите имя файла, в который вы хотите записать данные:")
+	fmt.Scan(&filename)
+	name, err := CreateFile(filename)
 	if err != nil {
 		fmt.Println(err)
+	}
+	fmt.Println("Введите данные в файл (для завершения ввода введите пустую строку):")
+	err = WriteDataToFile(name)
+	if err != nil {
+		fmt.Println(err)
+	}
+	slice, err := ReadDataFromFile(name)
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println("поиск данных в этом файле невозможен")
 	} else {
-		fmt.Println(values)
+		fmt.Printf("Чтение файла %s завершено\n", filename)
+		for _, str := range slice {
+			fmt.Println(str)
+		}
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Println("Введите строку, которую хотите найти в файле: ")
+		strForFind, _ = reader.ReadString('\n')
+		strForFind = strings.TrimRight(strForFind, "\r\n")
+		_, n, err := IsStrInFile(name, strForFind)
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Printf("Строка '%s' найдена на %d строке", strForFind, n+1)
+		}
 	}
 }
