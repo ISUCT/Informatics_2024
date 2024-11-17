@@ -28,7 +28,7 @@ func TaskB(a, b float64, taskBslice []float64) [][]float64 {
 }
 
 func RunLab4() {
-	values, err := lab8.ReadDataFromFile("input.txt")
+	values, err := lab8.ReadDataFromFileForLab4("input.txt")
 	if err != nil {
 		panic("ошибка при чтении данных из файла")
 	}
