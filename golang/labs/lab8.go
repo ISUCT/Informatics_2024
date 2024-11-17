@@ -3,9 +3,9 @@ package labs
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
-// останется сделать поиск текста в файле
 func RunFileLab() {
 	file, err := os.Create("text.txt")
 	if err != nil {
@@ -17,6 +17,7 @@ func RunFileLab() {
 	var name string
 	var age int
 	var city string
+	var additionalText string
 
 	fmt.Print("Введите имя: ")
 	fmt.Fscan(os.Stdin, &name)
@@ -25,7 +26,11 @@ func RunFileLab() {
 	fmt.Print("Введите город: ")
 	fmt.Fscan(os.Stdin, &city)
 
-	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\n", name, age, city)
+	fmt.Print("Введите любой текст:")
+	fmt.Scanln()
+	fmt.Scanln(&additionalText)
+
+	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nДополнительный текст: %s\n", name, age, city, additionalText)
 	if err != nil {
 		fmt.Println("Ошибка записи в файл:", err)
 		os.Exit(1)
@@ -40,4 +45,14 @@ func RunFileLab() {
 		os.Exit(1)
 	}
 	fmt.Println("Содержимое файла:", string(fileData))
+
+	var searchText string
+	fmt.Print("Введите текст для поиска")
+	fmt.Scanln(&searchText)
+
+	if strings.Contains(string(fileData), searchText) {
+		fmt.Println("Текст найден в файле")
+	} else {
+		fmt.Println("Текст не найден в файле ")
+	}
 }
