@@ -17,6 +17,7 @@ func RunFileLab() {
 	var name string
 	var age int
 	var city string
+	var university string
 	var additionalText string
 
 	fmt.Print("Введите имя: ")
@@ -25,14 +26,15 @@ func RunFileLab() {
 	fmt.Fscan(os.Stdin, &age)
 	fmt.Print("Введите город: ")
 	fmt.Fscan(os.Stdin, &city)
-
+	fmt.Print("Введите институт в котором вы учитесь")
+	fmt.Scan(os.Stdin, &university)
 	fmt.Print("Введите любой текст:")
 	fmt.Scanln()
 	fmt.Scanln(&additionalText)
 
-	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nДополнительный текст: %s\n", name, age, city, additionalText)
+	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
 	if err != nil {
-		fmt.Println("Ошибка записи в файл:", err)
+		fmt.Println("Ошибка записи в файл попробуйте еще раз:", err)
 		os.Exit(1)
 	}
 
