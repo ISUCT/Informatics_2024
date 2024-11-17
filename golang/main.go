@@ -12,4 +12,5 @@ func main() {
 	lab6.Lab6()
 	lab7.Lab7()
 	fmt.Println("Нерабеев Кирилл Сергеевич.")
+
 }
