@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
-
-	labs "isuct.ru/informatics2022/labs/lab7"
+	// labs "isuct.ru/informatics2022/labs/lab7"
+	"isuct.ru/informatics2022/labs"
 )
 
 func main() {
-	fmt.Println("Панова Милана Седатовна")
-	labs.RunLab7()
+	labs.RunLab8()
+	labs.RunLab4()
 }

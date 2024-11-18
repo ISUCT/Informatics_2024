@@ -1,16 +1,46 @@
 package labs
 
 import (
+	"bufio"
 	"fmt"
 	"math"
+	"os"
+	"strconv"
 )
 
+func ReadInput(filename string) (a, b float64, xValues []float64, err error) {
+	file, err := os.Open("input.txt")
+	if err != nil {
+		return 0, 0, nil, err
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	i := 0
+	for scanner.Scan() {
+		line := scanner.Text()
+		num, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			return 0, 0, nil, fmt.Errorf("ошибка преобразования строки в число: %w", err)
+		}
+		if i == 0 {
+			a = num
+		} else if i == 1 {
+			b = num
+		} else {
+			xValues = append(xValues, num)
+		}
+		i++
+	}
+	return a, b, xValues, nil
+}
 func RunLab4() {
-	a := 2.5
-	b := 4.6
-	fmt.Println(TaskA(1.1, 3.6, 0.5, a, b))
-	arr := []float64{1.2, 1.28, 1.36, 1.46, 2.35}
-	fmt.Println(TaskB(arr, a, b))
+	a, b, xValues, err := ReadInput("input.txt")
+	if err != nil {
+		fmt.Println("Ошибка чтения файла:", err)
+		return
+	}
+	fmt.Println(TaskA(xValues[0], xValues[1], xValues[2], a, b))
+	fmt.Println(TaskB(xValues[3:], a, b))
 }
 
 func TaskA(xn, xk, deltax, a, b float64) []float64 {
