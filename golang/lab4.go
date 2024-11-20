@@ -1,4 +1,5 @@
 package lab4
+import "math"
 // Вариант 5: Первое уравнение.
 // Функция для вычисления значения
 func CalculateY(a, elements float64) float64 {
@@ -14,9 +15,11 @@ func TaskA(a, xn, xk, xdel float64) []float64 {
 }
   return res
 }
+
 func TaskB(a float64, x []float64) []float64 {
   var res []float64
   for _, i := range x {
-    res = append(res, CalculateY(a, i))
+  res = append(res, CalculateY(a, i))
+}
   return res
 }
