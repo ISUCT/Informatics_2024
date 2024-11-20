@@ -7,5 +7,5 @@ import (
 
 func main() {
  fmt.Println("Дружинин Кирилл Александрович")
- lab6.Laba6Run()
+ lab6.RunLab6Task()
 }
