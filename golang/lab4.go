@@ -1,3 +1,4 @@
+package lab4
 // Вариант 5: Первое уравнение.
 // Функция для вычисления значения
 func CalculateY(a, elements float64) float64 {
