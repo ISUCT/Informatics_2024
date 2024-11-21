@@ -16,7 +16,7 @@ func (f Fruit) GetPrice() float32 {
 	return f.Price
 }
 
-func (f *Fruit) Sale(x float32) {
+func (f *Fruit) MakeDiscount(x float32) {
 	(*f).Price = (f.Price / 100) * (100 - x)
 }
 
@@ -24,6 +24,6 @@ func (f *Fruit) ChangePrice(x float32) {
 	(*f).Price = x
 }
 
-func (f *Fruit) ChangeChar(x string) {
+func (f *Fruit) ChangeDescription(x string) {
 	(*f).Freshness = x
 }
