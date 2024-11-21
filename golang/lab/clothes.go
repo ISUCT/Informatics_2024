@@ -16,7 +16,7 @@ func (c Clothes) GetPrice() float32 {
 	return c.Price
 }
 
-func (c *Clothes) Sale(x float32) {
+func (c *Clothes) MakeDiscount(x float32) {
 	(*c).Price = (c.Price / 100) * (100 - x)
 }
 
@@ -24,6 +24,6 @@ func (c *Clothes) ChangePrice(x float32) {
 	(*c).Price = x
 }
 
-func (c *Clothes) ChangeChar(x string) {
+func (c *Clothes) ChangeDescription(x string) {
 	(*c).Size = x
 }
