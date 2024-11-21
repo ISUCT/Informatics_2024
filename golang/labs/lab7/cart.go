@@ -47,7 +47,7 @@ func (c cart) itogSell() string {
 	for _, products := range c.products {
 		_, price, discass, _ := products.product.getInfo()
 		sellWithoutDiscass += price * products.count_product
-		sellWithDiscass += float64(price) * float64(products.count_product) * float64((1-float64(discass)/100.0))
+		sellWithDiscass += float64(price * products.count_product) * float64((1-float64(discass)/100.0))
 	}
 	
 	sellWithoutDiscassString = fmt.Sprintf("Конечная ценна без скидки: %d\n", sellWithoutDiscass)
