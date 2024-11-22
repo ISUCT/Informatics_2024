@@ -26,15 +26,15 @@ func RunFileLab() {
 	fmt.Fscan(os.Stdin, &age)
 	fmt.Print("Введите город: ")
 	fmt.Fscan(os.Stdin, &city)
-	fmt.Print("Введите институт в котором вы учитесь")
-	fmt.Scan(os.Stdin, &university)
-	fmt.Print("Введите любой текст:")
-	fmt.Scanln()
+	fmt.Print("Введите институт, в котором вы учитесь: ")
+	fmt.Fscan(os.Stdin, &university)
+	fmt.Print("Введите любой текст: ")
+	fmt.Scanln() // Считываем остаток строки после предыдущего ввода
 	fmt.Scanln(&additionalText)
 
 	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
 	if err != nil {
-		fmt.Println("Ошибка записи в файл попробуйте еще раз:", err)
+		fmt.Println("Ошибка записи в файл, попробуйте еще раз:", err)
 		os.Exit(1)
 	}
 
@@ -49,12 +49,12 @@ func RunFileLab() {
 	fmt.Println("Содержимое файла:", string(fileData))
 
 	var searchText string
-	fmt.Print("Введите текст для поиска")
+	fmt.Print("Введите текст для поиска: ")
 	fmt.Scanln(&searchText)
 
 	if strings.Contains(string(fileData), searchText) {
 		fmt.Println("Текст найден в файле")
 	} else {
-		fmt.Println("Текст не найден в файле ")
+		fmt.Println("Текст не найден в файле")
 	}
 }

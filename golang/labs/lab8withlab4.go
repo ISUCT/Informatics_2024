@@ -62,7 +62,7 @@ func RunLab4() {
 		fmt.Println("Error:", err)
 		return
 	}
-	if len(data) < 5 {
+	if len(data) < 6 {
 		fmt.Println("Недостаточно значений в файле! Попробуй еще раз")
 		return
 	}
@@ -78,8 +78,8 @@ func RunLab4() {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
 
-	arr := otherValues
-	resultsB := TaskB(a, b, arr)
+	arrs := otherValues
+	resultsB := TaskB(a, b, arrs)
 	for _, result := range resultsB {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
