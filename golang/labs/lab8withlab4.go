@@ -56,7 +56,7 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 	return taskB
 }
 
-func RunLab4() {
+func RunLab8() {
 	data, err := readDataFromFile("input.txt")
 	if err != nil {
 		fmt.Println("Error:", err)

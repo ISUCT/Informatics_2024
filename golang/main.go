@@ -6,6 +6,5 @@ import (
 
 func main() {
 	labs.RunFileLab()
-	labs.RunLab4()
-	labs.RunLab6()
+	labs.RunLab8()
 }
