@@ -12,16 +12,16 @@ func AnsLab() {
 
 	cart.add(&product1)
 	cart.add(&product2)
-	for i := 0; i < 5; i++{
+	for i := 0; i < 5; i++ {
 		cart.add(&product3)
-	} 
+	}
 	cart.add(&product4)
 
-	fmt.Println(cart.itogSell())
+	fmt.Println(cart.getTotalSell())
 
 	cart.purge(&product2)
 	cart.purge(&product4)
 	cart.purge(&product4)
-	
-	fmt.Println(cart.itogSell())
+
+	fmt.Println(cart.getTotalSell())
 }

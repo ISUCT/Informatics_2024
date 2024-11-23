@@ -36,27 +36,27 @@ func (c *cart) purge(product product) {
 	}
 }
 
-func (c cart) itogSell() string {
-	var sellWithoutDiscass uint
-	var sellWithDiscass float64
+func (c cart) getTotalSell() string {
+	var sellWithoutDiscount uint
+	var sellWithDiscount float64
 
-	var sellWithoutDiscassString string
-	var sellWithDiscassString string
+	var sellWithoutDiscountString string
+	var sellWithDiscountString string
 	var saveMoney string
 
 	for _, products := range c.products {
-		_, price, discass, _ := products.product.getInfo()
-		sellWithoutDiscass += price * products.count_product
-		sellWithDiscass += float64(price * products.count_product) * (1-float64(discass)/100.0)
+		_, price, discount, _ := products.product.getInfo()
+		sellWithoutDiscount += price * products.count_product
+		sellWithDiscount += float64(price * products.count_product) * (1-float64(discount)/100.0)
 	}
 	
-	sellWithoutDiscassString = fmt.Sprintf("Конечная ценна без скидки: %d\n", sellWithoutDiscass)
-	sellWithDiscassString = fmt.Sprintf("Со скидкой: %.0f\n", sellWithDiscass)
-	if sellWithDiscass == float64(sellWithoutDiscass) {
+	sellWithoutDiscountString = fmt.Sprintf("Конечная ценна без скидки: %d\n", sellWithoutDiscount)
+	sellWithDiscountString = fmt.Sprintf("Со скидкой: %.0f\n", sellWithDiscount)
+	if sellWithDiscount == float64(sellWithoutDiscount) {
 		saveMoney = "Скидки применены не были"
 	} else {
-		saveMoney = fmt.Sprintf("Вы сэкономили %.0f!", float64(sellWithoutDiscass)-sellWithDiscass)
+		saveMoney = fmt.Sprintf("Вы сэкономили %.0f!", float64(sellWithoutDiscount)-sellWithDiscount)
 	}
 
-	return sellWithoutDiscassString+sellWithDiscassString+saveMoney
+	return sellWithoutDiscountString+sellWithDiscountString+saveMoney
 }
