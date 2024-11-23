@@ -1,11 +1,13 @@
 package main
 
 import (
-	// labs "isuct.ru/informatics2022/labs/lab7"
 	"isuct.ru/informatics2022/labs"
+	lab "isuct.ru/informatics2022/labs/lab7"
 )
 
 func main() {
-	labs.RunLab8()
 	labs.RunLab4()
+	labs.RunLab6()
+	lab.RunLab7()
+	labs.RunLab8()
 }

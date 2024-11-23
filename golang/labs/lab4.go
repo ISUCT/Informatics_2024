@@ -33,6 +33,7 @@ func ReadInput(filename string) (a, b float64, xValues []float64, err error) {
 	}
 	return a, b, xValues, nil
 }
+
 func RunLab4() {
 	a, b, xValues, err := ReadInput("input.txt")
 	if err != nil {
