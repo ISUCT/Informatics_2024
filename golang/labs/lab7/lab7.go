@@ -26,10 +26,9 @@ func RunLab7() {
 	fmt.Println("Общая стоимость товаров после применения скидок:", CalculateProductsSum(products), "рублей")
 	season := product3.getSeason()
 	material := product3.getMaterial()
-	brand := product3.getBrand()
-	fmt.Println("Информация о товаре")
+	brand1 := product3.getBrand()
+	fmt.Println("Информация о товаре 3")
 	fmt.Println("материал:", material)
 	fmt.Println("сезон:", season)
-	fmt.Println("бренд:", brand)
-
+	fmt.Println("бренд:", brand1)
 }
