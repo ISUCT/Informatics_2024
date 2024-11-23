@@ -31,7 +31,7 @@ func taskBLab8(a, b float64, xValues []float64) []float64 {
 }
 
 func readInput(filename string) (float64, float64, []float64, error) {
-	file, err := os.Open("input.txt")
+	file, err := os.Open(filename)
 	if err != nil {
 		return 0, 0, nil, err
 	}
