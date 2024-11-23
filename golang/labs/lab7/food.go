@@ -2,10 +2,14 @@ package labs
 
 type Food struct {
 	price    float64
-	foodtype string
+	name     string
 	brand    string
+	calories int
 }
 
+func (f *Food) getName() string {
+	return f.name
+}
 func (f *Food) getPrice() float64 {
 	return f.price
 }
@@ -17,8 +21,10 @@ func (f *Food) discount(discount float64) {
 func (f *Food) setPrice(newPrice float64) {
 	f.price = newPrice
 }
+func (f *Food) getBrand() string {
+	return f.brand
+}
 
-func (f *Food) changeCharacteristic(newFoodtype string, newBrand string) {
-	f.foodtype = newFoodtype
-	f.brand = newBrand
+func (f *Food) getCalories() int {
+	return f.calories
 }

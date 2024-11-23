@@ -1,9 +1,9 @@
 package labs
 
 type Cosmetics struct {
-	price         float64
-	brand         string
-	cosmeticstype string
+	name  string
+	price float64
+	brand string
 }
 
 func (c *Cosmetics) getPrice() float64 {
@@ -18,7 +18,9 @@ func (c *Cosmetics) setPrice(newPrice float64) {
 	c.price = newPrice
 }
 
-func (c *Cosmetics) changeCharacteristic(newBrand string, newCosmeticstype string) {
-	c.brand = newBrand
-	c.cosmeticstype = newCosmeticstype
+func (c *Cosmetics) getBrand() string {
+	return c.brand
+}
+func (c *Cosmetics) getName() string {
+	return c.name
 }
