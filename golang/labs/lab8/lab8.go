@@ -8,6 +8,7 @@ import (
 )
 
 func RunLab8() {
+	RunLab8forLab4()
 	var filename, strForFind string
 	fmt.Println("Введите имя файла, в который вы хотите записать данные:")
 	fmt.Scan(&filename)

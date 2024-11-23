@@ -3,8 +3,6 @@ package lab4
 import (
 	"fmt"
 	"math"
-
-	"isuct.ru/informatics2022/labs/lab8"
 )
 
 func Calculate(a, b, x float64) float64 {
@@ -28,18 +26,11 @@ func TaskB(a, b float64, taskBslice []float64) [][]float64 {
 }
 
 func RunLab4() {
-	values, err := lab8.ReadDataFromFileForLab4("input.txt")
-	if err != nil {
-		panic("ошибка при чтении данных из файла")
-	}
-	var a float64 = values[0]
-	var b float64 = values[1]
-	var taskBslice = values[5:]
+	var a float64 = 0.1
+	var b float64 = 0.5
+	var taskBslice = []float64{1.24, 1.38, 2.38, 3.21, 0.68}
 	fmt.Println("Задача А")
-	var xn float64 = values[2]
-	var xk float64 = values[3]
-	var deltax float64 = values[4]
-	for _, pair := range TaskA(a, b, xn, xk, deltax) {
+	for _, pair := range TaskA(a, b, 0.33, 1.23, 0.18) {
 		x := pair[0]
 		y := pair[1]
 		fmt.Printf("x = %.2f\ty = %f\n", x, y)
