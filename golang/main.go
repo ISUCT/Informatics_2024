@@ -11,4 +11,6 @@ func main() {
 	labs.Runlab4()
 	labs.Runlab6()
 	labs.RunLab7()
+	labs.Runlab8with4()
+	labs.RunLab8()
 }
