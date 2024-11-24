@@ -1,5 +1,7 @@
 package labs
 
+import "fmt"
+
 type Clothes struct {
 	name     string
 	price    float64
@@ -16,7 +18,7 @@ func (c *Clothes) getPrice() float64 {
 	return c.price
 }
 
-func (c *Clothes) discount(discount float64) {
+func (c *Clothes) setdiscount(discount float64) {
 	c.price -= c.price * discount / 100
 }
 
@@ -32,4 +34,7 @@ func (c *Clothes) getSeason() string {
 }
 func (c *Clothes) getMaterial() string {
 	return c.material
+}
+func (c *Clothes) GetInfo() string {
+	return fmt.Sprintf("Название: %s, Цена: %.2f, Бренд: %s, Материал: %s,Сезон: %s", c.name, c.price, c.brand, c.material, c.season)
 }

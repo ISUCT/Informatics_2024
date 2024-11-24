@@ -11,24 +11,24 @@ func CalculateProductsSum(products []Product) float64 {
 }
 
 func RunLab7() {
-	product1 := &Food{50.15, "картошка", "вкусвилл", 17}
-	product2 := &Cosmetics{"помада", 1700, "Chanel"}
-	product3 := &Clothes{"толстовка", 3000, "Levi`s", "хлопок", "осень"}
-	products := []Product{product1, product2, product3}
-	fmt.Println("Продукты")
+	food := &Food{50.15, "картошка", "вкусвилл", 17}
+	cosmetics := &Cosmetics{"помада", 1700, "Chanel"}
+	clothes := &Clothes{"толстовка", 3000.99, "Levi`s", "хлопок", "осень"}
+	products := []Product{food, cosmetics, clothes}
+	fmt.Println("Товары")
+	fmt.Println("Общая стоимость:", CalculateProductsSum(products), "рублей")
 	for _, product := range products {
-		fmt.Println(product)
+		fmt.Println(product.GetInfo())
 	}
-	fmt.Println("Общая стоимость товаров:", CalculateProductsSum(products), "рублей")
-	product1.discount(20)
-	product2.discount(10)
-	product3.discount(15)
-	fmt.Println("Общая стоимость товаров после применения скидок:", CalculateProductsSum(products), "рублей")
-	season := product3.getSeason()
-	material := product3.getMaterial()
-	brand1 := product3.getBrand()
-	fmt.Println("Информация о товаре 3")
-	fmt.Println("материал:", material)
-	fmt.Println("сезон:", season)
-	fmt.Println("бренд:", brand1)
+
+	for _, product := range products {
+		product.setdiscount(20)
+	}
+	fmt.Println("Общая стоимость товаров после применения скидки 20%:", CalculateProductsSum(products), "рублей")
+
+	fmt.Println("Информация про товар clothes")
+	fmt.Println("название:", clothes.getName())
+	fmt.Println("материал:", clothes.getMaterial())
+	fmt.Println("сезон:", clothes.getSeason())
+	fmt.Println("бренд:", clothes.getBrand())
 }
