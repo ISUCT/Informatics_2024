@@ -5,8 +5,7 @@ import (
 	"math"
 )
 
-func CalculateY(x, a, b float64) []float64 {
-
+func CalculateY(x, a, b float64) float64 {
 	arccosArg := x*x - b*b
 	arcsinArg := x*x - a*a
 
