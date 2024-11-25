@@ -36,7 +36,7 @@ func RunLab4() {
 		fmt.Println("Ошибка:", err)
 		return
 	}
-	if len(data) < 5 {
+	if len(data) < 4 {
 		fmt.Println("Недостаточно значений в файле! Попробуйте еще раз")
 		return
 	}
