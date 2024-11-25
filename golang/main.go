@@ -9,6 +9,7 @@ import (
 
 func main() {
 	fmt.Println("Толуков Даниил Максимович")
+
 	LAB_6.Lab6()
 	LAB_4.Lab4()
 }
