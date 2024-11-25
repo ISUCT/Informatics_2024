@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"isuct.ru/informatics2022/labs"
+	labs "isuct.ru/informatics2022/labs/lab4"
 )
 
 func TestEquation(t *testing.T) {
