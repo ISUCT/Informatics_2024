@@ -3,7 +3,8 @@ package lab4
 import (
 	"fmt"
 	"math"
-	// Убедитесь, что путь правильный
+
+	"isuct.ru/informatics2022/labs/lab8"
 )
 
 func CalculateY(x float64, a float64, b float64) float64 {
@@ -30,7 +31,7 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 }
 
 func RunLab4() {
-	data, err := lab8.readDataFromFile("input.txt") // Вызов функции из другого пакета
+	data, err := lab8.ReadDataFromFile("input.txt")
 	if err != nil {
 		fmt.Println("Ошибка:", err)
 		return
