@@ -8,7 +8,17 @@ import (
 )
 
 func main() {
+  
+  
 	fmt.Print()
+  
 	lab4.RunLab4Task()
+  
 	lab6.RunLab6Task()
+  
+
+  
+  
+	fmt.Println("Kolbasov Nikita Andreevich")
+  Kolbasov_Nikita
 }
