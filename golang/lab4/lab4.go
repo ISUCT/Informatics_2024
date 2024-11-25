@@ -1,15 +1,17 @@
-package laba4
+package lab4
 
 import (
 	"fmt"
 	"math"
 )
 
+// CalculateFunction вычисляет значение функции y(x).
 func CalculateFunction(x float64) float64 {
 	y := (math.Pow(math.Sqrt(x-2.5), 3) + math.Pow(math.Log10(x), 2)) / (1 + math.Cos(math.Log10(x)))
 	return y
 }
 
+// CompleteTaskA выполняет задачу A.
 func CompleteTaskA(xMin, xMax, xDelta float64) []float64 {
 	var result []float64
 	for i := xMin; i < xMax; i += xDelta {
@@ -18,7 +20,8 @@ func CompleteTaskA(xMin, xMax, xDelta float64) []float64 {
 	return result
 }
 
-func CompleteTaskB(x []float64) []float64 { // Удалили лишний аргумент float64
+// CompleteTaskB выполняет задачу B.
+func CompleteTaskB(x []float64) []float64 {
 	var result []float64
 	for _, i := range x {
 		result = append(result, CalculateFunction(i))
@@ -26,7 +29,8 @@ func CompleteTaskB(x []float64) []float64 { // Удалили лишний ар�
 	return result
 }
 
-func CompleteLaba4() {
+// CompleteLab4 выполняет все задачи лабораторной работы №4.
+func CompleteLab4() {
 	var xMin float64 = 1.25
 	var xMax float64 = 3.25
 	var xDelta float64 = 0.4
@@ -34,6 +38,6 @@ func CompleteLaba4() {
 
 	var resultA []float64 = CompleteTaskA(xMin, xMax, xDelta)
 	fmt.Println(resultA)
-	var resultB []float64 = CompleteTaskB(x) // Удалили лишний аргумент x
+	var resultB []float64 = CompleteTaskB(x)
 	fmt.Println(resultB)
 }
