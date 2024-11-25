@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-
-	"isuct.ru/informatics2022/lab8"
+	
 	"isuct.ru/informatics2022/laba4"
 	"isuct.ru/informatics2022/laba6"
+  "isuct.ru/informatics2022/lab7"
+  "isuct.ru/informatics2022/lab8"
 )
 
 func main() {
@@ -13,6 +14,6 @@ func main() {
 
 	laba4.CompleteLaba4()
 	laba6.CompleteLaba6()
-
+  lab7.CompleteLab7()
 	lab8.CompleteLaba8()
 }
