@@ -1,4 +1,4 @@
-package laba8
+package lab8
 
 import (
 	"bufio"
@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func readDataFromFile(filename string) ([]float64, error) {
+func ReadDataFromFile(filename string) ([]float64, error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, fmt.Errorf("ошибка открытия файла: %w", err)
