@@ -1,37 +1,10 @@
-package labs
+package laba8
 
 import (
-	"bufio"
 	"fmt"
 
 	"math"
-	"os"
-	"strconv"
 )
-
-func readDataFromFile(filename string) ([]float64, error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		return nil, fmt.Errorf("ошибка открытия файла: %w", err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	var floats []float64
-	for scanner.Scan() {
-		line := scanner.Text()
-		num, err := strconv.ParseFloat(line, 64)
-		if err != nil {
-			return nil, fmt.Errorf("ошибка парсинга float '%s': %w", line, err)
-		}
-		floats = append(floats, num)
-	}
-
-	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("ошибка чтения файла: %w", err)
-	}
-	return floats, nil
-}
 
 func CalculateY(x, a, b float64) float64 {
 	y := math.Acos(math.Pow(x, 2)-math.Pow(b, 2)) / math.Asin(math.Pow(x, 2)-math.Pow(a, 2))
