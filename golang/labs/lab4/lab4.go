@@ -1,12 +1,12 @@
-package laba8
+package lab4
 
 import (
 	"fmt"
-
 	"math"
+	// Убедитесь, что путь правильный
 )
 
-func CalculateY(x, a, b float64) float64 {
+func CalculateY(x float64, a float64, b float64) float64 {
 	y := math.Acos(math.Pow(x, 2)-math.Pow(b, 2)) / math.Asin(math.Pow(x, 2)-math.Pow(a, 2))
 	return y
 }
@@ -29,14 +29,14 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 	return taskB
 }
 
-func RunLab8() {
-	data, err := readDataFromFile("input.txt")
+func RunLab4() {
+	data, err := lab8.readDataFromFile("input.txt") // Вызов функции из другого пакета
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Ошибка:", err)
 		return
 	}
 	if len(data) < 5 {
-		fmt.Println("Недостаточно значений в файле! Попробуй еще раз")
+		fmt.Println("Недостаточно значений в файле! Попробуйте еще раз")
 		return
 	}
 	a := data[0]
@@ -51,8 +51,7 @@ func RunLab8() {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
 
-	arr := otherValues
-	resultsB := TaskB(a, b, arr)
+	resultsB := TaskB(a, b, otherValues)
 	for _, result := range resultsB {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
