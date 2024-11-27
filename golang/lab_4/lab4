@@ -1,33 +1,36 @@
-package main
+package lab4
 
 import (
 	"fmt"
 	"math"
 )
 
-#Функция для вычисления y по заданной формуле
-func calculateY(a, x float64) float64 {
-	return math.Pow(math.Log10(a+x), 2) / math.Pow(a+x, 2)
+func Calculate(x, a, b float64) float64 {
+	y := (a + math.Pow((math.Tan(b*x)), 2)) / (b + math.Pow(math.Cos(a*x)/math.Sin(a*x), 2))
+
+	return y
 }
 
-func main() {
-	#Приведенные значения
-	a := 2.0
-	xStart := 1.2
-	xEnd := 4.2
-	deltaX := 0.6
-
-	#Вычислите значения для x в диапазоне [xStart, xEnd] с шагом deltaX
-	for x := xStart; x <= xEnd; x += deltaX {
-		y := calculateY(a, x)
-		fmt.Printf("For x = %.2f, y = %.5f\n", x, y)
+func TaskA(a, b, Xn, Xk, delX float64) []float64 {
+	var y []float64
+	for x := Xn; x <= Xk; x += delX {
+		y = append(y, Calculate(a, b, x))
 	}
+	return y
+}
 
-	#Дополнительные специфические значения x, как в Задача B
-	xValues := []float64{1.16, 1.32, 1.47, 1.65, 1.93}
-	fmt.Println("Задача B:")
-	for _, x := range xValues {
-		y := calculateY(a, x)
-		fmt.Printf("For x = %.2f, y = %.5f\n", x, y)
+func TaskB(a float64, b float64, x [5]float64) []float64 {
+	var y []float64
+	for _, value := range x {
+		y = append(y, Calculate(a, b, value))
 	}
+	return y
+}
+
+func RunLab4() {
+	a := 0.1
+	b := 0.5
+	fmt.Println(TaskA(a, b, 0.15, 1.37, 0.25))
+	var s = [5]float64{0.2, 0.3, 0.44, 0.6, 0.56}
+	fmt.Println(TaskB(a, b, s))
 }
