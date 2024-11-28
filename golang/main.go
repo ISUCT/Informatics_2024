@@ -1,15 +1,7 @@
 package main
 
-import (
-	"isuct.ru/informatics2022/todo"
-	"isuct.ru/informatics2022/todo/console"
-)
+import lab9 "isuct.ru/informatics2022/todolist"
 
 func main() {
-	var list todo.Todo
-
-	list.AddTask(console.InputTask())
-	list.AddTask(console.InputTask())
-
-	list.OutputTodo()
+	lab9.CompleteLab9()
 }

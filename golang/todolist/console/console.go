@@ -15,26 +15,28 @@ func InputTask() (string, int, string) {
 
 	var inputTime string
 
-	var in *bufio.Reader = bufio.NewReader(os.Stdin)
-
 	fmt.Print("Введите задачу: ")
-	newName, _ = in.ReadString('\n')
-	newName = strings.Replace(newName, "\n", "", -1)
+	newName = Write()
 
-	for {
-		fmt.Print("Введите дедлайн: ")
-		fmt.Scan(&inputTime)
+	fmt.Print("Введите дедлайн: ")
+	inputTime = Write()
 
-		i, err := strconv.Atoi(inputTime)
-		if err == nil {
-			newTime = i
-			break
-		}
+	i, err := strconv.Atoi(inputTime)
+	if err != nil {
 		fmt.Printf("--дедлайн \"%v\" введён некорректно\n", inputTime)
 	}
+	newTime = i
 
 	fmt.Print("Введите тег: ")
-	fmt.Scan(&newTeg)
+	newTeg = Write()
 
 	return newName, newTime, newTeg
+}
+
+func Write() string {
+	var in *bufio.Reader = bufio.NewReader(os.Stdin)
+	str, _ := in.ReadString('\n')
+	str = strings.Replace(str, "\n", "", -1)
+	str = strings.Replace(str, "\r", "", -1)
+	return str
 }
