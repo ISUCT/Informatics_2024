@@ -5,64 +5,66 @@ import (
 )
 
 type Task struct {
-	name string
-	time int
-	teg  string
+	Name string `json:"Name"`
+	Date int    `json:"Date"`
+	Time int    `json:"Time"`
+	Teg  string `json:"Teg"`
 }
 
 type Todo struct {
-	list []Task
+	List []Task `json:"list"`
 }
 
 func (T *Todo) OutputTodo() []Task {
-	for i, task := range T.list {
+	for i, task := range T.List {
 		fmt.Printf("%v %v\n", i, task)
 	}
-	return T.list
+	return T.List
 }
 
 func (T *Todo) AddTask(newName string, newTime int, newTeg string) {
-	T.list = append(
+	T.List = append(
 		[]Task{
 			{
-				name: newName,
-				time: newTime,
-				teg:  newTeg,
+				Name: newName,
+				Date: 0,
+				Time: newTime,
+				Teg:  newTeg,
 			},
 		},
-		T.list...,
+		T.List...,
 	)
 }
 
 func (T *Todo) RemoveTask(num int) {
-	T.list = append(T.list[:num], T.list[(num+1):]...)
+	T.List = append(T.List[:num], T.List[(num+1):]...)
 }
 
 func (T *Todo) MoveTask(from int, to int) {
 	list := make([]Task, from)
-	copy(list, T.list[:from])
+	copy(list, T.List[:from])
 
-	list = append(list, T.list[(from+1):to]...)
-	list = append(list, T.list[from])
-	list = append(list, T.list[to:]...)
+	list = append(list, T.List[(from+1):to]...)
+	list = append(list, T.List[from])
+	list = append(list, T.List[to:]...)
 
-	T.list = list
+	T.List = list
 }
 
 func (T *Todo) EditTask(num int, newName string, newTime int, newTeg string) {
-	T.list[num].name = newName
-	T.list[num].time = newTime
-	T.list[num].teg = newTeg
+	T.List[num].Name = newName
+	T.List[num].Time = newTime
+	T.List[num].Teg = newTeg
 }
 
 func (T *Todo) EditName(num int, newName string) {
-	T.list[num].name = newName
+	T.List[num].Name = newName
 }
 
 func (T *Todo) EditTime(num int, newTime int) {
-	T.list[num].time = newTime
+	T.List[num].Time = newTime
 }
 
 func (T *Todo) EditTeg(num int, newTeg string) {
-	T.list[num].teg = newTeg
+	T.List[num].Teg = newTeg
 }
