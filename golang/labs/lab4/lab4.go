@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+const epsilon = 1e-9
+
 func CalculateY(x, a, b float64) float64 {
 	arccosArg := x*x - b*b
 	arcsinArg := x*x - a*a
@@ -12,10 +14,12 @@ func CalculateY(x, a, b float64) float64 {
 	if arccosArg < -1 || arccosArg > 1 || arcsinArg < -1 || arcsinArg > 1 {
 		return math.NaN()
 	}
+
 	asinValue := math.Asin(arcsinArg)
-	if asinValue == 0 {
+	if math.Abs(asinValue) < epsilon {
 		return math.NaN()
 	}
+
 	return math.Acos(arccosArg) / asinValue
 }
 
@@ -38,10 +42,12 @@ func Task_B(arguments []float64, a, b float64) []float64 {
 func RunLab4Task() {
 	fmt.Println("------------------------------------------")
 
-	fmt.Println(Task_A(0.05, 0.95, 0.15, 0.06, 0.05))
+	resultA := Task_A(0.05, 0.95, 0.15, 0.06, 0.05)
+	fmt.Println(resultA)
 	fmt.Println("------------------------------------------")
 
 	arr := []float64{0.15, 0.26, 0.37, 0.48, 0.56}
-	fmt.Println(Task_B(arr, 0.05, 0.07))
+	resultB := Task_B(arr, 0.05, 0.07)
+	fmt.Println(resultB)
 	fmt.Println("------------------------------------------")
 }
