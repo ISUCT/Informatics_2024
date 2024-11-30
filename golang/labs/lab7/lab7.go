@@ -8,8 +8,7 @@ type Products interface {
 	getName() string
 	setPrice(float64)
 	getPrice() float64
-	changeData(string, float64, string)
-	getData()
+	getInfo()
 	applyDiscount(float64)
 }
 
@@ -23,20 +22,11 @@ func calculateDiscount(products []Products) float64 {
 }
 
 func RunLab7Task() {
-	product1 := NewBook("The Go Programming Language", "Alan A. A. Donovan", 45.99, "A book on Go programming.")
-	product2 := NewCloth("T-shirt", "Nike", 19.99, "A comfortable cotton T-shirt.")
+	product1 := NewBook("The Go Programming Language", "Alan A. A. Donovan", 45.99, "A book on Go programming.", 259)
+	product2 := NewCloth("T-shirt", "Nike", 19.99, "A comfortable cotton T-shirt.", "Leather")
 	product3 := NewFurnitures("Sofa", "Leather", 799.99, "A stylish leather sofa.")
 
 	listOfProduct := []Products{product1, product2, product3}
-
-	fmt.Printf("\nПродукты до изменения\n\n")
-	product1.getData()
-	product2.getData()
-	product1.changeData("Advanced Go Programming", 50.00, "An advanced guide to Go programming.")
-	product2.changeData("Premium T-shirt", 25.00, "A high-quality cotton T-shirt.")
-	fmt.Printf("\nПродукты после изменения\n\n")
-	product1.getData()
-	product2.getData()
 
 	fmt.Println("Товар-----------Цена")
 	for _, product := range listOfProduct {
@@ -53,4 +43,9 @@ func RunLab7Task() {
 		fmt.Printf("%s-------%.2f $\n", product.getName(), product.getPrice())
 	}
 	fmt.Printf("Цена корзины после скидки: %.2f $\n", calculateDiscount(listOfProduct))
+
+	fmt.Println("Информация про книгу")
+	fmt.Println("Автор:", product1.getAuthor())
+	fmt.Println("Кол-во страниц:", product1.getNumberOfPages())
+	fmt.Println("Название:", product1.getName())
 }

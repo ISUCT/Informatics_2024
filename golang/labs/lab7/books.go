@@ -3,14 +3,15 @@ package lab7
 import "fmt"
 
 type Book struct {
-	name        string
-	author      string
-	price       float64
-	description string
+	name          string
+	author        string
+	price         float64
+	description   string
+	numberOfPages int32
 }
 
-func NewBook(name string, author string, price float64, descrption string) *Book {
-	book := &Book{name: name, author: author, price: price, description: descrption}
+func NewBook(name string, author string, price float64, descrption string, numberOfPages int32) *Book {
+	book := &Book{name: name, author: author, price: price, description: descrption, numberOfPages: numberOfPages}
 	return book
 }
 
@@ -26,14 +27,16 @@ func (b *Book) getPrice() float64 {
 	return b.price
 }
 
-func (b *Book) changeData(name string, price float64, descrption string) {
-	b.name = name
-	b.price = price
-	b.description = descrption
+func (b *Book) getAuthor() string {
+	return b.author
 }
 
-func (b *Book) getData() {
-	fmt.Printf("name: %s\nauthor: %s\nprice: %.2f\ndescrption: %s\n\n", b.name, b.author, b.price, b.description)
+func (b *Book) getNumberOfPages() int32 {
+	return b.numberOfPages
+}
+
+func (b *Book) getInfo() {
+	fmt.Printf("name: %s\nnumber of pages: %d\nauthor: %s\nprice: %.2f\ndescrption: %s\n\n", b.name, b.numberOfPages, b.author, b.price, b.description)
 }
 
 func (b *Book) applyDiscount(perDiscount float64) {

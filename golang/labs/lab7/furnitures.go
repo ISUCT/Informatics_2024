@@ -6,16 +6,21 @@ type Furnitures struct {
 	name        string
 	material    string
 	price       float64
+	color       string
 	description string
 }
 
-func NewFurnitures(name string, material string, price float64, descrption string) *Furnitures {
-	furnitures := &Furnitures{name: name, material: material, price: price, description: descrption}
+func NewFurnitures(name string, material string, price float64, descrption string, color string) *Furnitures {
+	furnitures := &Furnitures{name: name, material: material, price: price, description: descrption, color: color}
 	return furnitures
 }
 
 func (f *Furnitures) getName() string {
 	return f.name
+}
+
+func (f *Furnitures) getColor() string {
+	return f.color
 }
 
 func (f *Furnitures) setPrice(newPrice float64) {
@@ -26,13 +31,7 @@ func (f *Furnitures) getPrice() float64 {
 	return f.price
 }
 
-func (f *Furnitures) changeData(name string, price float64, descrption string) {
-	f.name = name
-	f.price = price
-	f.description = descrption
-}
-
-func (f *Furnitures) getData() {
+func (f *Furnitures) getInfo() {
 	fmt.Printf("name: %s\nmaterial: %s\nprice: %.2f\ndescrption: %s\n\n", f.name, f.material, f.price, f.description)
 }
 
