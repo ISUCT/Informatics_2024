@@ -31,7 +31,7 @@ func WriteToFile(filepath string, name string, age int, city string, university 
 func ReadFile(filepath string) (string, error) {
 	fileData, err := os.ReadFile(filepath)
 	if err != nil {
-		return "", fmt.Errorf("Ошибка чтения файла:", err)
+		return "", fmt.Errorf("ошибка чтения файла: %w", err)
 	}
 	return string(fileData), nil
 }
