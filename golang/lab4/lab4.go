@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func Colcul(x float64, a float64, b float64) float64 {
+func Calculate(x float64, a float64, b float64) float64 {
 	chislitel := (math.Pow(math.Sqrt(math.Pow(x-a, 2)), 1.0/3.0) + math.Pow(math.Sqrt(math.Abs(x+b)), 1.0/5.0))
 	znamenatel := math.Pow(math.Sqrt(math.Pow(x, 2)-math.Pow(a+b, 2)), 1.0/9.0)
 
@@ -16,7 +16,7 @@ func Colcul(x float64, a float64, b float64) float64 {
 func TaskA(a, b, xi, xk, deltax float64) [][]float64 {
 	var yValues [][]float64
 	for x := xi; x <= xk; x += deltax {
-		yValues = append(yValues, []float64{x, Colcul(x, a, b)})
+		yValues = append(yValues, []float64{x, Calculate(x, a, b)})
 	}
 	return yValues
 }
@@ -24,7 +24,7 @@ func TaskA(a, b, xi, xk, deltax float64) [][]float64 {
 func TaskB(a, b float64, values []float64) [][]float64 {
 	var yValues [][]float64
 	for _, x := range values {
-		yValues = append(yValues, []float64{x, Colcul(x, a, b)})
+		yValues = append(yValues, []float64{x, Calculate(x, a, b)})
 	}
 	return yValues
 

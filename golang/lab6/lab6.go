@@ -25,9 +25,9 @@ func (p *pig) Eat(WeightFood float64) {
 
 }
 
-func (p *pig) ColorPopularity(color string) string {
+func (p *pig) ColorPopularity() string {
 	var a string
-	switch color {
+	switch p.Color {
 	case "Розовый":
 		a = "высокая распространенность"
 	case "Черный":
@@ -43,13 +43,13 @@ func (p *pig) ColorPopularity(color string) string {
 
 }
 
-func (p *pig) InformationAboutPig(color string) {
-	colorPopularity := p.ColorPopularity(color)
-	fmt.Printf("Свинка %s породы %s весит %.2f кг, её цвет %s\nУ цвета %s %s", p.Name, p.Breed, p.Weight, p.Color, p.Color, colorPopularity)
+func (p *pig) InformationAboutPig(weightFood float64, colorPopularity string) {
+	fmt.Printf("Свинка %s породы %s весит %.2f кг, её цвет %s\nУ цвета %s %s\nОна съела %.2f кг корма\nПосле того как %s покушает, она будет весить %.2f кг", p.Name, p.Breed, p.Weight, p.Color, p.Color, colorPopularity, weightFood, p.Name, p.Weight+weightFood)
 }
 
 func Runlab6() {
+	weightFood := 8.50
 	pig := NewPig("Нюша", "Йоркшир", 100, "Розовый")
-	pig.InformationAboutPig(pig.Color)
-	pig.Eat(0.7)
+	colorPopularity := pig.ColorPopularity()
+	pig.InformationAboutPig(weightFood, colorPopularity)
 }
