@@ -32,7 +32,7 @@ func (f *Furnitures) getPrice() float64 {
 }
 
 func (f *Furnitures) getInfo() {
-	fmt.Printf("name: %s\nmaterial: %s\nprice: %.2f\ndescrption: %s\n\n", f.name, f.material, f.price, f.description)
+	fmt.Printf("name: %s\nmaterial: %s\ncolor: %s\nprice: %.2f\ndescrption: %s\n\n", f.name, f.material, f.color, f.price, f.description)
 }
 
 func (f *Furnitures) applyDiscount(perDiscount float64) {
