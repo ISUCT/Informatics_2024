@@ -3,7 +3,7 @@ package internal_test
 import (
 	"testing"
 
-	"isuct.ru/informatics2022/lab"
+	"isuct.ru/informatics2022/lab/lab4"
 )
 
 func TestTaskA(t *testing.T) {
@@ -22,7 +22,7 @@ func TestTaskA(t *testing.T) {
 	}
 	for _, value := range values {
 		t.Run(value.text, func(t *testing.T) {
-			results := lab.TaskA(value.b, value.xn, value.xk, value.delx)
+			results := lab4.TaskA(value.b, value.xn, value.xk, value.delx)
 			for index, result := range results {
 				if result != value.answers[index] {
 					t.Errorf(`TaskA(2.5, 1.28, 2.08, 0.4) = %e error`, result)
@@ -46,7 +46,7 @@ func TestTaskB(t *testing.T) {
 	}
 	for _, value := range values {
 		t.Run(value.text, func(t *testing.T) {
-			results := lab.TaskB(value.b, value.slice)
+			results := lab4.TaskB(value.b, value.slice)
 			for index, result := range results {
 				if result != value.answers[index] {
 					t.Errorf(`TaskB(%e, %e) = %e error`, value.b, value.slice[index], result)
