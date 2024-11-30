@@ -36,8 +36,7 @@ func PrintValue(Values []float64) {
 
 func ReadFileTask4() []float64 {
 	fmt.Println("Вводите данные в следующем порядке: Xn, Xk, delX для задачи A и slice для задачи B")
-	var arr []string
-	arr = lab8.RunLab8Tasks()
+	arr := lab8.RunLab8Tasks()
 	var numbers []float64
 	for _, values := range arr {
 		value, _ := strconv.ParseFloat(values, 64)
@@ -48,8 +47,7 @@ func ReadFileTask4() []float64 {
 
 func RunLab4Tasks() {
 	const b float64 = 2.5
-	var arr []float64
-	arr = ReadFileTask4()
+	arr := ReadFileTask4()
 	slice := arr[3:]
 	ValuesA := TaskA(b, arr[0], arr[1], arr[2])
 	ValuesB := TaskB(b, slice)
