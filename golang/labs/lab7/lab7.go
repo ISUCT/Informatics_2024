@@ -24,7 +24,7 @@ func calculateDiscount(products []Products) float64 {
 func RunLab7Task() {
 	product1 := NewBook("The Go Programming Language", "Alan A. A. Donovan", 45.99, "A book on Go programming.", 259)
 	product2 := NewCloth("T-shirt", "Nike", 19.99, "A comfortable cotton T-shirt.", "Leather")
-	product3 := NewFurnitures("Sofa", "Leather", 799.99, "A stylish leather sofa.")
+	product3 := NewFurnitures("Sofa", "Leather", 799.99, "A stylish leather sofa.", "white")
 
 	listOfProduct := []Products{product1, product2, product3}
 
@@ -48,4 +48,12 @@ func RunLab7Task() {
 	fmt.Println("Автор:", product1.getAuthor())
 	fmt.Println("Кол-во страниц:", product1.getNumberOfPages())
 	fmt.Println("Название:", product1.getName())
+
+	fmt.Println("Информация про одежду")
+	fmt.Println("Материал:", product2.getMaterials())
+	fmt.Println("Название:", product2.getName())
+
+	fmt.Println("Информация про мебель")
+	fmt.Println("Цвет:", product3.getColor())
+	fmt.Println("Название:", product3.getName())
 }
