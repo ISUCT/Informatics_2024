@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	lab8 "isuct.ru/informatics2022/labs/lab8"
+	lab8 "isuct.ru/informatics2022/labs/package_lab8"
 )
 
 func RunLab4() {
