@@ -50,10 +50,7 @@ func RunLab4Tasks() {
 	const b float64 = 2.5
 	var arr []float64
 	arr = ReadFileTask4()
-	var slice []float64
-	for _, value := range arr[3:] {
-		slice = append(slice, value)
-	}
+	slice := arr[3:]
 	ValuesA := TaskA(b, arr[0], arr[1], arr[2])
 	ValuesB := TaskB(b, slice)
 	PrintValue(ValuesA)
