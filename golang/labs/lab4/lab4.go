@@ -31,23 +31,18 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 }
 
 func RunLab4() {
-	a, b, xn, xk, deltax, otherValues, err := lab8.GetParametrs("input.txt")
+	params, err := lab8.ReadDataFromFile("C:/Users/ruslan/Informatics_2024/golang/labs/lab8/input.txt")
 	if err != nil {
 		fmt.Println("Ошибка:", err)
 		return
 	}
-	a := params.A
-	b := params.B
-	xn := params.Xn
-	xk := params.Xk
-	deltax := params.DeltaX
-	otherValues := params.OtherValues
-	resultsA := TaskA(a, b, xn, xk, deltax)
+
+	resultsA := TaskA(params.A, params.B, params.Xn, params.Xk, params.Deltax)
 	for _, result := range resultsA {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
 
-	resultsB := TaskB(a, b, otherValues)
+	resultsB := TaskB(params.A, params.B, params.Others)
 	for _, result := range resultsB {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
