@@ -8,6 +8,7 @@ type PC struct {
 	CPUModel string // модель процессора
 }
 
+//структура PC.
 func NewPC(hdd int, ram int, cpuModel string) *PC {
 	return &PC{
 		HDD:      hdd,
@@ -25,10 +26,11 @@ func (c *PC) SetHDD(newHDD int) {
 }
 
 func (c *PC) Info() {
-	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD)
+	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD) //вывод инфы о компьютере
 }
 
 func main() {
+
 	comp := NewPC(500, 16, "Intel Core i5-9600f")
 
 	comp.Info()
