@@ -1,27 +1,5 @@
 package todo
 
-import (
-	"fmt"
-)
-
-type Task struct {
-	Name string `json:"Name"`
-	Date int    `json:"Date"`
-	Time int    `json:"Time"`
-	Teg  string `json:"Teg"`
-}
-
-type Todo struct {
-	List []Task `json:"list"`
-}
-
-func (T *Todo) OutputTodo() []Task {
-	for i, task := range T.List {
-		fmt.Printf("%v %v\n", i, task)
-	}
-	return T.List
-}
-
 func (T *Todo) AddTask(newName string, newTime int, newTeg string) {
 	T.List = append(
 		[]Task{

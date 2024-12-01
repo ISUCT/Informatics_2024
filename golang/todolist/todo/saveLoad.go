@@ -2,18 +2,21 @@ package todo
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 )
+
+const link = "todolist/save.json"
 
 func (T *Todo) Save() error {
 	data, err := json.Marshal(T.List)
 	if err != nil {
-		return err
+		return fmt.Errorf("сериализация: %w", err)
 	}
 
-	file, err := os.Create("save.json")
+	file, err := os.Create(link)
 	if err != nil {
-		return err
+		return fmt.Errorf("создание файла сохронения %s: %w", link, err)
 	}
 	defer file.Close()
 	file.Write(data)
@@ -21,14 +24,14 @@ func (T *Todo) Save() error {
 }
 
 func (T *Todo) Load() error {
-	data, err := os.ReadFile("save.json")
+	data, err := os.ReadFile(link)
 	if err != nil {
-		return err
+		return fmt.Errorf("чтение файла %s: %w", link, err)
 	}
 
 	err = json.Unmarshal(data, &T.List)
 	if err != nil {
-		return err
+		return fmt.Errorf("десериализация: %w", err)
 	}
 	return nil
 }
