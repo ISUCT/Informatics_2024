@@ -11,7 +11,6 @@ import (
 func RunLab8() {
 	WriteToFile("NewFile.txt")
 	SearchWord("Newfile.txt")
-
 }
 
 func WriteToFile(filename string) {
