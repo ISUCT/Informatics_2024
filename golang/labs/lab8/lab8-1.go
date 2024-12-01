@@ -7,28 +7,48 @@ import (
 	"strconv"
 )
 
-func ReadDataFromFile(filename string) ([]float64, error) {
+type Parameters struct {
+	A      float64
+	B      float64
+	Xn     float64
+	Xk     float64
+	Deltax float64
+	Others []float64
+}
+
+func ReadDataFromFile(filename string) (Parameters, error) {
 	file, err := os.Open(filename)
 	if err != nil {
-		return nil, fmt.Errorf("ошибка открытия файла: %w", err)
+		return Parameters{}, fmt.Errorf("ошибка открытия файла: %w", err)
 	}
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	var floats []float64
+	var values []float64
 	for scanner.Scan() {
 		line := scanner.Text()
 		num, err := strconv.ParseFloat(line, 64)
 		if err != nil {
-			return nil, fmt.Errorf("ошибка парсинга float '%s': %w", line, err)
+			return Parameters{}, fmt.Errorf("ошибка парсинга float '%s': %w", line, err)
 		}
-		floats = append(floats, num)
+		values = append(values, num)
 	}
 
 	if err := scanner.Err(); err != nil {
-		return nil, fmt.Errorf("ошибка чтения файла: %w", err)
+		return Parameters{}, fmt.Errorf("ошибка чтения файла: %w", err)
 	}
-	return floats, nil
+	if len(values) < 5 {
+		return Parameters{}, fmt.Errorf("нехватает значений! попробуй еще раз")
+	}
+	params := Parameters{
+		A:      values[0],
+		B:      values[1],
+		Xn:     values[2],
+		Xk:     values[3],
+		Deltax: values[4],
+		Others: values[5:],
+	}
+	return params, nil
 }
 
 func GetParametrs(filename string) (a, b, xn, xk, deltax float64, otherValues []float64, err error) {
@@ -36,14 +56,13 @@ func GetParametrs(filename string) (a, b, xn, xk, deltax float64, otherValues []
 	if err != nil {
 		return 0, 0, 0, 0, 0, nil, fmt.Errorf("ошибка чтения данных из файла: %w", err)
 	}
-	if len(data) < 6 {
-		return 0, 0, 0, 0, 0, nil, fmt.Errorf("нехватает значений! попробуй еще раз")
-	}
-	a = data[0]
-	b = data[1]
-	xn = data[2]
-	xk = data[3]
-	deltax = data[4]
-	otherValues = data[5:]
+
+	a = data.A
+	b = data.B
+	xn = data.Xn
+	xk = data.Xk
+	deltax = data.Deltax
+	otherValues = data.Others
+
 	return
 }
