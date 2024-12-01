@@ -1,14 +1,6 @@
-package labs
+package lab7
 
-import (
-	"fmt"
-)
-
-type Product interface {
-	sale(discount float64)
-	price() float64
-	productInfo() string
-}
+import "fmt"
 
 type Clothes struct {
 	Name  string
@@ -67,22 +59,4 @@ func priceAllProducts(products []Product) float64 {
 		totalCost += product.price()
 	}
 	return totalCost
-}
-
-func RunLab7() {
-	product1 := &Clothes{Name: "Футболка", Price: 1000, Size: "L", Color: "Black"}
-	product1.sale(15)
-	product2 := &Food{Name: "Хотдог", Weight: 100, Price: 100}
-	product2.sale(25)
-	product3 := &Vehicle{Brand: "BMW", Model: "M5", Color: "Black", MphMax: 250, Price: 4500000}
-	product3.sale(5)
-
-	products := []Product{product1, product2, product3}
-
-	for _, product := range products {
-		fmt.Println(product.productInfo())
-	}
-
-	totalPrice := priceAllProducts(products)
-	fmt.Printf("Общая стоимость: %.2f\n", totalPrice)
 }
