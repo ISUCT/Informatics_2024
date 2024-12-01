@@ -1,21 +1,24 @@
 package lab8
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
+const ParamsPath = "lab8/input.txt"
+
 func ReadFileForLab4() ([]float64, error) {
-	var link string = "lab8/input.txt"
+	var link string = ParamsPath
 	data, err := os.ReadFile(link)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("(ReadFileForLab4) чтение файла %s: %w", link, err)
 	}
 
 	var result []float64
-	line := strings.Split(string(data), "\r\n")
-	for _, l := range line {
+	listParameters := strings.Split(string(data), "\r\n")
+	for _, l := range listParameters {
 		i, _ := strconv.ParseFloat(l, 64)
 		result = append(result, i)
 	}

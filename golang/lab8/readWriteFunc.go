@@ -20,7 +20,7 @@ func CreateFile(path string) error {
 
 	file, errCreate := os.Create(path)
 	if errCreate != nil {
-		return errCreate
+		return fmt.Errorf("(CreateFile) создание файла %s: %w", path, errCreate)
 	}
 	file.Close()
 
@@ -30,7 +30,7 @@ func CreateFile(path string) error {
 func WriteFile(path string) error {
 	file, errOpenFile := os.OpenFile(path, os.O_WRONLY, 0666)
 	if errOpenFile != nil {
-		return errOpenFile
+		return fmt.Errorf("(WriteFile) открытие файла %s: %w", path, errOpenFile)
 	}
 	defer file.Close()
 
