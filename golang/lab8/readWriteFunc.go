@@ -66,17 +66,21 @@ func ReadFile(path string) string {
 }
 
 func SearchInFile(path string, searchText string) (int, error) {
-	var n int = 0
+	var n int = 1
 	var i int = 0
-	file := ReadFile(path)
+	file, _ := os.ReadFile(path)
 
 	for _, f := range file {
+		log.Println("перебор", i, n, f, "не=", searchText[i])
 		if f == '\n' {
 			n++
 		}
-		if byte(f) == searchText[i] {
+		if f == searchText[i] {
+			log.Println("найденно", i, n, f, "=", searchText[i])
 			i++
-			return n, nil
+			if i == len(searchText) {
+				return n, nil
+			}
 		} else {
 			i = 0
 		}
