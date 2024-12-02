@@ -9,6 +9,7 @@ import (
 
 func CompleteLaba8() {
 	path := "lab8/lab8.txt"
+	searchText := "текст"
 
 	errCreateFile := CreateFile(path)
 	if errCreateFile != nil {
@@ -21,6 +22,8 @@ func CompleteLaba8() {
 	}
 
 	fmt.Print(ReadFile(path))
+
+	fmt.Print(SearchInFile(path, searchText))
 
 	result, errReadFileForLab4 := ReadFileForLab4()
 	if errReadFileForLab4 != nil {

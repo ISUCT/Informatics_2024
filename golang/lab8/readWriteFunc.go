@@ -11,6 +11,7 @@ import (
 )
 
 var errorFileAlreadyExists = errors.New("фаил с таким именем уже существует")
+var errSearchInFile = errors.New("файл не содержит искомого текста")
 
 func CreateFile(path string) error {
 	_, errStat := os.Stat(path)
@@ -62,4 +63,23 @@ func ReadFile(path string) string {
 		result = string(data[:n])
 	}
 	return result
+}
+
+func SearchInFile(path string, searchText string) (int, error) {
+	var n int = 0
+	var i int = 0
+	file := ReadFile(path)
+
+	for _, f := range file {
+		if f == '\n' {
+			n++
+		}
+		if byte(f) == searchText[i] {
+			i++
+			return n, nil
+		} else {
+			i = 0
+		}
+	}
+	return 0, errSearchInFile
 }
