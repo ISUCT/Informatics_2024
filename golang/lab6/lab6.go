@@ -20,7 +20,7 @@ func (c *Computer) SetCapacity(Capacity float64) { c.Capacity = Capacity }
 func (c Computer) GetCapacity() float64       { return c.Capacity }
 func (c Computer) GetColor() float64       { return c.Capacity }
 
-func CompleteLaba6() {
+func Completelab6() {
 	DELL := NewComputer("ДЕЛЛ", "чёрный", 128.0)
 	DELL.SetCapacity(256.0)
 	fmt.Println(DELL.GetCapacity())
