@@ -10,6 +10,5 @@ import (
 func main() {
 	fmt.Println("Гоголев Александр Сергеевич")
 
-	lab4.Completelab4()
 	lab6.Completelab6()
 }
