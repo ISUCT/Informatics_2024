@@ -10,7 +10,7 @@ func (x Bicycles) GetPrice() float32 {
 	return x.price
 }
 
-func (c *Bicycles) Sale(x float32) {
+func (c *Bicycles) Discount(x float32) {
 	(*c).price = (c.price / 100) * (100 - x)
 }
 
@@ -18,7 +18,7 @@ func (c *Bicycles) ChangePrice(x float32) {
 	(*c).price = x
 }
 
-func (c *Bicycles) changeCharacteristic(newcolor string, newmaterial string) {
+func (c *Bicycles) ChangeCharacteristic(newcolor string, newmaterial string) {
 	c.color = newcolor
 	c.material = newmaterial
 }

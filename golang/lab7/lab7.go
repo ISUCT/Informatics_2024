@@ -6,9 +6,9 @@ import (
 
 type Product interface {
 	GetPrice() float32
-	Sale(float32)
+	Discount(float32)
 	ChangePrice(float32)
-	changeCharacteristic(string, string)
+	ChangeCharacteristic(string, string)
 }
 func CalculatePrice(list []Product) float32 {
 	var sum float32 = 0
@@ -24,8 +24,9 @@ func RunLab7() {
 	product3 := &Skateboards{9000, "зеленый", "деревянный"}
 	products := []Product{product1, product2, product3}
 	fmt.Println("Общая стоимость товаров:", CalculatePrice(products), "рублей")
-	product1.Sale(25)
-	product2.Sale(50)
-	product3.Sale(10)
+	product1.Discount(25)
+	product2.Discount(50)
+	product3.Discount(10)
+	product1.ChangeCharacteristic("red", "metal")
 	fmt.Println("Общая стоимость товаров после применения скидок:", CalculatePrice(products), "рублей")
 }
