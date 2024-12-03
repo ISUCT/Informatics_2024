@@ -11,5 +11,5 @@ func main() {
 	fmt.Println("Гоголев Александр Сергеевич")
 
 	lab4.CompleteLab4()
-	laba6.CompleteLaba6()
+	laba6.CompleteLab6()
 }
