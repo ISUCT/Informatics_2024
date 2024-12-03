@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 
+	"isuct.ru/informatics2022/lab4"
 	"isuct.ru/informatics2022/lab6"
 )
 
 func main() {
-	fmt.Println("ЗАПУСК")
-	lab6.Lab6()
+	fmt.Println("Гоголев Александр Сергеевич")
 
+	lab4.CompleteLab4()
+	laba6.CompleteLaba6()
 }
