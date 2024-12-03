@@ -18,7 +18,7 @@ func NewComputer(name, color string, Capacity float64) *Computer {
 }
 func (c *Computer) SetCapacity(Capacity float64) { c.Capacity = Capacity }
 func (c Computer) GetCapacity() float64       { return c.Capacity }
-func (c Computer) GetColor() string        { return c.Capacity }
+func (c Computer) GetColor() float64       { return c.Capacity }
 
 func CompleteLaba6() {
 	DELL := NewComputer("ДЕЛЛ", "чёрный", 128.0)
