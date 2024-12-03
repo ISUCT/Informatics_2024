@@ -9,4 +9,5 @@ import (
 func main() {
 	fmt.Println("ЗАПУСК")
 	lab6.Lab6()
+
 }
