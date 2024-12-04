@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func CompleteLab7() {
+func Completelab7() {
 	var err error
 
 	priora := Newbibika(0, "анаконда", 100000, Gold, 200)
