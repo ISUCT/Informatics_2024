@@ -82,14 +82,12 @@ func RunLab8() {
 	fileName, _ := reader.ReadString('\n')
 	fileName = strings.TrimSpace(fileName)
 
-	// Использование fileName для создания файла
 	err := createFile(fileName)
 	if err != nil {
 		fmt.Println("Ошибка создания файла:", err)
 		return
 	}
 
-	// Ввод текста для записи в файл
 	fmt.Println("Введите текст для записи в файл (enter для завершения):")
 	for {
 		input, _ := reader.ReadString('\n')
@@ -104,14 +102,12 @@ func RunLab8() {
 		}
 	}
 
-	// Чтение из файла
 	err = readFile(fileName)
 	if err != nil {
 		fmt.Println("Ошибка чтения файла:", err)
 		return
 	}
 
-	// Поиск текста в файле
 	fmt.Println("Введите текст для поиска в файле:")
 	searchText, _ := reader.ReadString('\n')
 	searchText = strings.TrimSpace(searchText)
