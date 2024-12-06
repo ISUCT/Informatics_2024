@@ -1,41 +1,24 @@
-package main
+package laba6
 
 import "fmt"
 
 type PC struct {
-	HDD      int    // объем жесткого диска в ГБ
-	RAM      int    // объем оперативной памяти в ГБ
-	CPUModel string // модель процессора
+	HDD      int
+	RAM      int
+	CPUModel string
 }
 
-//структура PC.
 func NewPC(hdd int, ram int, cpuModel string) *PC {
-	return &PC{
-		HDD:      hdd,
-		RAM:      ram,
-		CPUModel: cpuModel,
-	}
-}
-
-func (c *PC) GetHDD() int {
-	return c.HDD
-}
-
-func (c *PC) SetHDD(newHDD int) {
-	c.HDD = newHDD
+	return &PC{HDD: hdd, RAM: ram, CPUModel: cpuModel}
 }
 
 func (c *PC) Info() {
-	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD) //вывод инфы о компьютере
+	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD)
 }
 
-func main() {
-
+func RunLab6() {
 	comp := NewPC(500, 16, "Intel Core i5-9600f")
-
 	comp.Info()
-
-	comp.SetHDD(1000)
-
+	comp.HDD = 1000
 	comp.Info()
 }
