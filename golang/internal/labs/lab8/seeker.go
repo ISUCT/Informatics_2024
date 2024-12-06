@@ -22,7 +22,6 @@ func SearchInFile(filename, search string) error {
 		if strings.Contains(line, search) {
 			found = true
 			fmt.Printf("найдено в строке %d: %s\n", linenumber, line)
-
 		}
 		linenumber++
 	}

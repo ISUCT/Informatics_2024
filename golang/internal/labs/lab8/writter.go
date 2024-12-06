@@ -25,5 +25,4 @@ func WriteToFile(file string) error {
 		}
 	}
 	return sc.Err()
-
 }
