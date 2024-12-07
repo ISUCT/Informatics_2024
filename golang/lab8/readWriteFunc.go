@@ -35,21 +35,20 @@ func WriteFile(path string) error {
 	}
 	defer file.Close()
 
-	var in *bufio.Reader = bufio.NewReader(os.Stdin)
-
-	fmt.Print("Введите текст: ")
-	text, _ := in.ReadString('\n')
-	text = strings.Replace(text, "\n", "", -1)
+	text, err := InputText("текст который будет введён в файл")
+	if err != nil {
+		return fmt.Errorf("(WriteFile) ввод: %w", err)
+	}
 
 	file.WriteString(text)
 
 	return nil
 }
 
-func ReadFile(path string) string {
+func ReadFile(path string) (string, error) {
 	file, errOpen := os.Open(path)
 	if errOpen != nil {
-		log.Fatal(errOpen)
+		return "", errOpen
 	}
 	defer file.Close()
 
@@ -62,28 +61,45 @@ func ReadFile(path string) string {
 		}
 		result = string(data[:n])
 	}
-	return result
+	return result, nil
 }
 
 func SearchInFile(path string, searchText string) (int, error) {
-	var n int = 1
-	var i int = 0
-	file, _ := os.ReadFile(path)
+	var lineNum int = 1
+	var sign int = 0
+	StringFile, err := ReadFile(path)
+	if err != nil {
+		return 0, fmt.Errorf("(SearchInFile)ReadFile %s: %w", path, err)
+	}
 
-	for _, f := range file {
-		log.Println("перебор", i, n, f, "не=", searchText[i])
-		if f == '\n' {
-			n++
+	for _, f := range StringFile {
+		log.Printf("N символ: %v, N строка: %v\n чтение: %v, поиск: %v\n", sign, lineNum, string(f), string(searchText[sign]))
+		if byte(f) == '\n' {
+			lineNum++
 		}
-		if f == searchText[i] {
-			log.Println("найденно", i, n, f, "=", searchText[i])
-			i++
-			if i == len(searchText) {
-				return n, nil
-			}
+		if byte(f) == searchText[sign] {
+			log.Println("\t", f, "=", searchText[sign])
+			sign++
 		} else {
-			i = 0
+			log.Println("\t", f, "!=", searchText[sign])
+			sign = 0
+		}
+		if sign == len(searchText) {
+			return lineNum, nil
 		}
 	}
 	return 0, errSearchInFile
+}
+
+func InputText(text string) (string, error) {
+	var in *bufio.Reader = bufio.NewReader(os.Stdin)
+
+	fmt.Printf("Введите %v: ", text)
+	text, err := in.ReadString('\n')
+	if err != nil {
+		return "", err
+	}
+	text = strings.Replace(text, "\n", "", -1)
+	text = strings.Replace(text, "\r", "", -1)
+	return text, nil
 }

@@ -19,7 +19,10 @@ func ReadFileForLab4() ([]float64, error) {
 	var result []float64
 	listParameters := strings.Split(string(data), "\r\n")
 	for _, l := range listParameters {
-		i, _ := strconv.ParseFloat(l, 64)
+		i, errParseFloat := strconv.ParseFloat(l, 64)
+		if errParseFloat != nil {
+			return nil, fmt.Errorf("(ReadFileForLab4) преобразование строки в число: %w", errParseFloat)
+		}
 		result = append(result, i)
 	}
 
