@@ -2,31 +2,31 @@ package lab8
 
 import (
 	"bufio"
-	"errors"
+	"fmt"
 	"os"
 )
 
 func WriteDataToFile(filename string) error {
-	var firstLine bool = true
-	f, err := os.OpenFile(filename, os.O_WRONLY, 0600)
+	f, err := os.OpenFile(filePath+filename, os.O_WRONLY, 0600)
 	if err != nil {
-		return errors.New("ошибка открытия файла")
+		return fmt.Errorf("открытия файла: %w", err)
 	}
 	defer f.Close()
 	sc := bufio.NewScanner(os.Stdin)
+	var firstLine bool = true
 	for sc.Scan() {
-		if firstLine == bool(true) {
+		if firstLine == bool(true) { // scan выводит первую строку пустой по умолчанию
 			firstLine = false
 			continue
 		}
 		txt := sc.Text()
-		if txt == "" {
+		if txt == "q" {
 			return nil
 		}
 		_, err := f.WriteString(txt)
 		f.WriteString("\n")
 		if err != nil {
-			return errors.New("ошибка записи в файл")
+			return fmt.Errorf("запись в файл: %w", err)
 		}
 	}
 	return nil

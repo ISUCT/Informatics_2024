@@ -10,7 +10,8 @@ import (
 )
 
 func ReadDataFromFileForLab4(filename string) ([]float64, error) {
-	f, err := os.OpenFile(fmt.Sprintf("D:/Informatics/Informatics_2024/golang/labs/lab8/%s", filename), os.O_RDONLY, 0600)
+	f, err := os.Open(filePath + filename)
+	fmt.Println(err)
 	if err != nil {
 		return nil, fmt.Errorf("ошибка открытия файла")
 	}

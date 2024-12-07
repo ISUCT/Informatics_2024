@@ -1,15 +1,19 @@
 package lab8
 
 import (
-	"errors"
+	"fmt"
 	"os"
 )
 
 func CreateFile(filename string) (string, error) {
-	f, err := os.Create(filename)
+	_, err := os.Stat(filePath + filename)
+	if err == nil {
+		return "", fmt.Errorf("создание файла: файл %s уже существует", filename)
+	}
+	f, err := os.Create(filePath + filename)
 	if err != nil {
-		return "", errors.New("ошибка создания файла")
+		return "", fmt.Errorf("создание файла: %w", err)
 	}
 	defer f.Close()
-	return f.Name(), nil
+	return filename, nil
 }
