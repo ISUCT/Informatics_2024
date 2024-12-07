@@ -10,8 +10,8 @@ import (
 	"strings"
 )
 
-var errorFileAlreadyExists = errors.New("фаил с таким именем уже существует")
-var errSearchInFile = errors.New("файл не содержит искомого текста")
+var errorFileAlreadyExists = errors.New("фаил с таким именем уже есть")
+var errSearchInFile = errors.New("в файле нету нужного текста")
 
 func CreateFile(path string) error {
 	_, errStat := os.Stat(path)
@@ -35,7 +35,7 @@ func WriteFile(path string) error {
 	}
 	defer file.Close()
 
-	text, err := InputText("текст который будет введён в файл")
+	text, err := InputText("текст который будет в файле")
 	if err != nil {
 		return fmt.Errorf("(WriteFile) ввод: %w", err)
 	}
