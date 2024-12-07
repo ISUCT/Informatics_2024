@@ -1,1 +1,26 @@
+package lab8
 
+import (
+	"fmt"
+	"log"
+)
+
+func CompleteLaba8() {
+	path := "lab8/lab8.txt"
+
+	errCreateFile := CreateFile(path)
+	if errCreateFile != nil {
+		log.Println(errCreateFile)
+	}
+
+	err := WriteFile(path)
+	if err != nil {
+		log.Fatalf("(CompleteLaba8) запись файла: %v", err)
+	}
+
+	searchText, errInput := InputText("текст для поиска")
+	if errInput != nil {
+		log.Fatalf("(CompleteLaba8) ввод текста для поиска: %v", errInput)
+	}
+	fmt.Print(SearchInFile(path, searchText))
+}
