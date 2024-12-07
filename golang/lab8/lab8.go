@@ -15,12 +15,12 @@ func Completelab8() {
 
 	err := WriteFile(path)
 	if err != nil {
-		log.Fatalf("(CompleteLaba8) запись файла: %v", err)
+		log.Fatalf("(Completelab8) запись файла: %v", err)
 	}
 
 	searchText, errInput := InputText("текст для поиска")
 	if errInput != nil {
-		log.Fatalf("(CompleteLaba8) ввод текста для поиска: %v", errInput)
+		log.Fatalf("(Completelab8) ввод текста для поиска: %v", errInput)
 	}
 	fmt.Print(SearchInFile(path, searchText))
 }
