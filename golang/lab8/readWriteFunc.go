@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-var errorFileAlreadyExists = errors.New("фаил с таким именем уже есть")
+var errorFileAlreadyExists = errors.New("фаил с таким же именем уже есть")
 var errSearchInFile = errors.New("в файле нету нужного текста")
 
 func CreateFile(path string) error {
