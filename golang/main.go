@@ -11,5 +11,5 @@ func main() {
 
 	fmt.Println("5 минут полёт нормальный")
 
-	lab8.CompleteLaba8()
+	lab8.Completelab8()
 }
