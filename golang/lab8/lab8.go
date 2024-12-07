@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func CompleteLaba8() {
+func Completelab8() {
 	path := "lab8/lab8.txt"
 
 	errCreateFile := CreateFile(path)
