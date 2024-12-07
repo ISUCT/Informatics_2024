@@ -21,7 +21,7 @@ func ReadFileForLab4() ([]float64, error) {
 	for _, l := range listParameters {
 		i, errParseFloat := strconv.ParseFloat(l, 64)
 		if errParseFloat != nil {
-			return nil, fmt.Errorf("(ReadFileForLab4) преобразование строки в число: %w", errParseFloat)
+			return nil, fmt.Errorf("(ReadFileForLab4) строка->число: %w", errParseFloat)
 		}
 		result = append(result, i)
 	}
