@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"strings"
 )
@@ -64,31 +63,13 @@ func ReadFile(path string) (string, error) {
 	return result, nil
 }
 
-func SearchInFile(path string, searchText string) (int, error) {
-	var lineNum int = 1
-	var sign int = 0
+func SearchInFile(path string, searchText string) (bool, error) {
 	StringFile, err := ReadFile(path)
 	if err != nil {
-		return 0, fmt.Errorf("(SearchInFile)ReadFile %s: %w", path, err)
+		return false, fmt.Errorf("(SearchInFile)ReadFile %s: %w", path, err)
 	}
 
-	for _, f := range StringFile {
-		log.Printf("N символ: %v, N строка: %v\n чтение: %v, поиск: %v\n", sign, lineNum, string(f), string(searchText[sign]))
-		if byte(f) == '\n' {
-			lineNum++
-		}
-		if byte(f) == searchText[sign] {
-			log.Println("\t", f, "=", searchText[sign])
-			sign++
-		} else {
-			log.Println("\t", f, "!=", searchText[sign])
-			sign = 0
-		}
-		if sign == len(searchText) {
-			return lineNum, nil
-		}
-	}
-	return 0, errSearchInFile
+	return strings.Contains(string(StringFile), searchText), nil
 }
 
 func InputText(text string) (string, error) {
