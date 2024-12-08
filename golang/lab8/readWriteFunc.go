@@ -69,7 +69,11 @@ func SearchInFile(path string, searchText string) (bool, error) {
 		return false, fmt.Errorf("(SearchInFile)ReadFile %s: %w", path, err)
 	}
 
-	return strings.Contains(string(StringFile), searchText), nil
+	if strings.Contains(StringFile, searchText) {
+		return true, nil
+	} else {
+		return false, errSearchInFile
+	}
 }
 
 func InputText(text string) (string, error) {
