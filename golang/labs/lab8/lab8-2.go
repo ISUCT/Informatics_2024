@@ -7,12 +7,19 @@ import (
 )
 
 func CreateFile() (string, error) {
-	file, err := os.Create("text.txt")
+	filename := "text.txt"
+	if _, err := os.Stat(filename); err == nil {
+		fmt.Println("Файл существует")
+		return filename, nil
+	} else if !os.IsNotExist(err) {
+		return "", fmt.Errorf("Ошибка существования файла: %w", err)
+	}
+	file, err := os.Create(filename)
 	if err != nil {
 		return "", fmt.Errorf("ошибка создания файла: %w", err)
 	}
 	defer file.Close()
-	return "text.txt", nil
+	return filename, nil
 }
 func WriteToFile(filepath string, name string, age int, city string, university string, additionalText string) error {
 	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_WRONLY, 0644)

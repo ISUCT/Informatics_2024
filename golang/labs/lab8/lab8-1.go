@@ -13,7 +13,7 @@ type Parameters struct {
 	Xn     float64
 	Xk     float64
 	Deltax float64
-	Others []float64
+	Slicex []float64
 }
 
 func ReadDataFromFile(filename string) (Parameters, error) {
@@ -46,23 +46,7 @@ func ReadDataFromFile(filename string) (Parameters, error) {
 		Xn:     values[2],
 		Xk:     values[3],
 		Deltax: values[4],
-		Others: values[5:],
+		Slicex: values[5:],
 	}
 	return params, nil
-}
-
-func GetParametrs(filename string) (a, b, xn, xk, deltax float64, otherValues []float64, err error) {
-	data, err := ReadDataFromFile(filename)
-	if err != nil {
-		return 0, 0, 0, 0, 0, nil, fmt.Errorf("ошибка чтения данных из файла: %w", err)
-	}
-
-	a = data.A
-	b = data.B
-	xn = data.Xn
-	xk = data.Xk
-	deltax = data.Deltax
-	otherValues = data.Others
-
-	return
 }

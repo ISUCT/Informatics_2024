@@ -31,7 +31,7 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 }
 
 func RunLab4() {
-	params, err := lab8.ReadDataFromFile("C:/Users/ruslan/Informatics_2024/golang/labs/lab8/input.txt")
+	params, err := lab8.ReadDataFromFile("input.txt")
 	if err != nil {
 		fmt.Println("Ошибка:", err)
 		return
@@ -42,7 +42,7 @@ func RunLab4() {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
 
-	resultsB := TaskB(params.A, params.B, params.Others)
+	resultsB := TaskB(params.A, params.B, params.Slicex)
 	for _, result := range resultsB {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
