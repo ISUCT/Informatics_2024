@@ -78,30 +78,28 @@ func SearchWord(file string) {
 	}
 }
 
-func ReadInput(filename string) (xn, xk, a, b float64, xValues []float64, err error) {
-	file, err := os.Open(filename)
+func ReadInput(filename string) (a, b float64, xValues []float64, err error) {
+	file, err := os.Open("input.txt")
 	if err != nil {
-		return 0, 0, 0, 0, nil, err
+		return 0, 0, nil, err
 	}
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
-	values := make([]float64, 0)
+	i := 0
 	for scanner.Scan() {
 		line := scanner.Text()
 		num, err := strconv.ParseFloat(line, 64)
 		if err != nil {
-			return 0, 0, 0, 0, nil, fmt.Errorf("ошибка преобразования строки в число: %w", err)
+			return 0, 0, nil, fmt.Errorf("ошибка преобразования строки в число: %w", err)
 		}
-		values = append(values, num)
+		if i == 0 {
+			a = num
+		} else if i == 1 {
+			b = num
+		} else {
+			xValues = append(xValues, num)
+		}
+		i++
 	}
-	if len(values) < 10 {
-		return 0, 0, 0, 0, nil, fmt.Errorf("в файле должно быть как минимум 10 чисел")
-	}
-	xn = values[0]
-	xk = values[1]
-	a = values[2]
-	b = values[3]
-	xValues = values[4:10]
-
-	return xn, xk, a, b, xValues, nil
+	return a, b, xValues, nil
 }
