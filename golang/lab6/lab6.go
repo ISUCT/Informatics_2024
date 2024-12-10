@@ -28,7 +28,7 @@ func CompleteLaba6() {
 	boing := NewPlane("Боинг", "Белый", 800.0, 10000.0)
 	boing.SetSpeed(900.0)
 	boing.SetHeigth(12000.0)
-	fmt.Println(boing.GetSpeed())
-	fmt.Println(boing.GetHeigth())
+	fmt.Println("Скорость =", boing.GetSpeed(), "км/ч")
+	fmt.Println("Высота полёта =", boing.GetHeigth(), "м")
 	fmt.Println(boing.GetColor())
 }
