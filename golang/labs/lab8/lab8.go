@@ -21,7 +21,6 @@ func RunLab8() {
 	}
 	SearchWord(filename)
 }
-
 func WriteToFile(filename string) error {
 	var info string
 	fmt.Print("Введите информацию, которую хотите записать в файл: ")
@@ -38,7 +37,6 @@ func WriteToFile(filename string) error {
 	}
 	return nil
 }
-
 func CreateFile() (string, error) {
 	var filename string
 	fmt.Print("Введите название файла: ")
@@ -50,7 +48,6 @@ func CreateFile() (string, error) {
 	defer file.Close()
 	return filename, nil
 }
-
 func SearchWord(file string) {
 	var searchString string
 	fmt.Print("Введите слово для поиска: ")
@@ -77,7 +74,6 @@ func SearchWord(file string) {
 		fmt.Println("Слово не найдено")
 	}
 }
-
 func ReadInput(filename string) (a, b float64, xValues []float64, err error) {
 	file, err := os.Open("input.txt")
 	if err != nil {

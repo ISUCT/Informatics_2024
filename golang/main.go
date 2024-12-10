@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	lab4 "isuct.ru/informatics2022/labs/package_lab4"
-	lab6 "isuct.ru/informatics2022/labs/package_lab6"
-	lab7 "isuct.ru/informatics2022/labs/package_lab7"
-	lab8 "isuct.ru/informatics2022/labs/package_lab8"
+	lab4 "isuct.ru/informatics2022/labs/lab4"
+	lab6 "isuct.ru/informatics2022/labs/lab6"
+	lab7 "isuct.ru/informatics2022/labs/lab7"
+	lab8 "isuct.ru/informatics2022/labs/lab8"
 )
 
 func main() {
