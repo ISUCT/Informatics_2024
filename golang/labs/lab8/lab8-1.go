@@ -37,7 +37,7 @@ func ReadDataFromFile(filename string) (Parameters, error) {
 	if err := scanner.Err(); err != nil {
 		return Parameters{}, fmt.Errorf("ошибка чтения файла: %w", err)
 	}
-	if len(values) < 5 {
+	if len(values) < 6 {
 		return Parameters{}, fmt.Errorf("нехватает значений! попробуй еще раз")
 	}
 	params := Parameters{
