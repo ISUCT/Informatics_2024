@@ -16,9 +16,9 @@ def CompleteTaskA(a: float, b: float, xMin: float, xMax: float, xDelta: float) -
     return result
 
 
-def CompleteTaskB(a: float, b: float, x: list[float]) -> list[float]:
+def CompleteTaskB(a: float, b: float, x_list: list[float]) -> list[float]:
     result: list[float] = []
-    for x in x:
+    for x in x_list:
         result.append(CalculateFunction(a, b, x))
     return result
 
