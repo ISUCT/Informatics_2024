@@ -21,14 +21,14 @@ func CreateFile() (string, error) {
 	defer file.Close()
 	return filename, nil
 }
-func WriteToFile(filepath string, name string, age int, city string, university string, additionalText string) error {
+func WriteToFile(filepath string, data string) error {
 	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
 		return fmt.Errorf("ошибка открытия файла для записи: %w", err)
 	}
 	defer file.Close()
 
-	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
+	_, err = file.WriteString(data)
 	if err != nil {
 		return fmt.Errorf("ошибка записи в файл: %w", err)
 	}
@@ -45,13 +45,7 @@ func ReadFile(filepath string) (string, error) {
 func SearcInFile(filedata string, searchText string) bool {
 	return strings.Contains(filedata, searchText)
 }
-
-func RunFileLab() {
-	filePath, err := CreateFile()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+func CollectUserData() string {
 	var name string
 	var age int
 	var city string
@@ -69,8 +63,16 @@ func RunFileLab() {
 	fmt.Print("Введите любой текст: ")
 	fmt.Scanln()
 	fmt.Scanln(&additionalText)
-
-	err = WriteToFile(filePath, name, age, city, university, additionalText)
+	return fmt.Sprintf("Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
+}
+func RunFileLab() {
+	filePath, err := CreateFile()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	data := CollectUserData()
+	err = WriteToFile(filePath, data)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)

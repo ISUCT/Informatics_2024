@@ -1,4 +1,4 @@
-package laba7
+package lab7
 
 import (
 	"errors"
