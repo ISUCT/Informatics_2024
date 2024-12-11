@@ -24,6 +24,7 @@ func CompleteLab9() {
 	if errLoad != nil {
 		log.Fatal(errLoad)
 	}
+	defer list.Save()
 
 	errOpenKeyboard := keyboard.Open()
 	if errOpenKeyboard != nil {
@@ -32,125 +33,129 @@ func CompleteLab9() {
 	defer keyboard.Close()
 
 	for {
-		clear()
-		list.OutputTodo()
-
-		text, _ := os.ReadFile(linkHelpCommand)
-		fmt.Println(string(text))
-
-		char, key, errGetKey := keyboard.GetKey()
-		if errGetKey != nil {
-			log.Fatal(errGetKey)
-		}
-
-		if char == '+' {
-			clear()
-			list.AddTask(console.InputTask())
-		}
-
-		if char == '-' {
-			fmt.Println("введите номер задачи которую вы хотите удалить:")
-			numRemove, errNumRemove := strconv.Atoi(console.Write())
-			if errNumRemove != nil {
-				log.Fatal(errNumRemove)
-			}
-			errRemoveTask := list.RemoveTask(numRemove)
-			if errRemoveTask != nil {
-				log.Fatal(errRemoveTask)
-			}
-		}
-
-		if key == keyboard.KeyCtrlE {
-			fmt.Println("введите номер задачи которую нужно изменить:")
-			Change, errChange := strconv.Atoi(console.Write())
-			if errChange != nil {
-				log.Fatal(errChange)
-			}
-			clear()
-			Name, Time, Teg := console.InputTask()
-			errChangeTask := list.EditTask(Change, Name, Time, Teg)
-			if errChangeTask != nil {
-				log.Fatal(errChangeTask)
-			}
-		}
-
-		if key == keyboard.KeyCtrlR {
-			fmt.Println("введите откуда-куда переместить задачу")
-			fmt.Print("откуда:")
-			from, errFrom := strconv.Atoi(console.Write())
-			if errFrom != nil {
-				log.Fatal(errFrom)
-			}
-			fmt.Print("куда:")
-			to, errTo := strconv.Atoi(console.Write())
-			if errTo != nil {
-				log.Fatal(errTo)
-			}
-
-			list.MoveTask(from, to)
-		}
-
-		if key == keyboard.KeyCtrlS {
-			clear()
-			lupSort(&list)
-		}
-
-		if key == keyboard.KeyEsc || key == keyboard.KeyCtrlQ || char == 'q' || char == 'Q' || char == 'й' || char == 'Й' {
+		close := interactionPanel(&list)
+		if close {
 			break
 		}
+	}
+}
 
-		clear()
+func interactionPanel(list *todo.Todo) bool {
+	clear()
+	list.OutputTodo()
+
+	text, _ := os.ReadFile(linkHelpCommand)
+	fmt.Println(string(text))
+
+	char, _, errGetKey := keyboard.GetKey()
+	if errGetKey != nil {
+		log.Fatal(errGetKey)
 	}
 
-	list.Save()
-}
-
-func interactionPanel() {
-	//условия
-}
-
-func lupSort(list *todo.Todo) {
-	status := '+'
-	for {
-		text, _ := os.ReadFile(linkHelpSorted)
-		fmt.Println(string(text))
-		fmt.Printf("\n\n\tctrl + R | обратная сортировка [%v]\n", string(status))
-
-		char, key, errGetKey := keyboard.GetKey()
-		if errGetKey != nil {
-			log.Fatal(errGetKey)
+	switch char {
+	case '+', '=':
+		clear()
+		list.AddTask(console.InputTask())
+	case '-':
+		fmt.Println("введите номер задачи которую вы хотите удалить:")
+		numRemove, errNumRemove := strconv.Atoi(console.Write())
+		if errNumRemove != nil {
+			log.Fatal(errNumRemove)
 		}
 
-		if char == '1' {
-			list.SortTaskNameAlphabeticalOrder()
-			break
+		errRemoveTask := list.RemoveTask(numRemove)
+		if errRemoveTask != nil {
+			log.Fatal(errRemoveTask)
 		}
-		if char == '2' {
-			list.SortTaskDataCreate()
-			break
-		}
-		if char == '3' {
-			list.SortTaskDeadline()
-			break
+	case 'E', 'e', 'У', 'у':
+		fmt.Println("введите номер задачи которую нужно изменить:")
+		Change, errChange := strconv.Atoi(console.Write())
+		if errChange != nil {
+			log.Fatal(errChange)
 		}
 
-		if key == keyboard.KeyCtrlR {
-			if status == '+' {
-				status = ' '
-			} else {
-				status = '+'
+		clear()
+		Name, Time, Teg := console.InputTask()
+		errChangeTask := list.EditTask(Change, Name, Time, Teg)
+		if errChangeTask != nil {
+			log.Fatal(errChangeTask)
+		}
+	case 'R', 'r', 'К', 'к':
+		interactionMove(list)
+	case 'S', 's', 'В', 'в':
+		status := ' '
+		for {
+			close := interactionSort(list, &status)
+			if close {
+				break
 			}
 		}
-
 		if status == '+' {
 			list.SortReverse()
 		}
-
-		if key == keyboard.KeyEsc || key == keyboard.KeyCtrlQ || char == 'q' || char == 'Q' || char == 'й' || char == 'Й' {
-			break
-		}
-		clear()
+	case 'Q', 'q', 'Й', 'й':
+		return true
+	default:
+		return false
 	}
+
+	return false
+}
+
+func interactionMove(list *todo.Todo) {
+	clear()
+	list.OutputTodo()
+
+	fmt.Println("введите откуда-куда переместить задачу")
+	fmt.Print("откуда:")
+	from, errFrom := strconv.Atoi(console.Write())
+	if errFrom != nil {
+		log.Fatal(errFrom)
+	}
+
+	fmt.Print("куда:")
+	to, errTo := strconv.Atoi(console.Write())
+	if errTo != nil {
+		log.Fatal(errTo)
+	}
+
+	errMoveTask := list.MoveTask(from, to)
+	if errMoveTask != nil {
+		log.Fatalf("(interactionPanel) %v", errMoveTask)
+	}
+}
+
+func interactionSort(list *todo.Todo, status *rune) bool {
+	clear()
+	text, _ := os.ReadFile(linkHelpSorted)
+	fmt.Println(string(text))
+	fmt.Printf("\n\n\tctrl + R | обратная сортировка [%v]\n", string(*status))
+
+	char, _, errGetKey := keyboard.GetKey()
+	if errGetKey != nil {
+		log.Fatal(errGetKey)
+	}
+
+	switch char {
+	case '1':
+		list.SortTaskNameAlphabeticalOrder()
+	case '2':
+		list.SortTaskDataCreate()
+	case '3':
+		list.SortTaskDeadline()
+	case 'R', 'r', 'К', 'к':
+		if *status == '+' {
+			*status = ' '
+		} else {
+			*status = '+'
+		}
+	case 'Q', 'q', 'Й', 'й':
+		return true
+	default:
+		return false
+	}
+
+	return true
 }
 
 func clear() {

@@ -21,17 +21,27 @@ func (T *Todo) AddTask(newName string, newTime string, newTeg string) error {
 	if err != nil {
 		return fmt.Errorf("установка даты дедлайна при создании Task: %w", err)
 	}
-
-	T.List = append(
-		[]Task{
-			{
+	if len(T.List) == 0 {
+		T.List = append(T.List,
+			Task{
 				Name:       newName,
 				DateCreate: time.Now().UTC(),
 				Deadline:   newDeadline,
 				Teg:        newTeg,
 			},
-		},
-		T.List...,
-	)
+		)
+	} else {
+		T.List = append(
+			[]Task{
+				{
+					Name:       newName,
+					DateCreate: time.Now().UTC(),
+					Deadline:   newDeadline,
+					Teg:        newTeg,
+				},
+			},
+			T.List...,
+		)
+	}
 	return nil
 }

@@ -25,6 +25,9 @@ func (T *Todo) Save() error {
 
 func (T *Todo) Load() error {
 	data, err := os.ReadFile(link)
+	if os.IsNotExist(err) {
+		return nil
+	}
 	if err != nil {
 		return fmt.Errorf("чтение файла %s: %w", link, err)
 	}

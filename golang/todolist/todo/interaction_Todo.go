@@ -7,6 +7,9 @@ import (
 )
 
 func (T *Todo) OutputTodo() {
+	if len(T.List) == 0 {
+		fmt.Println("Список задач пуст")
+	}
 	for i, task := range T.List {
 		fmt.Printf("%v | %v ; осталось %v д. ; тег: %v\n", i, task.Name, task.getDays(), task.Teg)
 	}

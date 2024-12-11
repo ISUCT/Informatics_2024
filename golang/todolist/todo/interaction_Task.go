@@ -20,13 +20,22 @@ func (T *Todo) MoveTask(from int, to int) error {
 	if from >= len(T.List) || to >= len(T.List) {
 		return fmt.Errorf("перемещение задачи: %w", errNonExistentElement)
 	}
-	list := make([]Task, from)
-	copy(list, T.List[:from])
+	list := make([]Task, 0)
 
-	list = append(list, T.List[(from+1):to]...)
-	list = append(list, T.List[from])
-	list = append(list, T.List[to:]...)
-
+	if from == to {
+		return nil
+	}
+	if from < to {
+		list = append(list, T.List[:from]...)
+		list = append(list, T.List[from+1:to]...)
+		list = append(list, T.List[from])
+		list = append(list, T.List[to:]...)
+	} else {
+		list = append(list, T.List[:to]...)
+		list = append(list, T.List[from])
+		list = append(list, T.List[to:from]...)
+		list = append(list, T.List[from+1:]...)
+	}
 	T.List = list
 	return nil
 }
