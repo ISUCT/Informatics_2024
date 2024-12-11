@@ -105,6 +105,10 @@ func CompleteLab9() {
 	list.Save()
 }
 
+func interactionPanel() {
+	//условия
+}
+
 func lupSort(list *todo.Todo) {
 	status := '+'
 	for {

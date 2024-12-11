@@ -1,7 +1,7 @@
-def summ(a: int, b: int) -> int:
-    return a + b
-
+import lab4.lab4 as lab4
+import lab6.lab6 as lab6
 
 if __name__ == "__main__":
-    print("Hello world")
-    print(summ(3, 4))
+    lab4.CompleteLab4()
+    lab6.CompleteLab6()
+    
