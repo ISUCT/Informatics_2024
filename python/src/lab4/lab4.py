@@ -1,10 +1,10 @@
 import math
 
+
 def CalculateFunction(a: float, b: float, x: float) -> float:
-    if math.sin(a+b*x) < 0:
+    if math.sin(a + b * x) < 0:
         return float('NaN')
-    
-    return (math.pow(math.sin(a+b*x), 3.5)) / (1 + math.cos(math.log10(a+b*x)))
+    return (math.pow(math.sin(a + b * x), 3.5)) / (1 + math.cos(math.log10(a + b * x)))
 
 def CompleteTaskA(a: float, b: float, xMin: float, xMax: float, xDelta: float) -> list[float]:
     result: list[float] = []
@@ -13,7 +13,6 @@ def CompleteTaskA(a: float, b: float, xMin: float, xMax: float, xDelta: float) -
         result.append(CalculateFunction(a, b, x))
         x += xDelta
     return result
-        
 
 def CompleteTaskB(a: float, b: float, x: list[float]) -> list[float]:
     result: list[float] = []
@@ -30,4 +29,3 @@ def CompleteLab4() -> None:
 
     print(CompleteTaskA(a, b, xMin, xMax, xDelta))
     print(CompleteTaskB(a, b, x))
- 
