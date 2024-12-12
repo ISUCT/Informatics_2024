@@ -11,7 +11,6 @@ type Food struct {
 }
 
 func (f *Food) applyDiscount(discount float64) error {
-
 	f.Price = f.Price * (1 - discount/100)
 	return nil
 }
