@@ -4,83 +4,36 @@ import (
 	"fmt"
 )
 
-type Product interface {
-	GetPrice() float64        // Получить цену продукта
-	ApplyDiscount(float64)    // Применить скидку на продукт
-	UpdatePrice(float64)      // Обновить цену продукта
-	UpdateDescription(string) // Обновить описание продукта
-}
-
-type Book struct {
-	price       float64
-	description string
-}
-
-func (b *Book) GetPrice() float64 {
-	return b.price
-}
-
-func (b *Book) ApplyDiscount(discount float64) {
-	b.price = b.price * (1 - discount/100)
-}
-
-func (b *Book) UpdatePrice(newPrice float64) {
-	b.price = newPrice
-}
-
-func (b *Book) UpdateDescription(newDescription string) {
-	b.description = newDescription
-}
-
-type Electronics struct {
-	price       float64
-	description string
-}
-
-func (e *Electronics) GetPrice() float64 {
-	return e.price
-}
-
-func (e *Electronics) ApplyDiscount(discount float64) {
-	e.price = e.price * (1 - discount/100)
-}
-
-func (e *Electronics) UpdatePrice(newPrice float64) {
-	e.price = newPrice
-}
-
-func (e *Electronics) UpdateDescription(newDescription string) {
-	e.description = newDescription
-}
-
-func CalculateTotalPrice(products []Product) float64 {
-	var total float64
+func GetFinalPrice(products []Product) float64 {
+	var totalCost float64
 	for _, product := range products {
-		total += product.GetPrice()
+		totalCost += product.getPrice()
 	}
-	return total
+	return totalCost
 }
 
 func Start7lab() {
-	book := &Book{price: 200, description: "Programming in Go"}
-	electronics := &Electronics{price: 5000, description: "Smartphone"}
+	product1 := &Electronics{Name: "Пейджер", Price: 30, Brand: "Mototola", Model: "Wirelesslinkx"}
+	if err := product1.applyDiscount(25); err != nil {
+		fmt.Println(err)
+		return
+	}
+	product2 := &Clothing{Name: "Футболка", Price: 12.65, Size: "L", Color: "Black"}
+	if err := product2.applyDiscount(10); err != nil {
+		fmt.Println(err)
+		return
+	}
+	product3 := &Food{Name: "Ролтон", Price: 3.23, Weight: 1}
+	if err := product3.applyDiscount(15); err != nil {
+		fmt.Println(err)
+		return
+	}
 
-	products := []Product{book, electronics}
+	products := []Product{product1, product2, product3}
+	for _, product := range products {
+		fmt.Println(product.getProductInfo())
+	}
 
-	totalBeforeDiscount := CalculateTotalPrice(products)
-	fmt.Printf("Total price before discounts: %.2f\n", totalBeforeDiscount)
-
-	book.ApplyDiscount(10)
-	electronics.ApplyDiscount(15)
-
-	totalAfterDiscount := CalculateTotalPrice(products)
-	fmt.Printf("Total price after discounts: %.2f\n", totalAfterDiscount)
-
-	book.UpdatePrice(180)
-	book.UpdateDescription("Advanced Go Programming")
-	electronics.UpdatePrice(4500)
-	electronics.UpdateDescription("Smartphone Pro")
-
-	finalTotal := CalculateTotalPrice(products)
-	fmt.Printf("Final total price after updates: %.2f\n", finalTotal)
+	total := GetFinalPrice(products)
+	fmt.Printf("Общая стоимость: %.2f\n", total)
 }
