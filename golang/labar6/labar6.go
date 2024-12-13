@@ -1,24 +1,36 @@
 package laba6
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type PC struct {
-	HDD      int
-	RAM      int
-	CPUModel string
+	Name     string
+	Color    string
+	CPU      float64
+	HardDisk float64
 }
 
-func NewPC(hdd int, ram int, cpuModel string) *PC {
-	return &PC{HDD: hdd, RAM: ram, CPUModel: cpuModel}
+func NewPC(name, color string, cpu, hardDisk float64) *PC {
+	c := new(PC)
+	c.Name = name
+	c.Color = color
+	c.CPU = cpu
+	c.HardDisk = hardDisk
+	return c
 }
 
-func (c *PC) Info() {
-	fmt.Printf("Компьютер с процессором %s, %d ГБ ОЗУ, жесткий диск: %d ГБ\n", c.CPUModel, c.RAM, c.HDD)
-}
+func (c *PC) SetCPU(cpu float64)           { c.CPU = cpu }
+func (c PC) GetCPU() float64               { return c.CPU }
+func (c *PC) SetHardDisk(hardDisk float64) { c.HardDisk = hardDisk }
+func (c PC) GetHardDisk() float64          { return c.HardDisk }
+func (c PC) GetColor() string              { return c.Color }
 
 func RunLab6() {
-	comp := NewPC(500, 16, "Intel Core i5-9600f")
-	comp.Info()
-	comp.HDD = 1000
-	comp.Info()
+	newPC := NewPC("ПК", "Черный", 3.4, 500.0)
+	newPC.SetCPU(3.8)
+	newPC.SetHardDisk(1000.0)
+	fmt.Println("скорость процессора:", newPC.GetCPU())
+	fmt.Println("объем жесткого диска в GB:", newPC.GetHardDisk())
+	fmt.Println("Цвет сборки пк:", newPC.GetColor())
 }
