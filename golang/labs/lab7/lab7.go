@@ -12,7 +12,7 @@ type Products interface {
 	applyDiscount(float64)
 }
 
-func calculateDiscount(products []Products) float64 {
+func calculateTotalPrice(products []Products) float64 {
 	var sum float64 = 0
 	for _, product := range products {
 		sum += product.getPrice()
