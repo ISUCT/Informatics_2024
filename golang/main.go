@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	labs.Lab6()
+	labs.Lab4()
 }
