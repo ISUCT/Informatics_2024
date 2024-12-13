@@ -32,7 +32,7 @@ func RunLab7Task() {
 	for _, product := range listOfProduct {
 		fmt.Printf("%s-------%.2f $\n", product.getName(), product.getPrice())
 	}
-	fmt.Printf("Цена корзины до скидки: %.2f $\n\n", calculateDiscount(listOfProduct))
+	fmt.Printf("Цена корзины до скидки: %.2f $\n\n", calculateTotalPrice(listOfProduct))
 
 	product1.applyDiscount(10)
 	product2.applyDiscount(20)
@@ -42,7 +42,7 @@ func RunLab7Task() {
 	for _, product := range listOfProduct {
 		fmt.Printf("%s-------%.2f $\n", product.getName(), product.getPrice())
 	}
-	fmt.Printf("Цена корзины после скидки: %.2f $\n", calculateDiscount(listOfProduct))
+	fmt.Printf("Цена корзины после скидки: %.2f $\n", calculateTotalPrice(listOfProduct))
 
 	fmt.Println("Информация про книгу")
 	fmt.Println("Автор:", product1.getAuthor())
