@@ -7,11 +7,10 @@ import (
 	"strconv"
 )
 
-func ReadFileForLab4(fileName string) []float64 {
+func ReadFileForLab4(fileName string) ([]float64, error) {
 	file, err := os.Open(fileName)
 	if err != nil {
-		fmt.Println("Не удается открыть файл")
-		panic(err)
+		return nil, fmt.Errorf("не удается открыть файл")
 	}
 	defer file.Close()
 
@@ -21,10 +20,10 @@ func ReadFileForLab4(fileName string) []float64 {
 	for fileScanner.Scan() {
 		number, err := strconv.ParseFloat(fileScanner.Text(), 64)
 		if err != nil {
-			fmt.Println("Ошибка при переводе числа")
-			panic(err)
+			return nil, fmt.Errorf("ошибка при переводе числа")
 		}
 		variables = append(variables, number)
 	}
-	return variables
+	fmt.Printf("Содержание файла %v \n", variables)
+	return variables, fileScanner.Err()
 }

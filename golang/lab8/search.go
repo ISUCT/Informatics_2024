@@ -7,25 +7,25 @@ import (
 	"strings"
 )
 
-func SearchingTextInFile(fileName string, searchText string) {
+func SearchingTextInFile(fileName string, searchText string) error {
 	file, err := os.Open(fileName)
 	if err != nil {
-		fmt.Println("Не удается открыть файл")
-		panic(err)
+		return fmt.Errorf("не удается открыть файл")
 	}
 	defer file.Close()
 
 	fileScanner := bufio.NewScanner(file)
 	lineNumber := 1
-	variable := false
+	found := false
 	for fileScanner.Scan() {
 		if strings.Contains(fileScanner.Text(), searchText) {
 			fmt.Printf("Текст найден на строке %d \n", lineNumber)
-			variable = true
+			found = true
 		}
 		lineNumber++
 	}
-	if !variable {
+	if !found {
 		fmt.Println("Текст не найден")
 	}
+	return err
 }

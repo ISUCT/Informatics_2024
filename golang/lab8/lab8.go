@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"isuct.ru/informatics2022/lab4"
 )
 
 func RunLab8() {
@@ -13,7 +15,11 @@ func RunLab8() {
 	fmt.Println("Введите имя файла:")
 	fileName, _ := reader.ReadString('\n')
 	fileName = strings.TrimSpace(fileName)
-	CreatingFile(fileName)
+	err := CreatingFile(fileName)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	fmt.Println("Введите текст который хотите записать в файл (Для завершения напишите 'Нет')")
 	for {
@@ -23,19 +29,29 @@ func RunLab8() {
 			fmt.Println("Данные успешно записаны")
 			break
 		}
-		WriteFile(fileName, newLine)
+		err := WriteFile(fileName, newLine)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 	}
 
-	variables := ReadFileForLab4(fileName)
-	fmt.Printf("Содержание файла: %.2f \n", variables[0:])
+	variables, err := ReadFileForLab4(fileName)
+	if err != nil {
+		panic("Произошла ошибка при чтении данных из файла")
+	}
 
 	fmt.Println("Введите текст для поиска в файле:")
 	searchText, _ := reader.ReadString('\n')
 	searchText = strings.TrimSpace(searchText)
-	SearchingTextInFile(fileName, searchText)
+	err = SearchingTextInFile(fileName, searchText)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	fmt.Print("Задача А\n")
-	fmt.Print(TaskA(variables[0], variables[1], variables[2], variables[3]), "\n")
+	fmt.Print(lab4.TaskA(variables[1], variables[2], variables[3], variables[0]), "\n")
 	fmt.Print("Задача В\n")
-	fmt.Print(TaskB(variables[4:], variables[0]), "\n")
+	fmt.Print(lab4.TaskB(variables[4:], variables[0]), "\n")
 }
