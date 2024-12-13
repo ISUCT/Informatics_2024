@@ -24,6 +24,7 @@ func ReadFileForLab4(fileName string) ([]float64, error) {
 		}
 		variables = append(variables, number)
 	}
+
 	fmt.Printf("Содержание файла %v \n", variables)
 	return variables, fileScanner.Err()
 }

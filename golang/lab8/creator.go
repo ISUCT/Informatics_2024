@@ -10,10 +10,12 @@ func CreatingFile(fileName string) error {
 	if err == nil {
 		return fmt.Errorf("файл с таким именем уже создан")
 	}
+
 	file, err := os.Create(fileName)
 	if err != nil {
 		return fmt.Errorf("произошла ошибка при создании файла: %w", err)
 	}
 	defer file.Close()
+
 	return nil
 }

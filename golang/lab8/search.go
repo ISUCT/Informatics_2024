@@ -24,8 +24,10 @@ func SearchingTextInFile(fileName string, searchText string) error {
 		}
 		lineNumber++
 	}
+
 	if !found {
 		fmt.Println("Текст не найден")
 	}
+
 	return err
 }

@@ -29,6 +29,7 @@ func RunLab8() {
 			fmt.Println("Данные успешно записаны")
 			break
 		}
+
 		err := WriteFile(fileName, newLine)
 		if err != nil {
 			fmt.Println(err)
