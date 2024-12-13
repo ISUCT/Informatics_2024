@@ -20,19 +20,15 @@ func CreateFile(filename string) (string, error) {
 	defer file.Close()
 	return filename, nil
 }
-<<<<<<< Updated upstream
-func WriteToFile(filepath string, data string) error {
-=======
 
 func WriteToFile(filepath string, name string, age int, city string, university string, additionalText string) error {
->>>>>>> Stashed changes
 	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
 		return fmt.Errorf("ошибка открытия файла для записи: %w", err)
 	}
 	defer file.Close()
 
-	_, err = file.WriteString(data)
+	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
 	if err != nil {
 		return fmt.Errorf("ошибка записи в файл: %w", err)
 	}
@@ -50,36 +46,6 @@ func ReadFile(filepath string) (string, error) {
 func SearchInFile(filedata string, searchText string) bool {
 	return strings.Contains(filedata, searchText)
 }
-<<<<<<< Updated upstream
-func CollectUserData() string {
-	var name string
-	var age int
-	var city string
-	var university string
-	var additionalText string
-
-	fmt.Print("Введите имя: ")
-	fmt.Fscan(os.Stdin, &name)
-	fmt.Print("Введите возраст: ")
-	fmt.Fscan(os.Stdin, &age)
-	fmt.Print("Введите город: ")
-	fmt.Fscan(os.Stdin, &city)
-	fmt.Print("Введите институт, в котором вы учитесь: ")
-	fmt.Fscan(os.Stdin, &university)
-	fmt.Print("Введите любой текст: ")
-	fmt.Scanln()
-	fmt.Scanln(&additionalText)
-	return fmt.Sprintf("Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
-}
-func RunFileLab() {
-	filePath, err := CreateFile()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	data := CollectUserData()
-	err = WriteToFile(filePath, data)
-=======
 
 func GetUserInput() (string, int, string, string, string) {
 	reader := bufio.NewReader(os.Stdin)
@@ -122,7 +88,6 @@ func RunFileLab() {
 	name, age, city, university, additionalText := GetUserInput()
 
 	err = WriteToFile(filePath, name, age, city, university, additionalText)
->>>>>>> Stashed changes
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
