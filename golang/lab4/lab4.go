@@ -15,7 +15,6 @@ func completeTaskA(a, b, xn, xk, xd float64) []float64 {
 		result = append(result, ColculateFunction(a, b, i))
 	}
 	return result
-
 }
 func completeTaskB(a, b float64, x []float64) []float64 {
 	var result []float64
