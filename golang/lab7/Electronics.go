@@ -22,7 +22,7 @@ func (e *Electronics) SetPrice(price float64) {
 
 func (e *Electronics) ApplyDiscount(discount float64) {
 	if discount > 0 && discount <= 100 {
-		e.SetPrice(e.GetPrice() * (1 - float64(discount)/100))
+		e.SetPrice(e.GetPrice() * (1 - discount/100))
 	} else {
 		fmt.Println("Неверная скидка")
 	}

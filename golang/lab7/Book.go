@@ -22,7 +22,7 @@ func (b *Book) SetPrice(price float64) {
 
 func (b *Book) ApplyDiscount(discount float64) {
 	if discount > 0 && discount <= 100 {
-		b.SetPrice(b.GetPrice() * (1 - float64(discount)/100))
+		b.SetPrice(b.GetPrice() * (1 - discount/100))
 	} else {
 		fmt.Println("Неверная скидка")
 	}
