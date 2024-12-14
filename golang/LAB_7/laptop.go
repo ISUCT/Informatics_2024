@@ -22,3 +22,6 @@ func (l *Laptop) SetPrice(price float64) {
 func (l *Laptop) ApplyDiscount(discount float64) {
 	l.Price -= l.Price * discount / 100
 }
+func (l *Laptop) ChangeColor(newColor string) {
+	l.Color = newColor
+}
