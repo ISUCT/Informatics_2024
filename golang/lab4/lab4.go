@@ -2,7 +2,7 @@ package lab4
 
 import "math"
 
-a float64 = 1.6
+var a float64 = 1.6
 func Lab4(a, x float64) float64 {
 	return (math.Pow(a, math.Pow(x, 2)-1) - math.Log10(math.Pow(x, 2)-1) + math.Cbrt(math.Pow(x, 2)-1))
 }
@@ -13,7 +13,7 @@ func lab4A(imin, imax, razn) {
 }
 func lab4B() {
 	var x [5]float64 = [5]float64{1.28, 1.36, 2.47, 3.68, 4.56}
-		for index , value := range x {
+		for index, value := range x {
 			fmt.Println(lab4.Lab4(a, x[i]))
 		}
 }
