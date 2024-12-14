@@ -22,7 +22,6 @@ func NewPig(name string, breed string, weight float64, color string) *pig {
 
 func (p *pig) Eat(WeightFood float64) {
 	p.Weight += WeightFood
-
 }
 
 func (p *pig) ColorPopularity() string {
@@ -40,11 +39,15 @@ func (p *pig) ColorPopularity() string {
 		a = "очень низкая распространенность"
 	}
 	return a
-
 }
 
 func (p *pig) InformationAboutPig(weightFood float64, colorPopularity string) {
-	fmt.Printf("Свинка %s породы %s весит %.2f кг, её цвет %s\nУ цвета %s %s\nОна съела %.2f кг корма\nПосле того как %s покушает, она будет весить %.2f кг", p.Name, p.Breed, p.Weight, p.Color, p.Color, colorPopularity, weightFood, p.Name, p.Weight+weightFood)
+	fmt.Printf("Свинка %s породы %s весит %.2f кг, её цвет %s.\n",
+		p.Name, p.Breed, p.Weight, p.Color)
+	fmt.Printf("У цвета %s %s.\n", p.Color, colorPopularity)
+	fmt.Printf("Она съела %.2f кг корма.\n", weightFood)
+	fmt.Printf("После того как %s покушает, она будет весить %.2f кг.\n",
+		p.Name, p.Weight+weightFood)
 }
 
 func Runlab6() {

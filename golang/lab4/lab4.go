@@ -27,7 +27,6 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 		yValues = append(yValues, []float64{x, Calculate(x, a, b)})
 	}
 	return yValues
-
 }
 
 func Runlab4() {
