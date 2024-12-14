@@ -21,14 +21,14 @@ func CreateFile(filename string) (string, error) {
 	return filename, nil
 }
 
-func WriteToFile(filepath string, name string, age int, city string, university string, additionalText string) error {
+func WriteToFile(filepath string, content string) error {
 	file, err := os.OpenFile(filepath, os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
 		return fmt.Errorf("ошибка открытия файла для записи: %w", err)
 	}
 	defer file.Close()
 
-	_, err = fmt.Fprintf(file, "Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
+	_, err = file.WriteString(content)
 	if err != nil {
 		return fmt.Errorf("ошибка записи в файл: %w", err)
 	}
@@ -87,7 +87,8 @@ func RunFileLab() {
 
 	name, age, city, university, additionalText := GetUserInput()
 
-	err = WriteToFile(filePath, name, age, city, university, additionalText)
+	content := fmt.Sprintf("Имя: %s\nВозраст: %d\nГород: %s\nУниверситет: %s\nДополнительный текст: %s\n", name, age, city, university, additionalText)
+	err = WriteToFile(filePath, content)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
