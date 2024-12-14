@@ -10,9 +10,12 @@ type Person struct {
 	Country string
 }
 
-func (c *Person) SetAge() {
-	c.Age = 31
-	fmt.Printf("%s теперь твой возраст %d!\n", c.Name, c.Age)
+func (c *Person) SetAge(age int) {
+	c.Age = age
+}
+
+func (c *Person) SetCountry(country string) {
+	c.Country = country
 }
 
 func (c *Person) DisplayInfo() {
@@ -30,7 +33,9 @@ func Lab6() {
 
 	Yan.DisplayInfo()
 
-	Yan.SetAge()
+	Yan.SetAge(31)
+
+	Yan.SetCountry("Беларусь")
 
 	Yan.DisplayInfo()
 }
