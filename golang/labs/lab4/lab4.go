@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"math"
 
-	lab8 "isuct.ru/informatics2022/labs/lab8"
+	"isuct.ru/informatics2022/labs/lab8/fileutilis"
 )
 
 func RunLab4() {
-	a, b, xValues, err := lab8.ReadInput("input.txt")
+	a, b, xValues, err := fileutilis.ReadInput("input.txt")
 	if err != nil {
 		fmt.Println("Ошибка чтения файла:", err)
 		return
