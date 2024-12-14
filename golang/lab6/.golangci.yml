@@ -1,4 +1,11 @@
-   run:
-     go:
-       enabled: true
-   
+enable:
+  - gofmt
+  - golint
+  - errcheck
+  - staticcheck
+  - unused
+
+  issues:
+    exclude-rules:
+      - path: _test\.go
+        text: "should not use ..."

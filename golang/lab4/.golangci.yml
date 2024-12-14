@@ -1,5 +1,4 @@
- linters:
-     enable:
+enable:
        - gofmt
        - golint
        - errcheck
@@ -10,6 +9,3 @@
      exclude-rules:
        - path: _test\.go
          text: "should not use ..."
-
-   run:
-     timeout: 5m
