@@ -1,16 +1,56 @@
 package lab4
 
 import (
+	"bufio"
 	"fmt"
 	"math"
+	"os"
+	"strconv"
 )
 
 func RunLab4() {
-	a := 2.5
-	b := 4.6
+	a, b, values := ReadInputFile("input.txt")
+
 	fmt.Println(TaskA(1.1, 3.6, 0.5, a, b))
-	arr := []float64{1.2, 1.28, 1.36, 1.46, 2.35}
-	fmt.Println(TaskB(arr, a, b))
+	fmt.Println(TaskB(values, a, b))
+}
+
+func ReadInputFile(filename string) (float64, float64, []float64) {
+	var a, b float64
+	var values []float64
+
+	file, err := os.Open(filename)
+	if err != nil {
+		fmt.Println("Ошибка открытия файла:", err)
+		return 0, 0, nil
+	}
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	i := 0
+	for scanner.Scan() {
+		line := scanner.Text()
+		num, err := strconv.ParseFloat(line, 64)
+		if err != nil {
+			fmt.Println("Ошибка чтения числа:", err)
+			continue
+		}
+
+		if i == 0 {
+			a = num
+		} else if i == 1 {
+			b = num
+		} else {
+			values = append(values, num)
+		}
+		i++
+	}
+
+	if err := scanner.Err(); err != nil {
+		fmt.Println("Ошибка сканирования файла:", err)
+	}
+
+	return a, b, values
 }
 
 func TaskA(xn, xk, deltax, a, b float64) []float64 {
