@@ -10,14 +10,14 @@ func calculate(a, b, x float64) float64 {
 
 	return y
 }
-func completeTaskA(a, b, xMin, xMax, xDelta float64) []float64 {
+func CompleteTaskA(a, b, xMin, xMax, xDelta float64) []float64 {
 	var result []float64
 	for i := xMin; i < xMax; i += xDelta {
 		result = append(result, calculate(a, b, i))
 	}
 	return result
 }
-func completeTaskB(a, b float64, xPlenty []float64) []float64 {
+func CompleteTaskB(a, b float64, xPlenty []float64) []float64 {
 	var result []float64
 	for _, x := range xPlenty {
 		result = append(result, calculate(a, b, x))
@@ -33,8 +33,8 @@ func CompleteLab4() {
 	xMin = 1.5
 	xMax = 3.5
 	xDelta = 0.4
-	resultA = completeTaskA(a, b, xMin, xMax, xDelta)
-	resultB = completeTaskB(a, b, xPlenty)
+	resultA = CompleteTaskA(a, b, xMin, xMax, xDelta)
+	resultB = CompleteTaskB(a, b, xPlenty)
 	fmt.Println(resultA)
 	fmt.Println(resultB)
 }
