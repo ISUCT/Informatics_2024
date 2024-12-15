@@ -3,13 +3,16 @@ package main
 import (
 	"fmt"
 
-	"isuct.ru/informatics2022/labs"
-	"isuct.ru/informatics2022/labs/laba7"
+	"isuct.ru/informatics2022/labs/lab4"
+	"isuct.ru/informatics2022/labs/lab6"
+	"isuct.ru/informatics2022/labs/lab7"
+	"isuct.ru/informatics2022/labs/lab8"
 )
 
 func main() {
 	fmt.Println("Kulikov Ruslan Igorevich")
-	labs.RunLab4()
-	labs.RunLab6()
-	laba7.RunLab7()
+	lab8.RunFileLab()
+	lab4.RunLab4()
+	lab6.RunLab6()
+	lab7.RunLab7()
 }

@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"isuct.ru/informatics2022/labs"
+	"isuct.ru/informatics2022/labs/lab4"
 )
 
 func TestEquation(t *testing.T) {
@@ -31,7 +31,7 @@ func TestEquation(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := labs.CalculateY(tt.x, a, b)
+			result := lab4.CalculateY(tt.x, a, b)
 			if math.IsNaN(tt.x) {
 				assert.True(t, math.IsNaN(result), "ожидалось NaN %f", result)
 			} else {

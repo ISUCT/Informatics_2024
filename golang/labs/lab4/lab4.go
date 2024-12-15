@@ -1,8 +1,10 @@
-package labs
+package lab4
 
 import (
 	"fmt"
 	"math"
+
+	"isuct.ru/informatics2022/labs/lab8"
 )
 
 func CalculateY(x float64, a float64, b float64) float64 {
@@ -29,13 +31,18 @@ func TaskB(a, b float64, values []float64) [][]float64 {
 }
 
 func RunLab4() {
-	resultsA := TaskA(0.05, 0.06, 0.2, 0.95, 0.15)
+	params, err := lab8.ReadDataFromFile("input.txt")
+	if err != nil {
+		fmt.Println("Ошибка:", err)
+		return
+	}
+
+	resultsA := TaskA(params.A, params.B, params.Xn, params.Xk, params.Deltax)
 	for _, result := range resultsA {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}
 
-	arr := []float64{0.15, 0.26, 0.37, 0.48, 0.56}
-	resultsB := TaskB(0.2, 0.95, arr)
+	resultsB := TaskB(params.A, params.B, params.Slicex)
 	for _, result := range resultsB {
 		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
 	}

@@ -1,4 +1,4 @@
-package laba7
+package lab7
 
 import (
 	"fmt"
@@ -15,17 +15,19 @@ func GetFinalPrice(products []Product) float64 {
 func RunLab7() {
 	product1 := &Electronics{Name: "Телефон", Price: 20, Brand: "Iphone", Model: "5s"}
 	if err := product1.applyDiscount(25); err != nil {
-		fmt.Println(err)
+		fmt.Println("Ошибка при применении скидки к продукту 1:", err)
 		return
 	}
+
 	product2 := &Clothing{Name: "Рубашка", Price: 14.32, Size: "L", Color: "white"}
 	if err := product2.applyDiscount(10); err != nil {
-		fmt.Println(err)
+		fmt.Println("Ошибка при применении скидки к продукту 2:", err)
 		return
 	}
+
 	product3 := &Food{Name: "Яблоко", Price: 2.35, Weight: 1}
 	if err := product3.applyDiscount(15); err != nil {
-		fmt.Println(err)
+		fmt.Println("Ошибка при применении скидки к продукту 3:", err)
 		return
 	}
 
