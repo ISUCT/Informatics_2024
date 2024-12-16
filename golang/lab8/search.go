@@ -15,14 +15,12 @@ func SearchingTextInFile(fileName string, searchText string) error {
 	defer file.Close()
 
 	fileScanner := bufio.NewScanner(file)
-	lineNumber := 1
 	found := false
 	for fileScanner.Scan() {
 		if strings.Contains(fileScanner.Text(), searchText) {
-			fmt.Printf("Текст найден на строке %d \n", lineNumber)
+			fmt.Print("Текст найден на строке \n")
 			found = true
 		}
-		lineNumber++
 	}
 
 	if !found {

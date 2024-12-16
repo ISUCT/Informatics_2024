@@ -7,6 +7,14 @@ import (
 	"strconv"
 )
 
+func ReadFile(fileName string) (string, error) {
+	file, err := os.ReadFile(fileName)
+	if err != nil {
+		return "", fmt.Errorf("ошибка чтения файла: %w", err)
+	}
+	return string(file), nil
+}
+
 func ReadFileForLab4(fileName string) ([]float64, error) {
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -25,6 +33,9 @@ func ReadFileForLab4(fileName string) ([]float64, error) {
 		variables = append(variables, number)
 	}
 
-	fmt.Printf("Содержание файла %v \n", variables)
+	if len(variables) < 5 {
+		return variables, fmt.Errorf("нехватает значений! попробуй еще раз")
+	}
+
 	return variables, fileScanner.Err()
 }

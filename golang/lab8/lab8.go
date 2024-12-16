@@ -9,19 +9,9 @@ import (
 	"isuct.ru/informatics2022/lab4"
 )
 
-func RunLab8() {
+func recordingData(fileName string) {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Println("Введите имя файла:")
-	fileName, _ := reader.ReadString('\n')
-	fileName = strings.TrimSpace(fileName)
-	err := CreatingFile(fileName)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	fmt.Println("Введите текст который хотите записать в файл (Для завершения напишите 'Нет')")
 	for {
 		newLine, _ := reader.ReadString('\n')
 		newLine = strings.TrimSpace(newLine)
@@ -36,11 +26,28 @@ func RunLab8() {
 			return
 		}
 	}
+}
 
-	variables, err := ReadFileForLab4(fileName)
+func RunLab8() {
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Println("Введите имя файла:")
+	fileName, _ := reader.ReadString('\n')
+	fileName = strings.TrimSpace(fileName)
+	err := CreatingFile(fileName)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("Введите текст который хотите записать в файл (Для завершения напишите 'Нет')")
+	recordingData(fileName)
+
+	file, err := ReadFile(fileName)
 	if err != nil {
 		panic("Произошла ошибка при чтении данных из файла")
 	}
+	fmt.Println("Содержимое файла: \n", file)
 
 	fmt.Println("Введите текст для поиска в файле:")
 	searchText, _ := reader.ReadString('\n')
@@ -49,6 +56,11 @@ func RunLab8() {
 	if err != nil {
 		fmt.Println(err)
 		return
+	}
+
+	variables, err := ReadFileForLab4(fileName)
+	if err != nil {
+		panic("Произошла ошибка при чтении данных из файла")
 	}
 
 	fmt.Print("Задача А\n")
