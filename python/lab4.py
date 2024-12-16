@@ -2,7 +2,7 @@ import math
 
 
 def CalculateFunction(x, b):
-    y = (1 + (math.sin(b**3 + x**3))**2) / ((b**3 + x**3)**(1/3))
+    y = (1 + (math.sin(b**3 + x**3))**2) / ((b**3 + x**3)**(1 / 3))
     return y
 
 
