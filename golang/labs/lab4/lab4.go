@@ -14,7 +14,7 @@ func calculate (b, x float64) float64 {
 }
 
 
-func compliteTaskA (b, xbegin, xend, xdelta float64) []float64 {
+func CompliteTaskA (b, xbegin, xend, xdelta float64) []float64 {
 	var ys []float64
 	for x := xbegin; x < xend; x += xdelta {
 		ys = append(ys, calculate(b, x))
@@ -22,7 +22,7 @@ func compliteTaskA (b, xbegin, xend, xdelta float64) []float64 {
 	return ys
 }
 
-func compliteTaskB (b float64, xs []float64) []float64 {
+func CompliteTaskB (b float64, xs []float64) []float64 {
 	var ys []float64
 	for _, x := range xs {
 		ys = append(ys, calculate(b, x))
@@ -36,8 +36,8 @@ func AnsLab4 () {
 	var xend float64 = 3.28
 	var xdelta float64 = 0.4
 	var xs []float64 = []float64{1.1, 2.4, 3.6, 1.7, 3.9}
-	var for_a = compliteTaskA(b, xbegin, xend, xdelta)
-	var for_b = compliteTaskB(b, xs)
+	var for_a = CompliteTaskA(b, xbegin, xend, xdelta)
+	var for_b = CompliteTaskB(b, xs)
 
 	fmt.Println("Решение задания А:")
 	for i, y := range for_a {
