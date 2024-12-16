@@ -23,3 +23,11 @@ func read(str string) {
 		fmt.Print(string(data[:n]))
 	}
 }
+
+func readFile() {
+	var str string
+
+	fmt.Print("Введите название файла, который надо открыть: ")
+	fmt.Scan(&str)
+	read(str)
+}

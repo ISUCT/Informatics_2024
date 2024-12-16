@@ -23,8 +23,8 @@ func getNumbers() (b, xbegin, xend, xdelta float64, xs []float64) {
     data := make([]byte, 1)
     var buf []string
     var str string
+
     for{
-        
         _, err := file.Read(data)
         if err == io.EOF{  
             buf = append(buf, str)
@@ -50,7 +50,7 @@ func getNumbers() (b, xbegin, xend, xdelta float64, xs []float64) {
         numfloat, _ := strconv.ParseFloat(num, 64)
         xs = append(xs, numfloat)
     }
-    return 
+    return b, xbegin, xend, xdelta, xs
 }
 
 func ansTask1 () {

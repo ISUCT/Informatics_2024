@@ -5,6 +5,7 @@ import (
 	"io"
 	"bufio"
 	"fmt"
+	"errors"
 )
 
 func search(file *os.File, search string) {
@@ -45,4 +46,28 @@ func search(file *os.File, search string) {
 		}
     }
 	fmt.Println("Количество найденных слов: ", count)
+}
+
+func searchingTextIntoFile () {
+	var strFile string
+	var strSearch string
+
+
+	fmt.Print("Введите название файла, в котором будет поиск: ")
+	fmt.Scanln(&strFile)
+	file, err := os.OpenFile(strFile, os.O_RDONLY, 0444)
+		if err != nil {
+			if errors.Is(err, fs.ErrNotExist) {
+				fmt.Print("Файла не существует, выбирите другой файл")
+			} else{
+				fmt.Print("Не удалось открыть файл, ошибка:", err)
+				fmt.Print("\n")
+			}
+		}
+	defer file.Close()
+
+	fmt.Print("Введите искомый текст: ")
+	fmt.Scanln(&strSearch)
+
+	search(file, strSearch)
 }
