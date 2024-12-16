@@ -20,7 +20,6 @@ func Y_A(begin_x, end_x, delta_x float64) {
 }
 
 func Y_B(arr []float64) {
-
 	for _, x := range arr {
 		answer := calculate(x)
 		fmt.Println(answer)
