@@ -21,20 +21,17 @@ func RunLab8() {
 		fmt.Printf("Ошибка создания файла: %v\n", err)
 		return
 	}
-
 	err = fileutilis.WriteToFile(filename, info)
 	if err != nil {
 		fmt.Printf("Ошибка записи в файл: %v\n", err)
 		return
 	}
-
 	result, err := fileutilis.SearchWord(filename, searchString)
 	if err != nil {
 		fmt.Printf("Ошибка поиска слова: %v\n", err)
 		return
 	}
 	fmt.Println(result)
-
 	fileContent, err := fileutilis.ReadFromFile(filename)
 	if err != nil {
 		fmt.Printf("Ошибка чтения файла: %v\n", err)
