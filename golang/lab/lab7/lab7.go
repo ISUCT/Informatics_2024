@@ -6,14 +6,14 @@ import (
 
 type Product interface {
 	GetInfo()
-	GetPrice() float32
-	MakeDiscount(float32)
-	ChangePrice(float32)
+	GetPrice() float64
+	MakeDiscount(float64)
+	ChangePrice(float64)
 	ChangeDescription(string)
 }
 
-func CalculatePrice(list []Product) float32 {
-	var sum float32 = 0
+func CalculatePrice(list []Product) float64 {
+	var sum float64 = 0
 	for _, price := range list {
 		sum += price.GetPrice()
 	}
