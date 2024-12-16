@@ -16,7 +16,6 @@ func RunLab8() {
 	var searchString string
 	fmt.Print("Введите слово для поиска: ")
 	fmt.Scan(&searchString)
-
 	_, err := fileutilis.CreateFile(filename)
 	if err != nil {
 		fmt.Printf("Ошибка создания файла: %v\n", err)
