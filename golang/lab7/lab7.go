@@ -37,9 +37,15 @@ func Runlab7() {
 	totalBeforeDiscount := CalculateTotalCost(products)
 	fmt.Printf("Общая стоимость до применения скидок: %.2f\n", totalBeforeDiscount)
 
-	book.ApplyDiscount(10)
-	electronic.ApplyDiscount(5)
+	products[0].ApplyDiscount(10)
+	products[1].ApplyDiscount(5)
 
 	totalAfterDiscount := CalculateTotalCost(products)
 	fmt.Printf("Общая стоимость после применения скидок: %.2f\n", totalAfterDiscount)
+
+	electronic.SetModel("iPhone 14 Pro Max")
+	book.SetName("Убить пересмешника")
+
+	fmt.Println(electronic)
+	fmt.Println(book)
 }
