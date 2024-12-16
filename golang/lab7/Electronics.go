@@ -8,21 +8,19 @@ type Electronics struct {
 	Price float64
 }
 
-func (e *Electronics) SetModel(model string) {
+func NewElectronics(name string, model string, price float64) *Electronics {
+	e := new(Electronics)
+	e.Name = name
 	e.Model = model
-}
-
-func (e *Electronics) GetName() string {
-	return e.Name
-}
-
-func (e *Electronics) GetPrice() float64 {
-	return e.Price
-}
-
-func (e *Electronics) SetPrice(price float64) {
 	e.Price = price
+	return e
 }
+
+func (e *Electronics) SetPrice(price float64) { e.Price = price }
+func (e Electronics) GetPrice() float64       { return e.Price }
+func (e *Electronics) SetName(name string)    { e.Name = name }
+func (e Electronics) GetName() string         { return e.Name }
+func (e *Electronics) SetModel(model string)  { e.Model = model }
 
 func (e *Electronics) ApplyDiscount(discount float64) {
 	if discount > 0 && discount <= 100 {
