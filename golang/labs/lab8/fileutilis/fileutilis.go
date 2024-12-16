@@ -9,27 +9,20 @@ import (
 	"strings"
 )
 
-func WriteToFile(filename string) error {
-	var info string
-	fmt.Print("Введите информацию, которую хотите записать в файл: ")
-	fmt.Scan(&info)
-	file, err := os.Open(filename)
+func WriteToFile(filename string, info string) error {
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		return fmt.Errorf("ошибка при открытии файла:%w", err)
 	}
 	defer file.Close()
 	_, err = io.WriteString(file, info)
-	fmt.Println(info)
 	if err != nil {
 		return fmt.Errorf("ошибка при записи в файл: %w", err)
 	}
 	return nil
 }
 
-func CreateFile() (string, error) {
-	var filename string
-	fmt.Print("Введите название файла: ")
-	fmt.Scan(&filename)
+func CreateFile(filename string) (string, error) {
 	file, err := os.Create(filename)
 	if err != nil {
 		return "", fmt.Errorf("ошибка при создании файла: %w", err)
@@ -55,17 +48,13 @@ func ReadFromFile(filename string) (string, error) {
 	return fileContent.String(), nil
 }
 
-func SearchWord(filename string) (string, error) {
-	var searchString string
-	fmt.Print("Введите слово для поиска: ")
-	fmt.Scanln(&searchString)
+func SearchWord(filename string, searchString string) (string, error) {
 
 	f, err := os.Open(filename)
 	if err != nil {
 		return "", fmt.Errorf("ошибка при открытии файла: %w", err)
 	}
 	defer f.Close()
-
 	scanner := bufio.NewScanner(f)
 	found := false
 	for scanner.Scan() {
