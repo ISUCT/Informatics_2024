@@ -21,7 +21,6 @@ func WriteToFile(filename string, info string) error {
 	}
 	return nil
 }
-
 func CreateFile(filename string) (string, error) {
 	file, err := os.Create(filename)
 	if err != nil {
@@ -30,7 +29,6 @@ func CreateFile(filename string) (string, error) {
 	defer file.Close()
 	return filename, nil
 }
-
 func ReadFromFile(filename string) (string, error) {
 	file, err := os.Open(filename)
 	if err != nil {
@@ -47,9 +45,7 @@ func ReadFromFile(filename string) (string, error) {
 	}
 	return fileContent.String(), nil
 }
-
 func SearchWord(filename string, searchString string) (string, error) {
-
 	f, err := os.Open(filename)
 	if err != nil {
 		return "", fmt.Errorf("ошибка при открытии файла: %w", err)
@@ -73,7 +69,6 @@ func SearchWord(filename string, searchString string) (string, error) {
 		return "Слово не найдено", nil
 	}
 }
-
 func ReadInput(filename string) (a, b float64, xValues []float64, err error) {
 	file, err := os.Open(filename)
 	if err != nil {
