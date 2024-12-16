@@ -1,15 +1,15 @@
 package main
 
 import (
- "fmt"
-    lab6 "isuct.ru/informatics2022/laba6"
- laba4 "isuct.ru/informatics2022/labs/laba4"
+	"fmt"
+
+	lab6 "isuct.ru/informatics2022/lab6"
+	laba4 "isuct.ru/informatics2022/laba4"
 )
 
 func main() {
 
- fmt.Println("Дружинин Кирилл Александрович")
- laba4.Y_B()
- lab6.Laba6Run()
+	fmt.Println("Дружинин Кирилл Александрович")
+	laba4.Y_B()
+	lab6.RunLab6Task()
 }
-
