@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 
-	laba6 "isuct.ru/informatics2022/labar6"
-
 	laba4 "isuct.ru/informatics2022/lab4"
+	laba6 "isuct.ru/informatics2022/labar6"
 )
 
 func main() {
