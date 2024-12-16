@@ -15,16 +15,24 @@ func CreateNewFile(name string) {
 	defer file.Close()
 }
 
-func WriteInFile(name string, count int) {
+func GettingData(count int) []string {
+	var arr []string
 	var value string
+	for i := 1; i <= count; i++ {
+		fmt.Print("Введите значение, которое хотите добавить в файл: ")
+		fmt.Fscan(os.Stdin, &value)
+		arr = append(arr, value)
+	}
+	return arr
+}
+
+func WriteInFile(name string, count int) {
 	file, err := os.OpenFile(name, os.O_RDWR, 0666)
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
-	for i := 1; i <= count; i++ {
-		fmt.Print("Введите значение, которое хотите добавить в файл: ")
-		fmt.Fscan(os.Stdin, &value)
+	for _, value := range GettingData(count)  {
 		file.WriteString(value + "\n")
 	}
 }
