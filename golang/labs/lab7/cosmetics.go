@@ -8,18 +8,18 @@ type Cosmetics struct {
 	brand string
 }
 
-func (c *Cosmetics) getName() string {
+func (c *Cosmetics) GetName() string {
 	return c.name
 }
-func (c *Cosmetics) getPrice() float64 {
+func (c *Cosmetics) GetPrice() float64 {
 	return c.price
 }
 
-func (c *Cosmetics) setdiscount(discount float64) {
+func (c *Cosmetics) Setdiscount(discount float64) {
 	c.price -= c.price * discount / 100
 }
 
-func (c *Cosmetics) setPrice(newPrice float64) {
+func (c *Cosmetics) SetPrice(newPrice float64) {
 	c.price = newPrice
 }
 func (c *Cosmetics) GetInfo() string {

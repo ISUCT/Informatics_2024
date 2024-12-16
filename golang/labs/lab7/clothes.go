@@ -10,29 +10,29 @@ type Clothes struct {
 	season   string
 }
 
-func (c *Clothes) getName() string {
+func (c *Clothes) GetName() string {
 	return c.name
 }
 
-func (c *Clothes) getPrice() float64 {
+func (c *Clothes) GetPrice() float64 {
 	return c.price
 }
 
-func (c *Clothes) setdiscount(discount float64) {
+func (c *Clothes) Setdiscount(discount float64) {
 	c.price -= c.price * discount / 100
 }
 
-func (c *Clothes) setPrice(newPrice float64) {
+func (c *Clothes) SetPrice(newPrice float64) {
 	c.price = newPrice
 }
 
-func (c *Clothes) getBrand() string {
+func (c *Clothes) GetBrand() string {
 	return c.brand
 }
-func (c *Clothes) getSeason() string {
+func (c *Clothes) GetSeason() string {
 	return c.season
 }
-func (c *Clothes) getMaterial() string {
+func (c *Clothes) GetMaterial() string {
 	return c.material
 }
 func (c *Clothes) GetInfo() string {

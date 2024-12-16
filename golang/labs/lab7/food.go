@@ -9,18 +9,18 @@ type Food struct {
 	calories int
 }
 
-func (f *Food) getName() string {
+func (f *Food) GetName() string {
 	return f.name
 }
-func (f *Food) getPrice() float64 {
+func (f *Food) GetPrice() float64 {
 	return f.price
 }
 
-func (f *Food) setdiscount(discount float64) {
+func (f *Food) Setdiscount(discount float64) {
 	f.price -= f.price * discount / 100
 }
 
-func (f *Food) setPrice(newPrice float64) {
+func (f *Food) SetPrice(newPrice float64) {
 	f.price = newPrice
 }
 func (f *Food) GetInfo() string {
