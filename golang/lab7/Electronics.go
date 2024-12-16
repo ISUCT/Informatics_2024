@@ -8,6 +8,10 @@ type Electronics struct {
 	Price float64
 }
 
+func (e *Electronics) SetModel(model string) {
+	e.Model = model
+}
+
 func (e *Electronics) GetName() string {
 	return e.Name
 }

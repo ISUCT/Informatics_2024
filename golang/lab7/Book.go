@@ -8,6 +8,10 @@ type Book struct {
 	Price  float64
 }
 
+func (e *Book) SetName(name string) {
+	e.Name = name
+}
+
 func (b *Book) GetName() string {
 	return b.Name
 }
