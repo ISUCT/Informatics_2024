@@ -40,7 +40,11 @@ func (pc *PC) SetStorage(storage int) {
 }
 
 func (pc *PC) GetInfo() string {
-	return "Бренд: " + pc.Brand + "\nПроцессор: " + pc.CPU + "\nВидеокарта: " + pc.GPU + "\nЖесткий диск: " + strconv.Itoa(pc.Storage) + " Гб" + "\nЭнергопотребление: " + strconv.Itoa(pc.PowerUsage) + " Вт"
+	return "Бренд: " + pc.Brand + "\n" +
+		"Процессор: " + pc.CPU + "\n" +
+		"Видеокарта: " + pc.GPU + "\n" +
+		"Жесткий диск: " + strconv.Itoa(pc.Storage) + " Гб\n" +
+		"Энергопотребление: " + strconv.Itoa(pc.PowerUsage) + " Вт"
 }
 
 func RunLab6() {
@@ -49,8 +53,10 @@ func RunLab6() {
 		CPU:        "Intel Xeon 231",
 		GPU:        "Nvidia 1050 GTX",
 		Storage:    256,
-		PowerUsage: 300}
+		PowerUsage: 300,
+	}
 	fmt.Println(pc.GetInfo())
+
 	pc.SetBrand("BMW")
 	pc.SetCPU("Razen Radeon 5632")
 	pc.SetGPU("Invoker RTX SunsrikeSuper 2090")
