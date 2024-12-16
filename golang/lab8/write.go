@@ -12,6 +12,9 @@ func WriteFile(fileName string, newLine string) error {
 	}
 	defer file.Close()
 
-	file.WriteString(newLine + "\n")
+	_, err = file.WriteString(newLine + "\n")
+	if err != nil {
+		return fmt.Errorf("ошибка записи в файл: %w", err)
+	}
 	return nil
 }
