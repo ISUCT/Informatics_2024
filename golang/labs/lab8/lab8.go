@@ -10,11 +10,9 @@ func RunLab8() {
 	var filename string
 	fmt.Print("Введите название файла: ")
 	fmt.Scan(&filename)
-
 	var info string
 	fmt.Print("Введите информацию для записи в файл: ")
 	fmt.Scan(&info)
-
 	var searchString string
 	fmt.Print("Введите слово для поиска: ")
 	fmt.Scan(&searchString)

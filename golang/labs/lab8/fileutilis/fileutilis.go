@@ -67,7 +67,6 @@ func SearchWord(filename string, searchString string) (string, error) {
 	if err := scanner.Err(); err != nil {
 		return "", fmt.Errorf("ошибка при чтении файла: %w", err)
 	}
-
 	if found {
 		return "Слово найдено", nil
 	} else {
