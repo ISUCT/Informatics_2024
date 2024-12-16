@@ -28,22 +28,15 @@ func writeToFile (file *os.File) () {
 	return 
 }
 
-func checkingErr (err error, str string) {
-	if err != nil {
-		if errors.Is(err, fs.ErrNotExist) {
-			var createChoose string
-			fmt.Print("Файла не существует, желаете создать?\nДа/нет ")
-			fmt.Scan(&createChoose)
-			if createChoose == "Да" {
-				createFile(str)
-			} else {
-				fmt.Print("\n")
-			}
-		} else{
-			fmt.Print("Не удалось открыть файл, ошибка: ", err)
+func ifNotExists (str string) {
+	var createChoose string
+		fmt.Print("Файла не существует, желаете создать?\nДа/нет ")
+		fmt.Scan(&createChoose)
+		if createChoose == "Да" {
+			createFile(str)
+		} else {
 			fmt.Print("\n")
 		}
-	}
 }
 
 func write() {
@@ -52,7 +45,14 @@ func write() {
 	fmt.Print("Введите название файла, в который хотите записать текст: ")
 	fmt.Scan(&str)
 	file, err := os.OpenFile(str, os.O_RDWR, 0666)
-	checkingErr(err, str)
+	if err != nil {
+		if errors.Is(err, fs.ErrNotExist) {
+			ifNotExists(str)
+		} else{
+			fmt.Print("Не удалось открыть файл, ошибка: ", err)
+			fmt.Print("\n")
+		}
+	}
 	defer file.Close()
 	writeToFile(file)
 }
