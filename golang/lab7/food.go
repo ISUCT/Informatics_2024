@@ -1,9 +1,8 @@
 package lab7
 
 type Food struct {
-	price       float64
-	section     string
-	nameproduct string
+	price float64
+	name  string
 }
 
 func (f *Food) getPrice() float64 {
@@ -14,11 +13,14 @@ func (f *Food) setPrice(newPrice float64) {
 	f.price = newPrice
 }
 
-func (f *Food) discount(discount float64) {
+func (f *Food) applyDiscount(discount float64) {
 	f.price = f.price * (100 - discount) / 100
 }
 
-func (f *Food) setCharacteristics(newSection string, newNameproduct string) {
-	f.section = newSection
-	f.nameproduct = newNameproduct
+func (f *Food) getName() string {
+	return f.name
+}
+
+func (f *Food) setName(newName string) {
+	f.name = newName
 }
