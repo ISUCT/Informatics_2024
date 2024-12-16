@@ -22,7 +22,7 @@ func main() {
 	lab6.AnsLab6()
 	print("\n")
 
-	lab7.AnsLab()
+	lab7.AnsLab7()
 	print("\n")
 
 	lab8.AnsTask1()

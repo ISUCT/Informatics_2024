@@ -2,7 +2,7 @@ package lab7
 
 import "fmt"
 
-func AnsLab() {
+func AnsLab7() {
 	var product1 car = car{"Тойота Камри 2021", 1450000, 4, "Легковые машины"}
 	var product2 motorbike = motorbike{"ElectroTown Citycoco X7 2000W PRO", 94500, 10, "Электромотоциклы"}
 	var product3 tire = tire{"Зимняя резина", 5000, 0, "Шины для машин"}
