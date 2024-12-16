@@ -1,11 +1,12 @@
 package lab8
 
 import (
-	"os"
-	"io"
 	"bufio"
-	"fmt"
 	"errors"
+	"fmt"
+	"io"
+	"io/fs"
+	"os"
 )
 
 func search(file *os.File, search string) {
