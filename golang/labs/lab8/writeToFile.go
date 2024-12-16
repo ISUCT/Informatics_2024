@@ -28,12 +28,7 @@ func writeToFile (file *os.File) () {
 	return 
 }
 
-func write() {
-	var str string
-
-	fmt.Print("Введите название файла, в который хотите записать текст: ")
-	fmt.Scan(&str)
-	file, err := os.OpenFile(str, os.O_RDWR, 0666)
+func checkingErr (err error, str string) {
 	if err != nil {
 		if errors.Is(err, fs.ErrNotExist) {
 			var createChoose string
@@ -49,6 +44,15 @@ func write() {
 			fmt.Print("\n")
 		}
 	}
+}
+
+func write() {
+	var str string
+
+	fmt.Print("Введите название файла, в который хотите записать текст: ")
+	fmt.Scan(&str)
+	file, err := os.OpenFile(str, os.O_RDWR, 0666)
+	checkingErr(err, str)
 	defer file.Close()
 	writeToFile(file)
 }

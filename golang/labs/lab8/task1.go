@@ -28,7 +28,6 @@ func getNumbers() (b, xbegin, xend, xdelta float64, xs []float64) {
         _, err := file.Read(data)
         if err == io.EOF{  
             buf = append(buf, str)
-            str = ""
             break
         } else if string(data) == "\n" {
             buf = append(buf, str)
