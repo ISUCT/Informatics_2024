@@ -6,4 +6,5 @@ import (
 
 func main() {
 	labs.Lab4()
+	labs.RunLab6()
 }

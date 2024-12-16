@@ -2,46 +2,40 @@ package labs
 
 import (
 	"fmt"
-)
+)  
 
-type Rabbit struct {
-	age    int
-	name   string
-	status string
+type Rabbit struct {  
+	Name   string 
+	Age    int
+	Weight float64
+}  
+
+func NewRabbit(name string, age int, weight float64) Rabbit {
+  return Rabbit{Name: name, Age: age, Weight: weight}
 }
 
-func NewRabbit(age int, name string, status string) *Rabbit {
-	r := new(Rabbit)
-	r.age = age
-	r.name = name
-	r.status = status
-	return r
+func (r *Rabbit) GetAge() int {
+  return r.Age
 }
 
-func (r *Rabbit) getInfo() {
-	fmt.Println("The name of the rabbit is", r.name)
-	fmt.Printf("The age of the rabbit is %d years old\n", r.age)
-	fmt.Println("The rabbit are", r.status)
+func (r *Rabbit) SetAge(age int) {
+	if (age > 0) {
+		r.Age = age
+	}
 }
 
-func (r *Rabbit) changeStatus(status string) string {
-	r.status = status
-	fmt.Println("The rabbit are", r.status, "now")
-	return r.status
+func (r Rabbit) Info() string {
+  return fmt.Sprintf("Имя: %s, Возраст: %d, Вес: %.2f кг", r.Name, r.Age, r.Weight)
 }
 
-func (r *Rabbit) grow() int {
-	r.age = (r.age + 1)
-	fmt.Println("The age of the rabbit is", r.age, "years old now")
-	return r.age
-}
+func RunLab6() {
+  rabbit := NewRabbit("Артём", 2, 1.5)
 
-func Lab6() {
-	rabbit := NewRabbit(17, "Johnny", "sleep")
-	rabbit.getInfo()
-	fmt.Printf("\n")
-	rabbit.changeStatus("jump")
-	rabbit.grow()
-	fmt.Printf("\n")
-	rabbit.getInfo()
+  fmt.Println(rabbit.Info())
+
+  rabbit.SetAge(3)
+
+  fmt.Printf("Обновленный возраст: %d\n", rabbit.GetAge())
+
+  fmt.Println(rabbit.Info())
 }
