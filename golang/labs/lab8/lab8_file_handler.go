@@ -10,7 +10,7 @@ import (
 func CreateFile(filename string) (string, error) {
 	file, err := os.Create(filename)
 	if err != nil {
-		return "", fmt.Errorf("ошибка при создание файла: %v", err)
+		return "", fmt.Errorf("ошибка при создание файла: %w", err)
 	}
 
 	defer file.Close()
@@ -22,7 +22,7 @@ func WriteDataToFile(filePath string) error {
 	file, err := os.OpenFile(filePath, os.O_WRONLY, 0600)
 
 	if err != nil {
-		return fmt.Errorf("открытие файла: %v", err)
+		return fmt.Errorf("открытие файла: %w", err)
 	}
 
 	defer file.Close()
@@ -39,9 +39,8 @@ func WriteDataToFile(filePath string) error {
 		file.WriteString("\n")
 
 		if err != nil {
-			return fmt.Errorf("ошибка при записи в файл: %v", err)
+			return fmt.Errorf("ошибка при записи в файл: %w", err)
 		}
-
 	}
 
 	return nil
