@@ -9,7 +9,7 @@ func RunLab7() {
 	phone := &Electronic{name: "iPhone 14", price: 1000, description: "New iPhone"}
 	tshirt := &Clothing{name: "T-Shirt", price: 20, description: "Cotton T-Shirt", size: "M"}
 	phone.SetDescription("New iPhone 14 Pro Max")
-	tshirt.SetDescription("Cotton T-Shirt with white logo")
+	tshirt.SetDescription("Cotton T-Shirt with Black logo")
 
 	products := []Product{phone, tshirt}
 
