@@ -103,19 +103,19 @@ func InputText(text string) (string, error) {
 	text = strings.Replace(text, "\r", "", -1)
 	return text, nil
 }
-//Ответ на комментарий по строкам 38-41("По названию функции я ожидаю, что она будет записывать что-то в файл.
-//Т.е. я ожидаю, что на входе будет две переменных: название файла и данные. Пожалуйста, обновите эту функцию чтобы она соответствовала неймингу"):
+// Ответ на комментарий по строкам 38-41("По названию функции я ожидаю, что она будет записывать что-то в файл.
+// Т.е. я ожидаю, что на входе будет две переменных: название файла и данные. Пожалуйста, обновите эту функцию чтобы она соответствовала неймингу"):
 
-//Может я что не понимаю, но вроде бы ввожу текст с консоли, который будет записан в файл вот этой функцией:
-//func InputText(text string) (string, error) {
-//var in *bufio.Reader = bufio.NewReader(os.Stdin)
+// Может я что не понимаю, но вроде бы ввожу текст с консоли, который будет записан в файл вот этой функцией:
+// func InputText(text string) (string, error) {
+// var in *bufio.Reader = bufio.NewReader(os.Stdin)
 
-//fmt.Printf("Введите %v: ", text)
-//text, err := in.ReadString('\n')
-//if err != nil {
-//return "", err
-//}
-//text = strings.Replace(text, "\n", "", -1)
-//text = strings.Replace(text, "\r", "", -1)
-//return text, nil
-//}
+// fmt.Printf("Введите %v: ", text)
+// text, err := in.ReadString('\n')
+// if err != nil {
+// return "", err
+// }
+// text = strings.Replace(text, "\n", "", -1)
+// text = strings.Replace(text, "\r", "", -1)
+// return text, nil
+// }
