@@ -36,7 +36,7 @@ func Task_B(arguments []float64) []float64 {
 func ReadDataFromTxt(filename string) ([]float64, error) {
 	file, err := os.Open(filename)
 	if err != nil {
-		return nil, fmt.Errorf("ошибка при чтении файла %s: %v", filename, err)
+		return nil, fmt.Errorf("ошибка при чтении файла %s: %w", filename, err)
 	}
 	defer file.Close()
 
@@ -47,7 +47,7 @@ func ReadDataFromTxt(filename string) ([]float64, error) {
 		line := fileScanner.Text()
 		value, err := strconv.ParseFloat(line, 64)
 		if err != nil {
-			return nil, fmt.Errorf("ошибка при конвертации строки '%s' в число: %v", line, err)
+			return nil, fmt.Errorf("ошибка при конвертации строки '%s' в число: %w", line, err)
 		}
 		values = append(values, value)
 	}
@@ -58,7 +58,7 @@ func ReadDataFromTxt(filename string) ([]float64, error) {
 func RunLab8ByLab4() {
 	values, err := ReadDataFromTxt("labs/lab8/input.txt")
 	if err != nil {
-		panic(fmt.Sprintf("Ошибка при чтении данных: %v", err))
+		panic(fmt.Sprintf("Ошибка при чтении данных: %w", err))
 	}
 
 	// Task_A

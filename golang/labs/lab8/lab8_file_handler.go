@@ -69,7 +69,7 @@ func IsStrInFile(filePath, searchStr string) (bool, int, error) {
 	file, err := os.Open(filePath)
 
 	if err != nil {
-		return false, -1, fmt.Errorf("ошибка при открытие файла: %v", err)
+		return false, -1, fmt.Errorf("ошибка при открытие файла: %w", err)
 	}
 	defer file.Close()
 
