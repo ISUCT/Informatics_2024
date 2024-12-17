@@ -58,7 +58,7 @@ func ReadDataFromTxt(filename string) ([]float64, error) {
 func RunLab8ByLab4() {
 	values, err := ReadDataFromTxt("labs/lab8/input.txt")
 	if err != nil {
-		panic(fmt.Sprintf("Ошибка при чтении данных: %w", err))
+		panic("Ошибка при чтении данных")
 	}
 
 	// Task_A
