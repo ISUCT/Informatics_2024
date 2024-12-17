@@ -1,4 +1,4 @@
-package internal_test
+package labs
 
 import (
 	"testing"
