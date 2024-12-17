@@ -5,6 +5,7 @@ import (
 	// "isuct.ru/informatics2022/internal/labs/lab6"
 	// "isuct.ru/informatics2022/internal/labs/lab7"
 	"isuct.ru/informatics2022/internal/labs/lab8"
+	// "fmt"
 )
 
 func main() {
