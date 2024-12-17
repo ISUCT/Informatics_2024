@@ -9,7 +9,9 @@ import (
 
 func RunLab8() {
 	filename := "sample_file.txt"
-	CreateAndWriteFile(filename)
+
+	file := CreateFile(filename)
+	WriteToFile(file)
 
 	fmt.Println("Содержимое файла:")
 	ReadFile(filename)
@@ -20,13 +22,19 @@ func RunLab8() {
 	SearchInFile(filename, searchText)
 }
 
-func CreateAndWriteFile(filename string) {
-	file, _ := os.Create(filename)
-	defer file.Close()
+func CreateFile(filename string) *os.File {
+	file, err := os.Create(filename)
+	if err != nil {
+		fmt.Println("Ошибка при создании файла:", err)
+		os.Exit(1)
+	}
+	return file
+}
 
+func WriteToFile(file *os.File) {
+	defer file.Close()
 	fmt.Println("Введите текст для записи (завершите ввод пустой строкой):")
 	scanner := bufio.NewScanner(os.Stdin)
-
 	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "" {
@@ -34,12 +42,15 @@ func CreateAndWriteFile(filename string) {
 		}
 		file.WriteString(line + "\n")
 	}
-
 	fmt.Println("Данные записаны в файл.")
 }
 
 func ReadFile(filename string) {
-	file, _ := os.Open(filename)
+	file, err := os.Open(filename)
+	if err != nil {
+		fmt.Println("Ошибка при чтении файла:", err)
+		return
+	}
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
