@@ -103,3 +103,16 @@ func InputText(text string) (string, error) {
 	text = strings.Replace(text, "\r", "", -1)
 	return text, nil
 }
+//Ответ на комментарий по строкам 38-41: Может я что не понимаю, но вроде бы ввожу текст с консоли, который будет записан в файл вот этой функцией:
+//func InputText(text string) (string, error) {
+//var in *bufio.Reader = bufio.NewReader(os.Stdin)
+
+//fmt.Printf("Введите %v: ", text)
+//text, err := in.ReadString('\n')
+//if err != nil {
+//return "", err
+//}
+//text = strings.Replace(text, "\n", "", -1)
+//text = strings.Replace(text, "\r", "", -1)
+//return text, nil
+//}
