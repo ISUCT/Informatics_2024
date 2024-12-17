@@ -93,6 +93,11 @@ func interactionPanel(list *todo.Todo) bool {
 		if status == '+' {
 			list.SortReverse()
 		}
+	case 'T', 't', 'Е', 'е':
+		clear()
+		fmt.Print("Введите текст для поиска: ")
+		list.SerthTask(console.Write())
+
 	case 'Q', 'q', 'Й', 'й':
 		return true
 	default:

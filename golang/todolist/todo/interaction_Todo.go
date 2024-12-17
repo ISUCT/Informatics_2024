@@ -3,6 +3,7 @@ package todo
 import (
 	"fmt"
 	"sort"
+	"strings"
 	"time"
 )
 
@@ -48,4 +49,18 @@ func (T *Todo) SortTaskDeadline() {
 		func(i, j int) bool {
 			return T.List[i].Deadline.Unix() > T.List[j].Deadline.Unix()
 		})
+}
+
+func (T *Todo) SerthTask(serthText string) {
+	var atLeastOneTaskWasFound bool = false
+	for i, task := range T.List {
+		foundText := strings.Contains(task.Name, serthText)
+		if foundText {
+			fmt.Printf("%v | %v ; осталось %v д. ; тег: %v\n", i, task.Name, task.getDays(), task.Teg)
+			atLeastOneTaskWasFound = true
+		}
+	}
+	if !atLeastOneTaskWasFound {
+		fmt.Println("Ничего не найдено")
+	}
 }
