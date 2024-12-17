@@ -3,10 +3,13 @@ package lab8
 import "fmt"
 
 func RunLab8() error {
-	filename := "./internal/labs/lab8/data.txt"
+	fmt.Println("Введите название файла")
+	var filename string
+	fmt.Scan(&filename)
 	RunLab8forLab4(filename)
-	filename = "./internal/labs/lab8/input.txt"
-	_, err := CreateFile(filename)
+	fmt.Println("Введите название файла")
+	fmt.Scan(&filename)
+	f, err := CreateFile(filename)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -21,6 +24,16 @@ func RunLab8() error {
 	var search string
 	fmt.Println("Введите текст для поиска: ")
 	fmt.Scan(&search)
-	err = SearchInFile(filename, search)
+	searchResult, err := SearchInFile(f, search)
+	if err != nil {
+		fmt.Println(err)
+	}
+	if len(searchResult) == 0 {
+		fmt.Println("Ничего не найдено")
+	} else {
+		for _, result := range searchResult {
+			fmt.Println(result)
+		}
+	}
 	return err
 }
