@@ -41,14 +41,14 @@ func AddTask() {
 	}
 
 	filename := "task.json"
-	tasks, err := ReadFromFileJson(filename)
+	tasks, err := ReadFromFileJSON(filename)
 	if err != nil && !os.IsNotExist(err) {
 		fmt.Println("Ошибка чтения задач из файла:", err)
 		return
 	}
 
 	tasks = append(tasks, task)
-	err = WriteToFileJson(filename, tasks)
+	err = WriteToFileJSON(filename, tasks)
 	if err != nil {
 		fmt.Println("Ошибка записи в файл:", err)
 		return
@@ -72,7 +72,7 @@ func ExitTask() {
 	}
 }
 
-func ShowJsonFile() {
+func ShowJSONFile() {
 	filename := "task.json"
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
@@ -84,7 +84,7 @@ func ShowJsonFile() {
 
 func DeleteTask() {
 	filename := "task.json"
-	tasks, err := ReadFromFileJson(filename)
+	tasks, err := ReadFromFileJSON(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения задач из файла:", err)
 		return
@@ -100,7 +100,7 @@ func DeleteTask() {
 	}
 
 	tasks = append(tasks[:index-1], tasks[index:]...)
-	err = WriteToFileJson(filename, tasks)
+	err = WriteToFileJSON(filename, tasks)
 	if err != nil {
 		fmt.Println("Ошибка записи в файл:", err)
 		return
@@ -110,7 +110,7 @@ func DeleteTask() {
 
 func UpdateTaskStatus() {
 	filename := "task.json"
-	tasks, err := ReadFromFileJson(filename)
+	tasks, err := ReadFromFileJSON(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения задач из файла:", err)
 		return
@@ -126,7 +126,7 @@ func UpdateTaskStatus() {
 	}
 
 	tasks[index-1].Status = true
-	err = WriteToFileJson(filename, tasks)
+	err = WriteToFileJSON(filename, tasks)
 	if err != nil {
 		fmt.Println("Ошибка записи в файл:", err)
 		return
@@ -136,7 +136,7 @@ func UpdateTaskStatus() {
 
 func SearchTask() {
 	filename := "task.json"
-	tasks, err := ReadFromFileJson(filename)
+	tasks, err := ReadFromFileJSON(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения задач из файла:", err)
 		return
@@ -167,12 +167,12 @@ func SearchTask() {
 func ChooseTypeNotion() {
 	for {
 		fmt.Println("Выберите действие:")
-		fmt.Println("1. Добавить задачу")
-		fmt.Println("2. Показать задачи")
-		fmt.Println("3. Отметить задачу как выполненную")
-		fmt.Println("4. Удалить задачу")
-		fmt.Println("5. Поиск задачи")
-		fmt.Println("6. Выйти")
+		fmt.Println("1. Добавить задачу!")
+		fmt.Println("2. Показать задачи!")
+		fmt.Println("3. Отметить задачу как выполненную!")
+		fmt.Println("4. Удалить задачу!")
+		fmt.Println("5. Поиск задачи!")
+		fmt.Println("6. Выйти!")
 
 		var choice int
 		fmt.Scanln(&choice)
@@ -181,7 +181,7 @@ func ChooseTypeNotion() {
 		case 1:
 			AddTask()
 		case 2:
-			ShowJsonFile()
+			ShowJSONFile()
 		case 3:
 			UpdateTaskStatus()
 		case 4:
