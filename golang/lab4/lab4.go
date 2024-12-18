@@ -59,7 +59,6 @@ func ReadInput() (float64, float64, []float64) {
 
 func Lab4() {
 	a, b, x := ReadInput()
-func Lab4() {
 	var a float64 = 7.2
 	var b float64 = 1.3
 	var x []float64 = []float64{2.4, 2.8, 3.9, 4.7, 3.16}
