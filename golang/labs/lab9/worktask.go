@@ -167,12 +167,12 @@ func SearchTask() {
 func ChooseTypeNotion() {
 	for {
 		fmt.Println("Выберите действие:")
-		fmt.Println("1. Добавить задачу!")
-		fmt.Println("2. Показать задачи!")
-		fmt.Println("3. Отметить задачу как выполненную!")
-		fmt.Println("4. Удалить задачу!")
-		fmt.Println("5. Поиск задачи!")
-		fmt.Println("6. Выйти!")
+		fmt.Println("1. Добавить задачу")
+		fmt.Println("2. Показать задачи")
+		fmt.Println("3. Отметить задачу как выполненную")
+		fmt.Println("4. Удалить задачу")
+		fmt.Println("5. Поиск задачи")
+		fmt.Println("6. Выйти")
 
 		var choice int
 		fmt.Scanln(&choice)

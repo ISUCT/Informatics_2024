@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func WriteToFileJson(filename string, tasks []Task) error {
+func WriteToFileJSON(filename string, tasks []Task) error {
 	file, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
 		return fmt.Errorf("Ошибка открытия файла для записи: %w", err)
@@ -20,7 +20,7 @@ func WriteToFileJson(filename string, tasks []Task) error {
 	return nil
 }
 
-func ReadFromFileJson(filename string) ([]Task, error) {
+func ReadFromFileJSON(filename string) ([]Task, error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		if os.IsNotExist(err) {
