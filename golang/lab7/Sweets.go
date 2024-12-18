@@ -14,7 +14,7 @@ func (s Sweets) GetPrice() float32 {
 	return s.Price
 }
 
-func (s *Sweets) Sale(x float32) {
+func (s *Sweets) ApplyDiscount(x float32) {
 	(*s).Price = (s.Price / 100) * (100 - x)
 }
 
