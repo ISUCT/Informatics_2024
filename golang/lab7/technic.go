@@ -14,7 +14,7 @@ func (t Technic) GetPrice() float32 {
 	return t.Price
 }
 
-func (t *Technic) Sale(x float32) {
+func (t *Technic) ApplyDiscount(x float32) {
 	(*t).Price = (t.Price / 100) * (100 - x)
 }
 
