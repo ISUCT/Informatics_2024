@@ -5,23 +5,23 @@ import "fmt"
 func GetEndPrice(products []Product) float64 {
 	var endPrice float64
 	for _, product := range products {
-		endPrice += product.getPrice()
+		endPrice += product.GetPrice()
 	}
 	return endPrice
 }
 
 func RunLab7() {
-	product1 := &Book{name: "Закат Европы", author: "Освальд Шпеглер", genre: "научный", price: 999}
-	product1.applyDiscount(5)
-	product2 := &Juice{name: "Любимый", taste: "Апельсин", volume: 2, price: 199}
-	product2.applyDiscount(10)
-	product3 := &Movie{title: "Гарри Поттер и Узник Азкабана", director: "Джоан Роулинг", duration: 120, price: 299}
-	product3.applyDiscount(15)
+	product1 := &Book{Name: "Закат Европы", Author: "Освальд Шпеглер", Genre: "научный", Price: 999}
+	product1.ApplyDiscount(5)
+	product2 := &Juice{Name: "Любимый", Taste: "Апельсин", Volume: 2, Price: 199}
+	product2.ApplyDiscount(10)
+	product3 := &Movie{Title: "Гарри Поттер и Узник Азкабана", Director: "Джоан Роулинг", Duration: 120, Price: 299}
+	product3.ApplyDiscount(15)
 
 	products := []Product{product1, product2, product3}
 
 	for _, product := range products {
-		fmt.Println(product.getProductInfo())
+		fmt.Println(product.GetProductInfo())
 	}
 
 	totalPrice := GetEndPrice(products)

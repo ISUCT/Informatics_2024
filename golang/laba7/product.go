@@ -1,7 +1,7 @@
 package laba7
 
 type Product interface {
-	applyDiscount(discount float64)
-	getPrice() float64
-	getProductInfo() string
+	ApplyDiscount(discount float64)
+	GetPrice() float64
+	GetProductInfo() string
 }

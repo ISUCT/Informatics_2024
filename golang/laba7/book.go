@@ -3,20 +3,20 @@ package laba7
 import "fmt"
 
 type Book struct {
-	name   string
-	price  float64
-	author string
-	genre  string
+	Name   string
+	Price  float64
+	Author string
+	Genre  string
 }
 
-func (b *Book) applyDiscount(discount float64) {
-	b.price = b.price * (1 - discount/100)
+func (b *Book) ApplyDiscount(discount float64) {
+	b.Price = b.Price * (1 - discount/100)
 }
 
-func (b *Book) getPrice() float64 {
-	return b.price
+func (b *Book) GetPrice() float64 {
+	return b.Price
 }
 
-func (b *Book) getProductInfo() string {
-	return fmt.Sprintf("Name: %s, Author: %s, Genre: %s, Price: %.2f", b.name, b.author, b.genre, b.price)
+func (b *Book) GetProductInfo() string {
+	return fmt.Sprintf("Name: %s, Author: %s, Genre: %s, Price: %.2f", b.Name, b.Author, b.Genre, b.Price)
 }
