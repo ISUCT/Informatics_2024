@@ -2,16 +2,16 @@ package lab7
 
 import "fmt"
 
-type Product interface {
+type Products interface {
 	GetInformation()
 	GetPrice() float32
-	Sale(float32)
+	ApplyDiscount(float32)
 	ChangePrice(float32)
 	ChangeDescription(string)
 }
 
 
-func CalculateBue(list []Product) float32 {
+func CalculateBuy(list []Products) float32 {
 	var sum float32 = 0
 	for _, price := range list {
 		sum += price.GetPrice()
@@ -20,24 +20,24 @@ func CalculateBue(list []Product) float32 {
 }
 
 func RunLab7Tasks() {
-	var interface_cosmetic Product = &Cosmetic{"помада", "Gucci", 5000}
-	var interface_techcic Product = &Technic{"ноутбук", "Apple", 169660}
-	var interface_sweets Product = &Sweets{"Сникерс", "Солёная карамель", 85}
-	interface_cosmetic.GetInformation()
-	interface_techcic.GetInformation()
-	interface_sweets.GetInformation()
-	var bue []Product = []Product{interface_cosmetic, interface_techcic, interface_sweets}
-	sum := CalculateBue(bue)
+	var cosmetic Products = &Cosmetic{"помада", "Gucci", 5000}
+	var techcic Products = &Technic{"ноутбук", "Apple", 169660}
+	var sweets Products = &Sweets{"Сникерс", "Солёная карамель", 85}
+	cosmetic.GetInformation()
+	techcic.GetInformation()
+	sweets.GetInformation()
+	var buy []Products = []Products{cosmetic , techcic, sweets}
+	sum := CalculateBuy(buy)
 	fmt.Println("Товары стоят",sum)
-	interface_techcic.ChangePrice(150000)
-	interface_cosmetic.ChangeDescription("LV")
-	interface_cosmetic.Sale(5)
-	interface_sweets.Sale(60)
-	interface_sweets.ChangeDescription("Белый шоколад")
-	interface_techcic.GetInformation()
-	interface_cosmetic.GetInformation()
-	interface_sweets.GetInformation()
+	techcic.ChangePrice(150000)
+	cosmetic.ChangeDescription("LV")
+	cosmetic.ApplyDiscount(5)
+	sweets.ApplyDiscount(60)
+	sweets.ChangeDescription("Белый шоколад")
+	techcic.GetInformation()
+	cosmetic.GetInformation()
+	sweets.GetInformation()
 
-	sum = CalculateBue(bue)
+	sum = CalculateBuy(buy)
 	fmt.Println("Товары стоят",sum)
 }
