@@ -23,6 +23,20 @@ func TaskB(a, b float64, xValues []float64) {
 		y := CalculateY(a, b, x)
 		fmt.Printf("For x = %.2f, y = %.10f\n", x, y)
 	}
+func TaskA(a, b, xStart, xEnd, step float64) []float64 {
+	var result []float64
+	for x := xStart; x <= xEnd; x += step {
+		result = append(result, CalculateY(a, b, x))
+	}
+	return result
+}
+
+func TaskB(a, b float64, xValues []float64) []float64 {
+	var result []float64
+	for _, x := range xValues {
+		result = append(result, CalculateY(a, b, x))
+	}
+	return result
 }
 
 func Lab4() {
@@ -38,4 +52,10 @@ func Lab4() {
 
 	xValues := []float64{0.5, 0.36, 0.40, 0.62, 0.78}
 	TaskB(a, b, xValues)
+	var xValues []float64 = []float64{0.5, 0.36, 0.40, 0.62, 0.78}
+	var resultA []float64 = TaskA(a, b, xStart, xEnd, step)
+	var resultB []float64 = TaskB(a, b, xValues)
+
+	fmt.Println(resultA)
+	fmt.Println(resultB)
 }
