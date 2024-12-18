@@ -18,7 +18,7 @@ func (c *Electronics) ChangePrice(x float64) {
 	(*c).price = x
 }
 
-func (c *Electronics) ChangeCharacteristic(newcolour string, newmemory string) {
-	c.colour = newcolour
-	c.memory = newmemory
+func (c *Electronics) ChangeCharacteristic(newColour string, newMemory string) {
+	c.colour = newColour
+	c.memory = newMemory
 }

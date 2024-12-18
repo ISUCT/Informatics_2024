@@ -18,7 +18,7 @@ func (c *Clothes) ChangePrice(x float64) {
 	(*c).price = x
 }
 
-func (c *Clothes) ChangeCharacteristic(newcolour string, newsize string) {
-	c.colour = newcolour
-	c.size = newsize
+func (c *Clothes) ChangeCharacteristic(newColour string, newSize string) {
+	c.colour = newColour
+	c.size = newSize
 }
