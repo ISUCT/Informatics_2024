@@ -6,6 +6,8 @@ import (
 	"math"
 	"os"
 	"strconv"
+	"fmt"
+	"math"
 )
 
 func Calculate(a, b, elements float64) float64 {
@@ -57,6 +59,10 @@ func ReadInput() (float64, float64, []float64) {
 
 func Lab4() {
 	a, b, x := ReadInput()
+func Lab4() {
+	var a float64 = 7.2
+	var b float64 = 1.3
+	var x []float64 = []float64{2.4, 2.8, 3.9, 4.7, 3.16}
 	var xn float64 = 1.56
 	var xk float64 = 4.71
 	var xdel float64 = 0.63
