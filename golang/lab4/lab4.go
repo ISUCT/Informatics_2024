@@ -2,12 +2,10 @@ package lab4
 
 import (
 	"bufio"
-	"fmt"
 	"math"
 	"os"
 	"strconv"
 	"fmt"
-	"math"
 )
 
 func Calculate(a, b, elements float64) float64 {
