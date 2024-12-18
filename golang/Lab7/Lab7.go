@@ -39,6 +39,6 @@ func RunLab7() {
 	fmt.Printf("Общая стоимость с учётом скидок: %.2f\n", totalAfterDiscounts)
 }
 
-func main() {
+func RunLab7() {
 	RunLab7()
 }
