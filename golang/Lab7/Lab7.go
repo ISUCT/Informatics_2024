@@ -19,7 +19,7 @@ func CalculateTotal(products []Product) float64 {
 	return total
 }
 
-func RunLab7() {
+func RunLab7A() {
 	item1 := &Iron{Item: Item{Name: "Утюг", Price: 1000.0}}
 	item2 := &Microwave{Item: Item{Name: "Микроволновка", Price: 1500.0}}
 	item3 := &Refrigerator{Item: Item{Name: "Холодильник", Price: 3000.0}}
