@@ -20,7 +20,7 @@ func ReadData(filename string) ([]float64, error) {
 	for sc.Scan() {
 		number, err := strconv.ParseFloat(sc.Text(), 64)
 		if err != nil {
-			return nil, fmt.Errorf("че не открывается? иди делом займись")
+			return nil, fmt.Errorf("не открывается")
 		}
 		numbers = append(numbers, number)
 	}
