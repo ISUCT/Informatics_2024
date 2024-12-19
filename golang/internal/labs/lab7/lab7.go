@@ -25,5 +25,4 @@ func RunLab7() {
 	fmt.Println("Name of T-Shirt after changes:", tshirt.GetName())
 	fmt.Println("Description of T-Shirt after changes:", tshirt.GetDescription())
 	fmt.Println("Phone Characreristics after changes:", phone.GetDescription())
-
 }
