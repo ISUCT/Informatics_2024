@@ -10,4 +10,5 @@ func main() {
 	lab4.Answerlab()
 	lab6.Runlab6()
 	lab7.Runlab7()
+	fmt.Println("Шумская Дарья")
 }
