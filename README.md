@@ -26,5 +26,5 @@
 ```
 
 ```python
-print("Hello world")
+print("Щербаков Илья Александрович")
 ```
