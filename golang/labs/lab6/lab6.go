@@ -25,7 +25,6 @@ func (p Plane) DisplayInfo() {
 	fmt.Printf("Название: %s,Модель: %s,Скорость полёта: %.2f km/h\n", p.Name, p.Model, p.FlightSpeed)
 }
 func Runlab6() {
-
 	plane := NewPlane("Albatros", "718", 900.0)
 
 	plane.DisplayInfo()
