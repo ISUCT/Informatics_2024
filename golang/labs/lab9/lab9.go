@@ -85,7 +85,7 @@ func RunLab9() {
 		case "5":
 			fmt.Println("Введите ключевое слово для поиска задачи:")
 			var taskName string
-			fmt.Scanln(&taskName)
+			fmt.Scan(&taskName)
 			searchedTask, err := TaskList.SearchTask(taskName)
 			if err == nil {
 				fmt.Println(searchedTask)

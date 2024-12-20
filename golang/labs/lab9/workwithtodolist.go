@@ -29,8 +29,10 @@ func (l *ToDoList) DeleteTask(index int, name string) (string, error) {
 }
 
 func (l *ToDoList) MarkAsComplete(description string, name string) (string, error) {
+	lowerDescription := strings.ToLower(description)
 	for i := range l.Tasks {
-		if strings.Contains(l.Tasks[i].Description, description) {
+		taskLower := strings.ToLower(l.Tasks[i].Description)
+		if strings.Contains(taskLower, lowerDescription) {
 			descriptionForReturn := l.Tasks[i].Description
 			l.Tasks[i].Status = "выполнена"
 			WriteDataToFile(name, l)
@@ -42,8 +44,10 @@ func (l *ToDoList) MarkAsComplete(description string, name string) (string, erro
 }
 
 func (l *ToDoList) SearchTask(keyword string) (string, error) {
+	lowerKeyword := strings.ToLower(keyword)
 	for i := range l.Tasks {
-		if strings.Contains(l.Tasks[i].Description, keyword) {
+		taskLower := strings.ToLower(l.Tasks[i].Description)
+		if strings.Contains(taskLower, lowerKeyword) {
 			taskStr, err := json.Marshal(l.Tasks[i])
 			if err != nil {
 				return "", fmt.Errorf("поиск задачи: %w", err)
