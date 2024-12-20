@@ -7,7 +7,6 @@ type Plane struct {
 	Model       string
 	FlightSpeed float64
 }
-
 func NewPlane(name, model string, flightspeed float64) Plane {
 	return Plane{
 		Name:        name,
@@ -26,9 +25,7 @@ func (p Plane) DisplayInfo() {
 }
 func Runlab6() {
 	plane := NewPlane("Albatros", "718", 900.0)
-
 	plane.DisplayInfo()
-
 	speed := plane.GetFlightSpeed()
 	fmt.Printf("Текущая скорость полёта:%.2f km/h\n", speed)
 	plane.SetFlightSpeed(950.0)
