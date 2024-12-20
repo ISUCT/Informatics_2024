@@ -22,10 +22,6 @@ func (t *Technic) setPrice(newPrice float64) {
 	t.price = newPrice
 }
 
-func (t *Technic) getWeight() float64 {
-	return t.weight
-}
-
 func (t *Technic) setWeight(newWeight float64) {
 	t.weight = newWeight
 }

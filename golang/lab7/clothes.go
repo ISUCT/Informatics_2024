@@ -22,10 +22,6 @@ func (c *Clothes) setPrice(newPrice float64) {
 	c.price = newPrice
 }
 
-func (c *Clothes) getSize() string {
-	return c.size
-}
-
 func (c *Clothes) setSize(newSize string) {
 	c.size = newSize
 }

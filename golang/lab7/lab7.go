@@ -27,6 +27,7 @@ func RunLab7() {
 
 	pants.setSize("L")
 	chocolate.setPrice(109.99)
+	chocolate.setCalories(611)
 	phone.setName("Iphone 16 Pro Max")
 	phone.setWeight(225)
 

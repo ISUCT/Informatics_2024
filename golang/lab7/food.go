@@ -22,10 +22,6 @@ func (f *Food) setPrice(newPrice float64) {
 	f.price = newPrice
 }
 
-func (f *Food) getCalories() float64 {
-	return f.calories
-}
-
 func (f *Food) setCalories(newCalories float64) {
 	f.calories = newCalories
 }
