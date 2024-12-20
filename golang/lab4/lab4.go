@@ -43,5 +43,4 @@ func Answerlab() {
 	for i, y := range for_b {
 		fmt.Printf("y%d = %f\n", i+1, y)
 	}
-
 }
