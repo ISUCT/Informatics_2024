@@ -4,34 +4,36 @@ import (
 	"fmt"
 )
 
-
-type Product interface{
+type Product interface {
 	getName() string
 	setName(string)
 	getPrice() float64
 	setPrice(float64)
-	applyDicount(float64)
+	applyDiscount(float64)
 }
 
-
-func ProductSum(productlist []Product) string{
+func CalculateProductSum(productlist []Product) string {
 	var sum float64 = 0
-	for _, product := range productlist{
+	for _, product := range productlist {
 		sum += product.getPrice()
 	}
-	result := fmt.Sprintf("%r", sum)
-
+	return fmt.Sprintf("%r", sum)
 }
 
-func RunLab7(){
-	pants := &Clothes{name: "штаны", price:1499, size: "M"}
-	chocolate := &Food{name: "шоколад", price:99.99, calories:576}
-	phone := &Food{name: "Iphone 15 Pro Max", price:170990, weight:227}
+func RunLab7() {
+	pants := &Clothes{name: "штаны", price: 1499, size: "M"}
+	chocolate := &Food{name: "шоколад", price: 99.99, calories: 576}
+	phone := &Technic{name: "Iphone 15 Pro Max", price: 170990, weight: 227}
 
 	pants.setSize("L")
 	chocolate.setPrice(109.99)
 	phone.setName("Iphone 16 Pro Max")
-	phone.setWeight("225")
+	phone.setWeight(225)
 
-	productlist 
+	productlist := []Product{pants, chocolate, phone}
+	fmt.Printf("Сумма товаров без скидки: %v рублей.\n", CalculateProductSum(productlist))
+	pants.applyDiscount(10)
+	chocolate.applyDiscount(30)
+	phone.applyDiscount(5)
+	fmt.Printf("Сумма товаров со скидкой: %v рублей.\n", CalculateProductSum(productlist))
 }
