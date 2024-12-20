@@ -36,7 +36,7 @@ func AddTask(filename string, description string) error {
 	if err != nil {
 		return fmt.Errorf("ошибка при создании JSON: %w", err)
 	}
-	err = os.WriteFile(filename, jsonData, 0644)
+	err = os.WriteFile(filename, jsonData, 0600)
 	if err != nil {
 		return fmt.Errorf("ошибка при записи в файл: %w", err)
 	}
@@ -106,7 +106,7 @@ func SaveTasks(filename string, tasks []structure.Task) {
 		fmt.Println("Ошибка при сохранении данных:", err)
 		return
 	}
-	err = os.WriteFile(filename, data, 0644)
+	err = os.WriteFile(filename, data, 0600)
 	if err != nil {
 		fmt.Println("Ошибка при записи в файл:", err)
 	}
