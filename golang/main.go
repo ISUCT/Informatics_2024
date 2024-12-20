@@ -5,6 +5,7 @@ import (
 
 	"isuct.ru/informatics2022/internal/labs/lab4"
 	"isuct.ru/informatics2022/internal/labs/lab6"
+	"isuct.ru/informatics2022/internal/labs/lab7"
 )
 
 func main() {
@@ -15,4 +16,6 @@ func main() {
 	fmt.Println(resultB)
 
 	lab6.RunLab6()
+
+	lab7.RunLab7()
 }
