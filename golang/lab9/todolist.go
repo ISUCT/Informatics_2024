@@ -28,8 +28,8 @@ func (t *ToDoList) AddTask(fileName string, description string) error {
 func (t *ToDoList) PrintToDoList() {
 	if len(t.Tasks) == 0 {
 		fmt.Println("Нет добавленных задач")
-
 	}
+	
 	for i, task := range t.Tasks {
 		fmt.Printf("Задачa %d. Описание задачи: %s, Статус задачи: %s\n", i+1, task.Description, task.Status)
 	}
