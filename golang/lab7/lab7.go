@@ -17,7 +17,7 @@ func CalculateProductSum(productlist []Product) string {
 	for _, product := range productlist {
 		sum += product.getPrice()
 	}
-	return fmt.Sprintf("%r", sum)
+	return fmt.Sprintf("%.2f", sum)
 }
 
 func RunLab7() {
