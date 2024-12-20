@@ -5,10 +5,10 @@ import "fmt"
 type Milk struct {
 	Name    string
 	Price   float64
-	Percent string
+	Percent float64
 }
 
-func NewMilk(name string, price float64, percent string) *Milk {
+func NewMilk(name string, price float64, percent float64) *Milk {
 	milk := &Milk{Name: name, Price: price, Percent: percent}
 	return milk
 }
@@ -25,7 +25,7 @@ func (m *Milk) SetPrice(price float64) {
 	m.Price = price
 }
 
-func (m *Milk) GetPercent() string {
+func (m *Milk) GetPercent() float64 {
 	return m.Percent
 }
 

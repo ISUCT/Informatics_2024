@@ -20,7 +20,7 @@ func CalculateTotalPrice(products []Product) float64 {
 
 func RunLab7() {
 	product1 := NewIcecream("Магнат", 89.99, "Шоколад")
-	product2 := NewMilk("Весёлая коровка", 79.99, "3.2")
+	product2 := NewMilk("Весёлая коровка", 79.99, 3.2)
 
 	listOfProduct := []Product{product1, product2}
 
