@@ -1,4 +1,4 @@
-package abc
+package lab6
 
 import "fmt"
 
@@ -28,7 +28,7 @@ func (c Car) DisplayInfo() {
 	fmt.Printf("Автомобиль: %s %s, Скорость: %d км/ч\n", c.Brand, c.Model, c.Speed)
 }
 
-func abc() {
+func Runlab6() {
 	car := NewCar("Toyota", "Corolla", 100)
 	car.DisplayInfo()
 
