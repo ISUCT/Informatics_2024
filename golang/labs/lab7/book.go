@@ -1,5 +1,7 @@
 package lab7
 
+import "fmt"
+
 type Book struct {
 	Name   string
 	Price  float64
