@@ -2,19 +2,29 @@ package lab7
 
 import "fmt"
 
-func Start7lab() {
-	product1 := &Clothes{Name: "Шорты", Price: 1000, Size: "S", Color: "White"}
-	product1.make_sale(100)
-	product2 := &Vegetables{Name: "Перец", Weight: 100, Price: 100}
-	product2.make_sale(50)
-	product3 := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
-	product3.make_sale(100)
-
-	products := []Product{product1, product2, product3}
-
-	for _, product := range products {
-		fmt.Println(product.get_productInfo())
-	}
-	totalPrice := get_priceAllProducts(products)
-	fmt.Printf("Общая стоимость: %.2f\n", totalPrice)
+type Product interface {
+	GetName() string
+	GetPrice() float64
+	SetPrice(price float64)
+	ApplyDiscount(discount float64)
 }
+
+func GetTotalPrice(products []Product) float64 {
+	var TotalPrice float64 = 0
+	for _, product := range products {
+		TotalPrice += product.GetPrice()
+	}
+	return TotalPrice
+}
+
+func lab7() {
+	Clothes := &Clothes{Name: "Шорты", Price: 1000, Size: "S", Color: "White"}
+        Vegetables &Vegetables{Name: "Перец", Weight: 100, Price: 100}
+	Book := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
+	products := []Product{Clothes, Vegetables, Book }
+	fmt.Println("Стоимость без скидок:", GetTotalPrice(products))
+
+	Clothes.ApplyDiscount(100)
+	Vegetables.ApplyDiscount(50)
+	sneakers.ApplyDiscount(100)
+	fmt.Println("Стоимость после учёта скидки:", GetTotalPrice(products))
