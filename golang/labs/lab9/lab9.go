@@ -1,28 +1,27 @@
 package lab9
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 
-	structure "isuct.ru/informatics2022/labs/lab9/taskstruct"
+	"isuct.ru/informatics2022/labs/lab9/taskstruct"
 	"isuct.ru/informatics2022/labs/lab9/taskutilis"
 )
 
 func RunLab9() {
 	var filename string
 	fmt.Print("Введите название файла: ")
-	fmt.Scan(&filename)
-	taskutilis.CreateFile(filename)
-	var tasks []structure.Task
-	if _, err := os.Stat(filename); err == nil {
-		data, err := os.ReadFile(filename)
-		if err == nil {
-			err = json.Unmarshal(data, &tasks)
-			if err != nil {
-				fmt.Println("Ошибка при загрузке данных:", err)
-			}
-		}
+	fmt.Scanln(&filename)
+	_, err := taskutilis.CreateFile(filename)
+	if err != nil {
+		fmt.Println("Ошибка при создании/проверке файла:", err)
+		return
+	}
+	var tasks []taskstruct.Task
+	err = taskutilis.LoadTasks(filename, &tasks)
+	if err != nil && !os.IsNotExist(err) {
+		fmt.Println("Ошибка при загрузке данных:", err)
+
 		for {
 			fmt.Println("\nМеню:")
 			fmt.Println("1. Добавить задачу")
@@ -38,14 +37,10 @@ func RunLab9() {
 
 			switch choice {
 			case 1:
-				var filename string
-				fmt.Print("Введите название файла: ")
-				fmt.Scan(&filename)
-				taskutilis.CreateFile(filename)
 				var description string
 				fmt.Print("Введите описание задачи: ")
 				fmt.Scan(&description)
-				taskutilis.AddTask(filename, description)
+				taskutilis.AddTask(&tasks, description)
 			case 2:
 				taskutilis.ShowTasks(tasks)
 			case 3:
@@ -60,10 +55,10 @@ func RunLab9() {
 				fmt.Scan(&index)
 				taskutilis.DeleteTask(index, &tasks)
 			case 5:
-				var searchingTask string
+				var keyword string
 				fmt.Print("Введите ключевое слово для поиска: ")
-				fmt.Scan(&searchingTask)
-				taskutilis.SearchTask(filename, searchingTask)
+				fmt.Scan(&keyword)
+				taskutilis.SearchTask(tasks, keyword)
 			case 6:
 				taskutilis.SaveTasks(filename, tasks)
 				fmt.Println("Выход из программы...")

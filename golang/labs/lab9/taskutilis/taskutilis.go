@@ -1,10 +1,10 @@
 package taskutilis
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 
 	structure "isuct.ru/informatics2022/labs/lab9/taskstruct"
 )
@@ -22,23 +22,20 @@ func CreateFile(filename string) (string, error) {
 	return filename, nil
 }
 
-func AddTask(filename string, description string) error {
-	var tasks []structure.Task
+func AddTask(tasks *[]structure.Task, description string) {
+	*tasks = append(*tasks, structure.Task{Description: description, Status: false})
+}
+
+func LoadTasks(filename string, tasks *[]structure.Task) error {
 	data, err := os.ReadFile(filename)
-	if err == nil {
-		err = json.Unmarshal(data, &tasks)
-		if err != nil {
-			return fmt.Errorf("ошибка при разборе JSON: %w", err)
-		}
+	if os.IsNotExist(err) {
+		return nil
+	} else if err != nil {
+		return fmt.Errorf("ошибка при чтении файла: %w", err)
 	}
-	tasks = append(tasks, structure.Task{Description: description, Status: false})
-	jsonData, err := json.Marshal(tasks)
+	err = json.Unmarshal(data, tasks)
 	if err != nil {
-		return fmt.Errorf("ошибка при создании JSON: %w", err)
-	}
-	err = os.WriteFile(filename, jsonData, 0600)
-	if err != nil {
-		return fmt.Errorf("ошибка при записи в файл: %w", err)
+		return fmt.Errorf("ошибка при разборе JSON: %w", err)
 	}
 	return nil
 }
@@ -61,29 +58,22 @@ func ShowTasks(tasks []structure.Task) {
 	}
 }
 
-func SearchTask(filename string, searchingTask string) (string, error) {
-	f, err := os.Open(filename)
-	if err != nil {
-		return "", fmt.Errorf("ошибка при открытии файла: %w", err)
-	}
-	defer f.Close()
-	scanner := bufio.NewScanner(f)
-	found := false
-	for scanner.Scan() {
-		line := scanner.Text()
-		if line == searchingTask {
-			found = true
-			break
+func SearchTask(tasks []structure.Task, keyword string) ([]structure.Task, error) {
+	results := []structure.Task{}
+	for _, task := range tasks {
+		if containsCI(task.Description, keyword) {
+			results = append(results, task)
 		}
 	}
-	if err := scanner.Err(); err != nil {
-		return "", fmt.Errorf("ошибка при чтении файла: %w", err)
+	if len(results) == 0 {
+		return nil, fmt.Errorf("задача не найдена")
 	}
-	if found {
-		return "Задача найдена", nil
-	} else {
-		return "Задача не найдена", nil
-	}
+	return results, nil
+}
+func containsCI(s, substr string) bool {
+	s = strings.ToLower(s)
+	substr = strings.ToLower(substr)
+	return strings.Contains(s, substr)
 }
 
 func UpdateTaskStatus(index int, tasks *[]structure.Task) {
