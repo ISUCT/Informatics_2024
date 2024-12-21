@@ -1,7 +1,5 @@
 package lab7
 
-import "fmt"
-
 type Clothes struct {
 	Name  string
 	Price float64
@@ -9,12 +7,18 @@ type Clothes struct {
 	Color string
 }
 
-func (c *Clothes) make_sale(discount float64) {
-	c.Price = c.Price * (1 - discount/100)
+func (h *Clothes) GetName() string {
+	return h.Name
 }
-func (c *Clothes) get_price() float64 {
-	return c.Price
+
+func (h *Clothes) GetPrice() float64 {
+	return h.Price
 }
-func (c *Clothes) get_productInfo() string {
-	return fmt.Sprintf("Name: %s, Size: %s, Color: %s, Price: %.2f", c.Name, c.Size, c.Color, c.Price)
+
+func (h *Clothes) SetPrice(price float64) {
+	h.Price = price
+}
+
+func (h *Clothes) ApplyDiscount(discount float64) {
+	h.Price -= h.Price * discount / 100
 }
