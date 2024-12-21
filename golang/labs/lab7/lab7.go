@@ -26,6 +26,6 @@ func Lab7() {
 	Vegetables.ApplyDiscount(50)
 	Book.ApplyDiscount(30)
     totalPrice := GetTotalPrice(products)
-    fmt.Println("Новая цена", GetTotalPrice(products))
+    fmt.Println("Новая цена", totalPrice)
 }
 
