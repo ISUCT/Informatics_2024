@@ -16,7 +16,7 @@ func GetTotalPrice(products []Product) float64 {
 	}
 	return TotalPrice
 }
-func lab7() {
+func Lab7() {
     Clothes := &Clothes{Name: "Шорты", Price: 1000, Size: "S", Color: "White"}
     Vegetables := &Vegetables{Name: "Перец", Weight: 100, Price: 100}
     Book := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
