@@ -22,7 +22,10 @@ func Lab7() {
     Book := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
     products := []Product{Clothes, Vegetables, Book}
     Book.SetFormat("электронный")
+	Clothes.ApplyDiscount(100)
+	Vegetables.ApplyDiscount(50)
+	Book.ApplyDiscount(30)
     totalPrice := GetTotalPrice(products)
-    fmt.Printf("Общая цена: %.2f\n", totalPrice)
+    fmt.Println("Новая цена", GetTotalPrice(products))
 }
 
