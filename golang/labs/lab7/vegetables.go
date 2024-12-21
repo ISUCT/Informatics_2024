@@ -1,7 +1,5 @@
 package lab7
 
-import "fmt"
-
 type Vegetables struct {
 	Name   string
 	Weight float64
