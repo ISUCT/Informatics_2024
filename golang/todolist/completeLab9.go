@@ -33,6 +33,8 @@ func CompleteLab9() {
 	defer keyboard.Close()
 
 	for {
+		clear()
+		list.OutputTodo()
 		close := interactionPanel(&list)
 		if close {
 			break
@@ -41,8 +43,6 @@ func CompleteLab9() {
 }
 
 func interactionPanel(list *todo.Todo) bool {
-	clear()
-	list.OutputTodo()
 
 	text, _ := os.ReadFile(linkHelpCommand)
 	fmt.Println(string(text))
@@ -97,7 +97,7 @@ func interactionPanel(list *todo.Todo) bool {
 		clear()
 		fmt.Print("Введите текст для поиска: ")
 		list.SerthTask(console.Write())
-
+		interactionPanel(list)
 	case 'Q', 'q', 'Й', 'й':
 		return true
 	default:
