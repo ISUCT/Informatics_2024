@@ -43,7 +43,6 @@ func CompleteLab9() {
 }
 
 func interactionPanel(list *todo.Todo) bool {
-
 	text, _ := os.ReadFile(linkHelpCommand)
 	fmt.Println(string(text))
 
