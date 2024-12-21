@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Println("TEST")
+	fmt.Println("Капицын Данила Сергеевич")
 	lab4.Lab4AB()
 	lab6.Lab6()
 	lab7.Lab7()
