@@ -22,3 +22,4 @@ func (v *Vegetables) SetPrice(price float64) {
 
 func (v *Vegetables) ApplyDiscount(discount float64) {
 	v.Price -= v.Price * discount / 100
+}
