@@ -8,7 +8,7 @@ type Clothes struct {
 }
 
 func (c *Clothes) GetName() string {
-	return h.Name
+	return c.Name
 }
 
 func (c *Clothes) GetPrice() float64 {
