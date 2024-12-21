@@ -8,14 +8,17 @@ type Vegetables struct {
 	Price  float64
 }
 
-func (c *Vegetables) make_sale(discount float64) {
-	c.Price = c.Price * (1 - discount/100)
+func (v *Vegetables) GetName() string {
+	return v.Name
 }
 
-func (c *Vegetables) get_price() float64 {
-	return c.Price
+func (v *Vegetables) GetPrice() float64 {
+	return v.Price
 }
 
-func (c *Vegetables) get_productInfo() string {
-    return fmt.Sprintf("Name: %s, Weight: %.2f, Price: %.2f", c.Name, c.Weight, c.Price)
+func (v *Vegetables) SetPrice(price float64) {
+	v.Price = price
 }
+
+func (v *Vegetables) ApplyDiscount(discount float64) {
+	v.Price -= v.Price * discount / 100
