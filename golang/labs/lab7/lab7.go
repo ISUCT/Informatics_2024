@@ -21,7 +21,7 @@ func lab7() {
     Vegetables := &Vegetables{Name: "Перец", Weight: 100, Price: 100}
     Book := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
     products := []Product{Clothes, Vegetables, Book}
-    
+    Book.SetFormat("электронный")
     totalPrice := GetTotalPrice(products)
     fmt.Printf("Общая цена: %.2f\n", totalPrice)
 }
