@@ -1,7 +1,6 @@
-def summ(a: int, b: int) -> int:
-    return a + b
-
+from lab4 import RunLab4Tasks
+from lab6 import RunLab6Tasks
 
 if __name__ == "__main__":
-    print("Hello world")
-    print(summ(3, 4))
+    RunLab4Tasks()
+    RunLab6Tasks()
