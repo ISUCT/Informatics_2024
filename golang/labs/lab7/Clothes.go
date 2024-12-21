@@ -1,7 +1,5 @@
 package lab7
 
-import "fmt"
-
 type Clothes struct {
 	Name  string
 	Price float64
