@@ -16,18 +16,18 @@ func (s *Shoes) GetPrice() float64 {
 	return s.Price
 }
 
-func (s *Shoes) MakeDiscount(x float64) {
-    if x >= 100 {
+func (s *Shoes) MakeDiscount(discountPercentage float64) {
+    if discountPercentage >= 100 {
         s.Price = 0
         return
     }
-    s.Price = s.Price * (1 - x/100)
+    s.Price = s.Price * (1 - discountPercentage/100)
 }
 
-func (s *Shoes) ChangePrice(x float64) {
-	s.Price = x
+func (s *Shoes) ChangePrice(newPrice float64) {
+	s.Price = newPrice
 }
 
-func (s *Shoes) ChangeDescription(x string) {
-	s.Size = x
+func (s *Shoes) ChangeDescription(newSize string) {
+	s.Size = newSize
 }
