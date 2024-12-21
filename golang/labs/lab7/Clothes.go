@@ -7,18 +7,18 @@ type Clothes struct {
 	Color string
 }
 
-func (h *Clothes) GetName() string {
+func (c *Clothes) GetName() string {
 	return h.Name
 }
 
-func (h *Clothes) GetPrice() float64 {
-	return h.Price
+func (c *Clothes) GetPrice() float64 {
+	return c.Price
 }
 
-func (h *Clothes) SetPrice(price float64) {
-	h.Price = price
+func (c *Clothes) SetPrice(price float64) {
+	c.Price = price
 }
 
-func (h *Clothes) ApplyDiscount(discount float64) {
-	h.Price -= h.Price * discount / 100
+func (c *Clothes) ApplyDiscount(discount float64) {
+	c.Price -= c.Price * discount / 100
 }
