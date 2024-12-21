@@ -10,7 +10,7 @@ func (b *Book) GetName() string {
 	return b.Name
 }
 
-func (m *Book) GetPrice() float64 {
+func (b *Book) GetPrice() float64 {
 	return b.Price
 }
 
