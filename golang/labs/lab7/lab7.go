@@ -28,3 +28,4 @@ func lab7() {
 	Vegetables.ApplyDiscount(50)
 	sneakers.ApplyDiscount(100)
 	fmt.Println("Стоимость после учёта скидки:", GetTotalPrice(products))
+}
