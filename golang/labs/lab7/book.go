@@ -1,7 +1,5 @@
 package lab7
 
-import "fmt"
-
 type Book struct {
 	Name   string
 	Price  float64
@@ -24,6 +22,6 @@ func (b *Book) ApplyDiscount(discount float64) {
 	b.Price -= b.Price * discount / 100
 }
 
-func (b *Book) SetFormat(format float64) {
+func (b *Book) SetFormat(format string) {
 	b.Format = format	
 }
