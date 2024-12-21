@@ -3,7 +3,7 @@ package lab7
 import "fmt"
 
 type Car struct {
-	Name string
+	Name  string
 	Model string
 	Price float64
 }
@@ -16,18 +16,18 @@ func (c *Car) GetPrice() float64 {
 	return c.Price
 }
 
-func (c *Car) MakeDiscount(x float64) {
-	if x >= 100 {
+func (c *Car) MakeDiscount(discountPercentage float64) {
+	if discountPercentage >= 100 {
 		c.Price = 0
 		return
 	}
-	c.Price = c.Price * (1 - x/100)
+	c.Price = c.Price * (1 - discountPercentage/100)
 }
 
-func (c *Car) ChangePrice(x float64) {
-	c.Price = x
+func (c *Car) ChangePrice(newPrice float64) {
+	c.Price = newPrice
 }
 
-func (c *Car) ChangeDescription(x string) {
-	c.Model = x
+func (c *Car) ChangeDescription(newModel string) {
+	c.Model = newModel
 }
