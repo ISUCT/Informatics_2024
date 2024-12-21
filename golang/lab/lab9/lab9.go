@@ -49,7 +49,8 @@ func ReadTask(name string) []Task {
 func RunLab9Tasks() {
 	name := StartProgram()
 	number := 1
-	fmt.Println("Вы можете: \n 1) добавить задачу \n 2) просмотреть все задачи \n 3) отметить задачу как выполненную \n 4) удалить задачу \n 5) найти задачу \n 6) выйти из программы")
+	fmt.Println("Вы можете: \n 1) добавить задачу \n 2) просмотреть все задачи")
+	fmt.Println(" 3) отметить задачу как выполненную \n 4) удалить задачу \n 5) найти задачу \n 6) выйти из программы")
 	for {
 		var choise int
 		fmt.Print("Введите номер задачи, который хотите выполнить: ")
@@ -73,7 +74,7 @@ func RunLab9Tasks() {
 		} else if choise == 2 {
 			Task := ReadTask(name)
 			for _, task := range Task {
-				if task.Status == true {
+				if task.Status {
 					fmt.Println("Задача №", task.Number, ":", task.Name, "- выполнена")
 				} else {
 					fmt.Println("Задача №", task.Number, ":", task.Name, "- не выполнена")
