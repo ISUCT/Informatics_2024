@@ -16,16 +16,13 @@ func GetTotalPrice(products []Product) float64 {
 	}
 	return TotalPrice
 }
-
 func lab7() {
-	Clothes := &Clothes{Name: "Шорты", Price: 1000, Size: "S", Color: "White"}
-        Vegetables &Vegetables{Name: "Перец", Weight: 100, Price: 100}
-	Book := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
-	products := []Product{Clothes, Vegetables, Book }
-	fmt.Println("Стоимость без скидок:", GetTotalPrice(products))
-
-	Clothes.ApplyDiscount(100)
-	Vegetables.ApplyDiscount(50)
-	Book.ApplyDiscount(100)
-	fmt.Println("Стоимость после учёта скидки:", GetTotalPrice(products))
+    Clothes := &Clothes{Name: "Шорты", Price: 1000, Size: "S", Color: "White"}
+    Vegetables := &Vegetables{Name: "Перец", Weight: 100, Price: 100}
+    Book := &Book{Name: "Алиса в стране чудес", Format: "бумажный", Price: 450}
+    products := []Product{Clothes, Vegetables, Book}
+    
+    totalPrice := GetTotalPrice(products)
+    fmt.Printf("Общая цена: %.2f\n", totalPrice)
 }
+
