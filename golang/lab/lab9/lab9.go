@@ -56,7 +56,8 @@ func RunLab9Tasks() {
 		fmt.Print("Введите номер задачи, который хотите выполнить: ")
 		fmt.Fscan(os.Stdin, &choise)
 
-		if choise == 1 {
+		switch choise {
+		case 1:
 			var count int
 			var arr []Task
 			fmt.Print("Введите сколько задач Вы хотите ввести: ")
@@ -71,7 +72,7 @@ func RunLab9Tasks() {
 				arr = append(arr, task)
 			}
 			WriteTaskInJson(name, arr)
-		} else if choise == 2 {
+		case 2:
 			Task := ReadTask(name)
 			for _, task := range Task {
 				if task.Status {
@@ -80,7 +81,7 @@ func RunLab9Tasks() {
 					fmt.Println("Задача №", task.Number, ":", task.Name, "- не выполнена")
 				}
 			}
-		} else if choise == 3 {
+		case 3:
 			var number int
 			fmt.Print("Введите номер выполненной задачи: ")
 			fmt.Fscan(os.Stdin, &number)
@@ -92,7 +93,7 @@ func RunLab9Tasks() {
 			}
 			os.Truncate(name, 0)
 			WriteTaskInJson(name, Task)
-		} else if choise == 4 {
+		case 4:
 			var number int
 			fmt.Print("Введите номер задачи, которую хотите удалить: ")
 			fmt.Fscan(os.Stdin, &number)
@@ -104,7 +105,7 @@ func RunLab9Tasks() {
 			}
 			os.Truncate(name, 0)
 			WriteTaskInJson(name, Task)
-		} else if choise == 5 {
+		case 5:
 			Task := ReadTask(name)
 			var search string
 			fmt.Print("Введите задачу, которую хотите найти: ")
@@ -116,8 +117,8 @@ func RunLab9Tasks() {
 					break
 				}
 			}
-		} else if choise == 6 {
-			break
+		case 6:
+			return
 		}
 	}
 }
