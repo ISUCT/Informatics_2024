@@ -46,5 +46,4 @@ func task1() error {
 	lab4.CompleteTaskB(a, b, result[6:])
 
 	return nil
-
 }
