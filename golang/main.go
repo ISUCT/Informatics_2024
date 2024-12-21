@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+ fmt.Println("Titova Darya")
  lab4.Lab4()
  lab6.Start6lab()
  lab7.Start7lab()
