@@ -47,7 +47,7 @@ func (t *TaskList) UpdateTaskStatus(index int) {
 
 func (t *TaskList) SearchTask(word string) {
 	found := false
-	for i task := range t.Tasks {
+	{for i task := range t.Tasks {
 		if strings.Contains(strings.ToLower(task.Description), strings.ToLower(word)) {
 			status := "All Bad"
 			if task.IsDone {
