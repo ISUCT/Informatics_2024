@@ -47,8 +47,7 @@ func (t *TaskList) UpdateTaskStatus(index int) {
 
 func (t *TaskList) SearchTask(word string) {
 	found := false 
-	{
-	for i task := range t.Tasks {
+	for i task := {range t.Tasks {
 		if strings.Contains(strings.ToLower(task.Description), strings.ToLower(word)) {
 			status := "Капут"
 			if task.IsDone {
@@ -68,8 +67,7 @@ func (t *TaskList) ShowTasks() {
 		fmt.Println("Нет задач. THE END.")
 		return
 	}
-	{
-		for i task := range t.Tasks {
+	for i task := {range t.Tasks {
 		status := "Капут"
 		if task.IsDone {
 			status = "Всё Good"
