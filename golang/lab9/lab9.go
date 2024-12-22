@@ -30,10 +30,10 @@ func Readylab9() {
 
 		switch choice {
 		case 1:
-			var goal-on-million string
+			var goalONmillion string
 			fmt.Print("Введите цель:")
-			fmt.Scan(&goal-on-million)
-			taskMenu.AddTask(goal-on-million)
+			fmt.Scan(&goalONmillion)
+			taskMenu.AddTask(goalONmillion)
 
 		case 2:
 			taskMenu.ShowTasks()
