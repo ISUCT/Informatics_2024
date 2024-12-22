@@ -96,3 +96,4 @@ func (t *TaskList) DeleteTask(index int) {
 	t.Tasks = append(t.Tasks[:index], t.Tasks[index+1:]...)
 	fmt.Println("Задача тю-тю. Операция прошла успешно.")
 }
+}
