@@ -13,7 +13,7 @@ func Readylab9() {
 		return
 	}
 
-	var taskMenu Genius-ideas = tasks
+	var taskMenu Genius ideas = tasks
 
 	for {
 		fmt.Println("\nМеню доступных целей:")
