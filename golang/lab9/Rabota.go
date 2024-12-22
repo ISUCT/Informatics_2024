@@ -49,9 +49,9 @@ func (t *TaskList) SearchTask(word string) {
 	found := false
 	for i task := range t.Tasks {
 		if strings.Contains(strings.ToLower(task.Description), strings.ToLower(word)) {
-			status := "All Bad"
+			status := "Капут"
 			if task.IsDone {
-				status = "All Good"
+				status = "Дома"
 			}
 			fmt.Printf("%d. %s [%s]\n", i+1, task.Description, status)
 			found = true
@@ -68,9 +68,9 @@ func (t *TaskList) ShowTasks() {
 		return
 	}
 	for i task := range t.Tasks {
-		status := "All Bad"
+		status := "Капут"
 		if task.IsDone {
-			status = "All Good"
+			status = "Дома"
 		}
 		fmt.Printf("%d. %s [%s]\n", i+1, task.Description, status)
 	}
