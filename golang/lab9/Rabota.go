@@ -21,7 +21,7 @@ func (t *TaskList) AddTask(description string) {
 }
 
 func LoadData(filename string) (*TaskList, error) {
-	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, 0644)
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, 666)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func (t *TaskList) ShowTasks() {
 }
 
 func SaveData(filename string, tasks *TaskList) error {
-	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 666)
 	if err != nil {
 		return err
 	}
