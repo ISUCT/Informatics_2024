@@ -1,7 +1,7 @@
 package labs
 
 type Product interface {
-	setDiscount(discount float64)
+	setdiscount(discount float64)
 	setPrice(newPrice float64)
 	getPrice() float64
 	getName() string

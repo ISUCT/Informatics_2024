@@ -16,7 +16,7 @@ func (f *Food) getPrice() float64 {
 	return f.price
 }
 
-func (f *Food) setDiscount(discount float64) {
+func (f *Food) setdiscount(discount float64) {
 	f.price -= f.price * discount / 100
 }
 
