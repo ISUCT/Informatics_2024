@@ -24,7 +24,7 @@ func (c *Person) DisplayInfo() {
 	fmt.Println("Страна:", c.Country)
 }
 
-func Lab6() {
+func RunLab6Tasks() {
 	Yan := Person{
 		Name:    "Ян",
 		Age:     20,
