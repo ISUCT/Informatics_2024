@@ -21,7 +21,7 @@ func (t *TaskList) AddTask(description string) {
 }
 
 func LoadData(filename string) (*TaskList, error) {
-	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, 0644)
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, 666)
 	if err != nil {
 		return nil, err
 	}
@@ -38,46 +38,48 @@ func LoadData(filename string) (*TaskList, error) {
 
 func (t *TaskList) UpdateTaskStatus(index int) {
 	if index < 0 || index >= len(t.Tasks) {
-		fmt.Println("Задача с таким индексом не найдена.")
+		fmt.Println("Задачи с таким индексом нету.")
 		return
 	}
 	t.Tasks[index].IsDone = true
-	fmt.Println("Статус задачи обновлен на 'Выполнена'.")
+	fmt.Println("Статус задачи обновлен на 'All Good'.")
 }
 
 func (t *TaskList) SearchTask(word string) {
-	found := false
+	found := false 
+	{
 	for i task := range t.Tasks {
 		if strings.Contains(strings.ToLower(task.Description), strings.ToLower(word)) {
-			status := "Не выполнена"
+			status := "Капут"
 			if task.IsDone {
-				status = "Выполнена"
+				status = "Всё Good"
 			}
 			fmt.Printf("%d. %s [%s]\n", i+1, task.Description, status)
 			found = true
 		}
 	}
 	if !found {
-		fmt.Println("Задача не найдена.")
+		fmt.Println("Задачи нема.")
 	}
 }
 
 func (t *TaskList) ShowTasks() {
 	if len(t.Tasks) == 0 {
-		fmt.Println("Нет задач.")
+		fmt.Println("Нет задач. THE END.")
 		return
 	}
-	for i task := range t.Tasks {
-		status := "Не выполнена"
+	{
+		for i task := range t.Tasks {
+		status := "Капут"
 		if task.IsDone {
-			status = "Выполнена"
+			status = "Всё Good"
 		}
 		fmt.Printf("%d. %s [%s]\n", i+1, task.Description, status)
 	}
 }
 
 func SaveData(filename string, tasks *TaskList) error {
-	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
+	file, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 666)
 	if err != nil {
 		return err
 	}
@@ -90,9 +92,9 @@ func SaveData(filename string, tasks *TaskList) error {
 
 func (t *TaskList) DeleteTask(index int) {
 	if index < 0 || index >= len(t.Tasks) {
-		fmt.Println("Задача с таким индексом не найдена.")
+		fmt.Println("Задачи с таким индексом нету.")
 		return
 	}
 	t.Tasks = append(t.Tasks[:index], t.Tasks[index+1:]...)
-	fmt.Println("Задача удалена.")
+	fmt.Println("Задача тю-тю. Операция прошла успешно.")
 }
