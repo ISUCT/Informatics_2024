@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	Lab4 "isuct.ru/informatics2022/Labs/Lab4"
 	lab6 "isuct.ru/informatics2022/Labs/Lab6"
+	Lab4 "isuct.ru/informatics2022/labs/lab4"
 	lab7 "isuct.ru/informatics2022/labs/lab7"
 )
 
