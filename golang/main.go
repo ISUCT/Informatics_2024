@@ -7,6 +7,7 @@ import (
 	"isuct.ru/informatics2022/lab6"
 	"isuct.ru/informatics2022/lab7"
 	"isuct.ru/informatics2022/lab8"
+	"isuct.ru/informatics2022/lab9"
 )
 
 func main() {
@@ -18,4 +19,5 @@ func main() {
 	lab6.Completelab6()
 	lab7.Completelab7()
 	lab8.Completelab8()
+	lab9.Completelab9()
 }
