@@ -19,5 +19,5 @@ func main() {
 	lab6.Completelab6()
 	lab7.Completelab7()
 	lab8.Completelab8()
-	lab9.Completelab9()
+	lab9.Runlab9()
 }
