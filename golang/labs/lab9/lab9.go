@@ -100,6 +100,18 @@ func (tm *TaskManager) SaveTasks(filename string) error {
 	return encoder.Encode(tm.Tasks)
 }
 
+func handleTaskAction(scanner *bufio.Scanner, prompt string, action func(int)) {
+	fmt.Print(prompt)
+	if scanner.Scan() {
+		var index int
+		if _, err := fmt.Sscanf(scanner.Text(), "%d", &index); err == nil {
+			action(index)
+		} else {
+			fmt.Println("Некорректный ввод. Введите целое число.")
+		}
+	}
+}
+
 func RunLab9Task() {
 	const filename = "labs/lab9/tasks.json"
 
@@ -138,27 +150,14 @@ func RunLab9Task() {
 		case "2":
 			manager.ShowTasks()
 		case "3":
-			fmt.Print("Введите номер задачи: ")
-			if scanner.Scan() {
-				var index int
-				_, err := fmt.Sscanf(scanner.Text(), "%d", &index)
-				if err == nil {
-					manager.MarkTaskAsCompleted(index - 1)
-				} else {
-					fmt.Print("Введите целое число")
-				}
-			}
+			handleTaskAction(scanner, "Введите номер задачи для отметки как выполненной: ", func(index int) {
+				manager.MarkTaskAsCompleted(index - 1)
+			})
+
 		case "4":
-			fmt.Print("Введите номер задачи: ")
-			if scanner.Scan() {
-				var index int
-				_, err := fmt.Sscanf(scanner.Text(), "%d", &index)
-				if err == nil {
-					manager.DeleteTask(index - 1)
-				} else {
-					fmt.Print("Введите целое число")
-				}
-			}
+			handleTaskAction(scanner, "Введите номер задачи для удаления: ", func(index int) {
+				manager.DeleteTask(index - 1)
+			})
 		case "5":
 			fmt.Print("Введите ключевое слово")
 			if scanner.Scan() {
