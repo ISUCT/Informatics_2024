@@ -7,6 +7,7 @@ import (
 	"isuct.ru/informatics2022/labs/lab6"
 	"isuct.ru/informatics2022/labs/lab7"
 	"isuct.ru/informatics2022/labs/lab8"
+	"isuct.ru/informatics2022/labs/lab9"
 )
 
 func main() {
@@ -19,4 +20,6 @@ func main() {
 	lab7.RunLab7Task()
 	// Задание 8
 	lab8.RunLab8Task()
+	// Задание 9
+	lab9.RunLab9Task()
 }
