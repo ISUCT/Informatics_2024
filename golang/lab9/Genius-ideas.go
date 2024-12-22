@@ -1,6 +1,6 @@
 package lab9
 
-type Genius-ideas interface {
+type Genius ideas interface {
 	AddTask(description string)
 	ShowTasks()
 	UpdateTaskStatus(index int)
