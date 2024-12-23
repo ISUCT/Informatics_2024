@@ -9,6 +9,7 @@ const ERRORPASTE = "Ошибка: "
 
 type Product interface {
 	applyDiscount(discount float64) error
+	setPrice(newPrice float64) error
 	getPrice() float64
 	printInformation()
 }
@@ -21,32 +22,6 @@ func getSummaryAmount(products []Product) float64 {
 	return summaryAmount
 }
 
-func setPrice(product interface{}, newPrice float64) error {
-	if newPrice < 0 {
-		return fmt.Errorf("заданная цена меньше нуля")
-	}
-	switch p := product.(type) {
-	case *Electronics:
-		if newPrice == p.price {
-			return fmt.Errorf("заданное значение равно исходному")
-		}
-		p.price = newPrice
-	case *Clothes:
-		if newPrice == p.price {
-			return fmt.Errorf("заданное значение равно исходному")
-		}
-		p.price = newPrice
-	case *Furniture:
-		if newPrice == p.price {
-			return fmt.Errorf("заданное значение равно исходному")
-		}
-		p.price = newPrice
-	default:
-		return fmt.Errorf("неизвестный тип продукта")
-	}
-	return nil
-}
-
 func RunLab7() {
 	fmt.Println("--------------------------------------------------------------------------------------------------------------------------------------")
 	product1 := NewElectronic("Macbook", 52000, "air m1 256gb", "gray")
@@ -56,28 +31,28 @@ func RunLab7() {
 	fmt.Printf("Цена до применения скидок: %.2f рублей\n", getSummaryAmount(productsBeforeDiscount))
 	err := product1.applyDiscount(20)
 	if err != nil {
-		log.Fatal(fmt.Sprint(ERRORPASTE, err.Error()))
+		log.Fatal(fmt.Errorf("применение скидки: %w", err))
 	}
 	fmt.Printf("Цена первого товара после применения скидки: %.2f рублей\n", product1.getPrice())
-	err = setPrice(product2, 2500)
+	err = product2.setPrice(2500)
 	if err != nil {
-		log.Fatal(fmt.Sprint(ERRORPASTE, err.Error()))
+		log.Fatal(fmt.Errorf("попытка установить новую цену: %w", err))
 	}
 	err = product3.ChangeFurnitureColor("Красный")
 	if err != nil {
-		log.Fatal(fmt.Sprint(ERRORPASTE, err.Error()))
+		log.Fatal(fmt.Errorf("попытка поменять цвет фурнитуры: %w", err))
 	}
 	err = product1.ChangeElectronicsModel("pro m2 512gb")
 	if err != nil {
-		log.Fatal(fmt.Sprint(ERRORPASTE, err.Error()))
+		log.Fatal(fmt.Errorf("попытка поменять модель электроники: %w", err))
 	}
 	err = product2.ChangeClothesSize("XL")
 	if err != nil {
-		log.Fatal(fmt.Sprint(ERRORPASTE, err.Error()))
+		log.Fatal(fmt.Errorf("попытка поменять цвет одежды: %w", err))
 	}
-	err = setPrice(product3, 27500)
+	err = product3.setPrice(27500)
 	if err != nil {
-		log.Fatal(fmt.Sprint(ERRORPASTE, err.Error()))
+		log.Fatal(fmt.Errorf("попытка установить новую цену: %w", err))
 	}
 	product3.printInformation()
 	productsAfterDiscount := []Product{product1, product2, product3}

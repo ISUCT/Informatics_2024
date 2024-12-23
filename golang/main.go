@@ -8,6 +8,7 @@ import (
 	"isuct.ru/informatics2022/labs/lab7"
 	"isuct.ru/informatics2022/labs/lab8"
 	"isuct.ru/informatics2022/labs/lab9"
+
 )
 
 func main() {
