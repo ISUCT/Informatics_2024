@@ -42,10 +42,8 @@ func AddTask() {
 		switch statusInput {
 		case "выполнено":
 			status = true
-			break
 		case "не выполнено":
 			status = false
-			break
 		default:
 			fmt.Println("Неверный ввод. Пожалуйста, введите 'выполнено' или 'не выполнено'.")
 			continue
