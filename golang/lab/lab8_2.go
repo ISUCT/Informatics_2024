@@ -8,8 +8,30 @@ import (
 	"strconv"
 )
 
-func get_value(f string) []float64 {
-	file, err := os.Open(f)
+func CreateFile(path string) error {
+	file, errCreate := os.Create(path)
+
+	if errCreate != nil {
+		return errCreate
+	}
+	defer file.Close()
+	return nil
+}
+
+func WriteFile(path string, constants []byte) error {
+	file, errCreate := os.OpenFile(path, os.O_RDWR, 0666)
+
+	if errCreate != nil {
+		return errCreate
+	}
+
+	file.Write(constants)
+	defer file.Close()
+	return nil
+}
+
+func FindValue(path string) []float64 {
+	file, err := os.OpenFile(path, os.O_RDWR, 0666)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -38,6 +60,11 @@ func get_value(f string) []float64 {
 		}
 		list = append(list, f)
 	}
+
+	defer file.Close()
+	return list
+}
+
 
 	defer file.Close()
 	return list
