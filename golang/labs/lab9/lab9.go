@@ -12,15 +12,6 @@ var command string
 
 var filename string
 
-type ToDoList struct {
-	Tasks []ToDoTask `json:"tasks"`
-}
-
-type ToDoTask struct {
-	Description string `json:"Description"`
-	Status      string `json:"Status"`
-}
-
 func RunLab9() {
 	fmt.Println("Введите имя файла, в который вы хотите записать данные:")
 	fmt.Scan(&filename)
