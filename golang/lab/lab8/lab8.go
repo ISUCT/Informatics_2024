@@ -15,7 +15,10 @@ func CreateNewFile(name string) {
 	defer file.Close()
 }
 
-func GettingData(count int) []string {
+func GettingData() []string {
+	var count int
+	fmt.Print("Введите сколько значений хотите занести в файл: ")
+	fmt.Fscan(os.Stdin, &count)
 	var arr []string
 	var value string
 	for i := 1; i <= count; i++ {
@@ -26,13 +29,13 @@ func GettingData(count int) []string {
 	return arr
 }
 
-func WriteInFile(name string, count int) {
+func WriteInFile(name string, arr []string) {
 	file, err := os.OpenFile(name, os.O_RDWR, 0666)
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
-	for _, value := range GettingData(count)  {
+	for _, value := range arr  {
 		file.WriteString(value + "\n")
 	}
 }
@@ -74,12 +77,10 @@ func RunLab8Tasks() []string {
 	fmt.Fscan(os.Stdin, &NameFile)
 	CreateNewFile(NameFile)
 
-	var Count int
-	fmt.Print("Введите сколько значений хотите занести в файл: ")
-	fmt.Fscan(os.Stdin, &Count)
-	WriteInFile(NameFile, Count)
+	arr := GettingData()
+	WriteInFile(NameFile, arr)
 
-	arr := strings.Split(ReadFile(NameFile)[0], "\n")
+	arr = strings.Split(ReadFile(NameFile)[0], "\n")
 	arr = arr[0 : len(arr)-1]
 
 	var Search string
