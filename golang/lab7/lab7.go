@@ -19,20 +19,20 @@ func CalculateTotalCost(products []Product) float64 {
 	return total
 }
 
-func Runlab7() {
-	book := &Book{
-		Name:   "Убить пересмешника",
-		Author: "Харпер Ли",
-		Price:  500,
+func RunLab7() {
+	magazine := &Magazine{
+		Name:      "Всё для дома",
+		Publisher: "ЧитайГород",
+		Price:     200,
 	}
 
-	electronic := &Electronics{
-		Name:  "Смартфон",
-		Model: "iPhone 14 Pro Max",
-		Price: 120000,
+	car := &Car{
+		Name:  "Ваз",
+		Model: "VAZ2109",
+		Price: 2500000,
 	}
 
-	products := []Product{book, electronic}
+	products := []Product{magazine, car}
 
 	totalBeforeDiscount := CalculateTotalCost(products)
 	fmt.Printf("Общая стоимость до применения скидок: %.2f\n", totalBeforeDiscount)
@@ -43,9 +43,9 @@ func Runlab7() {
 	totalAfterDiscount := CalculateTotalCost(products)
 	fmt.Printf("Общая стоимость после применения скидок: %.2f\n", totalAfterDiscount)
 
-	electronic.SetModel("iPhone 14 Pro Max")
-	book.SetName("Убить пересмешника")
+	car.SetModel("VAZ3109")
+	magazine.SetName("Всё для дома")
 
-	fmt.Println(electronic)
-	fmt.Println(book)
+	fmt.Println(car)
+	fmt.Println(magazine)
 }
