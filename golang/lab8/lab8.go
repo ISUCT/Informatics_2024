@@ -22,7 +22,7 @@ func Lab8() {
 
 	fmt.Println(ReadFile(path))
 
-	searchText, errInput := InputText("текст для поиска")
+	searchText, errInput := ConsoleInput("текст для поиска")
 	if errInput != nil {
 		log.Fatalf("(Lab8) ввод текста для поиска: %v", errInput)
 	}

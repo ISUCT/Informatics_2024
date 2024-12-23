@@ -34,7 +34,7 @@ func WriteFile(path string) error {
 	}
 	defer file.Close()
 
-	text, err := InputText("Текст, который будет введён в файл")
+	text, err := ConsoleInput("Текст, который будет введён в файл")
 	if err != nil {
 		return fmt.Errorf("(WriteFile) ввод текста: %w", err)
 	}
@@ -81,13 +81,13 @@ func SearchInFile(path string, searchText string) (bool, error) {
 	return false, errSearchInFile
 }
 
-func InputText(prompt string) (string, error) {
+func ConsoleInput(prompt string) (string, error) {
 	var in *bufio.Reader = bufio.NewReader(os.Stdin)
 
 	fmt.Printf("Введите %s: ", prompt)
 	text, err := in.ReadString('\n')
 	if err != nil {
-		return "", fmt.Errorf("(InputText) ошибка ввода: %w", err)
+		return "", fmt.Errorf("(ConsoleInput) ошибка ввода: %w", err)
 	}
 
 	text = strings.TrimSpace(text)
