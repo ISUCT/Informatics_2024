@@ -2,40 +2,25 @@ package lab
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
 
 	"isuct.ru/informatics2022/lab4"
 )
 
-func Show_lab8() {
-	halh_way, err := filepath.Abs(filepath.Dir(filepath.Join(".", "lab8.go")))
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	full_way := filepath.Join(halh_way, "input.txt")
-
+func ShowLab8() {
+	path := "lab/input.txt"
+	CreateFile(path)
 	var constants []byte
-	file, err := os.Create(full_way)
 
-	input := input_value()
-
+	input := InputValue()
 	constants = []byte(input)
 
-	if err != nil {
-		fmt.Println("Не удалось создать файл, ошибка:", err)
-		return
-	}
-
-	defer file.Close()
-	file.Write(constants)
+	WriteFile(path, constants)
 	fmt.Println("Файл input.txt успешно создан")
 
 	var A []float64
 	var B []float64
 
-	list := get_value("input.txt")
+	list := FindValue(path)
 
 	a := list[0]
 	b := list[1]
