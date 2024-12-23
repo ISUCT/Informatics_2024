@@ -2,7 +2,7 @@ import math
 
 
 def Calculate(b, x: float) -> float:
-    return (1 + (math.sin(b ** 3 + x ** 3) ** 2)) / (math.cbrt(b ** 3 + x ** 3))
+    return (1 + (math.sin(b ** 3 + x ** 3) ** 2)) / ((b ** 3 + x ** 3) ** (1/3))
 
 
 def TaskA(b, Xn, Xk, delX: float) -> list:
