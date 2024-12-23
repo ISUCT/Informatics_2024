@@ -64,8 +64,3 @@ func FindValue(path string) []float64 {
 	defer file.Close()
 	return list
 }
-
-
-	defer file.Close()
-	return list
-}
