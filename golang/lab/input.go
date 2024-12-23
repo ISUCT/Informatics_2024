@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func input_value() string {
+func InputValue() string {
 	inputs := ""
 
 	file_read := bufio.NewReader(os.Stdin)
