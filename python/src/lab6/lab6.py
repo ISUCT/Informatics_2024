@@ -22,7 +22,7 @@ class Cat:
         return self.breed
 
 
-def RunLab6Tasks():
+def RunLab6Tasks() -> None:
     Tom = Cat("Tom", 9, "Scottish Fold")
     print("У нас есть кот по имени", Tom.printName(), "возрастом", Tom.printAge(), "лет и породы", Tom.printBreed())
     Tom.UpdateAge(13)
