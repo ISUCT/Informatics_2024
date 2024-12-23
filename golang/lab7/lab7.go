@@ -4,14 +4,6 @@ import (
 	"fmt"
 )
 
-func CalculateTotalPrice(products []Product) float64 {
-	var total float64
-	for _, product := range products {
-		total += product.GetPrice()
-	}
-	return total
-}
-
 func Lab7() {
 	book1 := Book{name: "The Hitchhiker's Guide to the Galaxy", price: 15.99, numAuthors: 1}
 	book2 := Book{name: "The Lord of the Rings", price: 30.99, numAuthors: 3}
