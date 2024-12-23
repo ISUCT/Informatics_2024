@@ -25,7 +25,7 @@ def PrintValue(Values):
         print(elem)
 
 
-def RunLab4Tasks():
+def RunLab4Tasks() -> None:
     b = 2.5
     arr = [1.1, 2.4, 3.6, 1.7, 3.9]
     PrintValue(TaskA(b, 1.28, 3.28, 0.4))
