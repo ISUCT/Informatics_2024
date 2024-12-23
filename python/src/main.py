@@ -1,6 +1,6 @@
-from lab4 import RunLab4Tasks
-from lab6 import RunLab6Tasks
+from lab4 import lab4
+from lab6 import lab6
 
 if __name__ == "__main__":
-    RunLab4Tasks()
-    RunLab6Tasks()
+    lab4.RunLab4Tasks()
+    lab6.RunLab6Tasks()
