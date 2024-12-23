@@ -11,16 +11,16 @@ class Cat:
         self.name = name
         self.age = age
         self.breed = breed
-    
+
     def printName(self):
         return self.name
-    
+
     def printAge(self):
         return self.age
-    
+
     def printBreed(self):
         return self.breed
-    
+
 
 def RunLab6Tasks():
     Tom = Cat("Tom", 9, "Scottish Fold")
