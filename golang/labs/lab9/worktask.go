@@ -8,12 +8,20 @@ import (
 	"strings"
 )
 
+const filename = "tasks.json"
+
 func CreateFile(filename string) (string, error) {
 	_, err := os.Stat(filename)
 	if err == nil {
+		return "", fmt.Errorf("создание файла: файл уже существует")
+	}
+
+	f, err := os.Create(filename)
+	if err != nil {
 		return "", fmt.Errorf("создание файла: %w", err)
 	}
 	defer f.Close()
+
 	return filename, nil
 }
 func AddTask() {
