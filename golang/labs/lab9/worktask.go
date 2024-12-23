@@ -8,6 +8,14 @@ import (
 	"strings"
 )
 
+func CreateFile(filename string) (string, error) {
+	_, err := os.Stat(filename)
+	if err == nil {
+		return "", fmt.Errorf("создание файла: %w", err)
+	}
+	defer f.Close()
+	return filename, nil
+}
 func AddTask() {
 	var notion string
 	fmt.Print("Введите название вашей заметки: ")
@@ -23,13 +31,12 @@ func AddTask() {
 		fmt.Print("Введите статус вашей заметки (выполнено/не выполнено): ")
 		fmt.Scanln(&statusInput)
 		statusInput = strings.ToLower(strings.TrimSpace(statusInput))
-		if statusInput == "выполнено" {
+		switch statusInput {
+		case "выполнено":
 			status = true
-			break
-		} else if statusInput == "не выполнено" {
+		case "не выполнено":
 			status = false
-			break
-		} else {
+		default:
 			fmt.Println("Неверный ввод. Пожалуйста, введите 'выполнено' или 'не выполнено'.")
 		}
 	}
@@ -40,7 +47,6 @@ func AddTask() {
 		Status:      status,
 	}
 
-	filename := "task.json"
 	tasks, err := ReadFromFileJSON(filename)
 	if err != nil && !os.IsNotExist(err) {
 		fmt.Println("Ошибка чтения задач из файла:", err)
@@ -73,7 +79,6 @@ func ExitTask() {
 }
 
 func ShowJSONFile() {
-	filename := "task.json"
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения файла:", err)
@@ -83,7 +88,6 @@ func ShowJSONFile() {
 }
 
 func DeleteTask() {
-	filename := "task.json"
 	tasks, err := ReadFromFileJSON(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения задач из файла:", err)
@@ -109,7 +113,6 @@ func DeleteTask() {
 }
 
 func UpdateTaskStatus() {
-	filename := "task.json"
 	tasks, err := ReadFromFileJSON(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения задач из файла:", err)
@@ -135,7 +138,6 @@ func UpdateTaskStatus() {
 }
 
 func SearchTask() {
-	filename := "task.json"
 	tasks, err := ReadFromFileJSON(filename)
 	if err != nil {
 		fmt.Println("Ошибка чтения задач из файла:", err)
