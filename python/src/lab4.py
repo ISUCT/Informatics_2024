@@ -1,7 +1,9 @@
 import math
 
+
 def Calculate(b, x: float) -> float:
     return (1 + (math.sin(b ** 3 + x ** 3) ** 2)) / (math.cbrt(b ** 3 + x ** 3))
+
 
 def TaskA(b, Xn, Xk, delX: float) -> list:
     arr = []
@@ -9,16 +11,19 @@ def TaskA(b, Xn, Xk, delX: float) -> list:
         arr.append(Calculate(b, Xn))
         Xn += delX
     return arr
-    
+
+
 def TaskB(b: float, x: list) -> list:
     arr = []
     for elem in x:
         arr.append(Calculate(b, elem))
     return arr
 
+
 def PrintValue(Values):
     for elem in Values:
         print(elem)
+
 
 def RunLab4Tasks():
     b = 2.5
