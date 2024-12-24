@@ -6,6 +6,16 @@ run:
     - \.pb\.gw\.go$
 
 linters-settings:
+depguard:
+    allowed-paths:
+      - isuct.ru/informatics2022/labs/lab9
+      - isuct.ru/informatics2022/labs/lab8
+      - isuct.ru/informatics2022/labs/lab7
+      - isuct.ru/informatics2022/labs/lab6
+      - isuct.ru/informatics2022/labs/lab4
+      - isuct.ru/informatics2022/labs/lab9/taskStruct
+      - isuct.ru/informatics2022/labs/lab9/taskUtilis
+      - isuct.ru/informatics2022/labs/lab9/taskInterface
   dupl:
     threshold: 500
   gci:
@@ -70,14 +80,3 @@ issues:
     - text: "File is not goimports-ed with -local github.com/golangci/golangci-lint"
       linters:
         - goimports
-
-linters-settings:
-  depguard:
-    allowed-paths:
-      - isuct.ru/informatics2022/labs/lab9
-      - isuct.ru/informatics2022/labs/lab8
-      - isuct.ru/informatics2022/labs/lab7
-      - isuct.ru/informatics2022/labs/lab6
-      - isuct.ru/informatics2022/labs/lab4
-      - isuct.ru/informatics2022/labs/lab9/taskStruct
-      - isuct.ru/informatics2022/labs/lab9/taskUtilis
