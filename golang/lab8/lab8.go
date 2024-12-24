@@ -17,7 +17,7 @@ func Lab8() {
 
 	text, err := ConsoleInput("Текст, который будет введён в файл")
 	if err != nil {
-		log.Printf("(WriteFile) ввод текста: %w", err)
+		log.Printf("(WriteFile) ввод текста: %v", err)
 	}
 
 	err = WriteFile(text, path)
