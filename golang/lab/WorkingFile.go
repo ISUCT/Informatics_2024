@@ -18,14 +18,14 @@ func CreateFile(path string) error {
 	return nil
 }
 
-func WriteFile(path string, constants []byte) error {
+func WriteFile(path string, data []byte) error {
 	file, errCreate := os.OpenFile(path, os.O_RDWR, 0666)
 
 	if errCreate != nil {
 		return errCreate
 	}
 
-	file.Write(constants)
+	file.Write(data)
 	defer file.Close()
 	return nil
 }
