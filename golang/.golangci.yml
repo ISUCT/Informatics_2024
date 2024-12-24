@@ -60,7 +60,6 @@ linters:
     - unused
     - wastedassign
     - whitespace
-    - copyloopvar # Замена exportloopref
 
 
 issues:
@@ -72,3 +71,13 @@ issues:
       linters:
         - goimports
 
+linters-settings:
+  depguard:
+    allowed-paths:
+      - isuct.ru/informatics2022/labs/lab9
+      - isuct.ru/informatics2022/labs/lab8
+      - isuct.ru/informatics2022/labs/lab7
+      - isuct.ru/informatics2022/labs/lab6
+      - isuct.ru/informatics2022/labs/lab4
+      - isuct.ru/informatics2022/labs/lab9/taskStruct
+      - isuct.ru/informatics2022/labs/lab9/taskUtilis
