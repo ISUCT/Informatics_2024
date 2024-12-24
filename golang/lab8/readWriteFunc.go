@@ -27,19 +27,14 @@ func CreateFile(path string) error {
 	return nil
 }
 
-func WriteFile(path string) error {
+func WriteFile(text, path string) error {
 	file, errOpenFile := os.OpenFile(path, os.O_WRONLY|os.O_CREATE, 0666)
 	if errOpenFile != nil {
 		return fmt.Errorf("(WriteFile) открытие файла %s: %w", path, errOpenFile)
 	}
 	defer file.Close()
 
-	text, err := ConsoleInput("Текст, который будет введён в файл")
-	if err != nil {
-		return fmt.Errorf("(WriteFile) ввод текста: %w", err)
-	}
-
-	_, err = file.WriteString(text)
+	_, err := file.WriteString(text)
 	if err != nil {
 		return fmt.Errorf("(WriteFile) ошибка записи в файл %s: %w", path, err)
 	}
