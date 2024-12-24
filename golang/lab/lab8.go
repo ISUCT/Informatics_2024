@@ -9,12 +9,12 @@ import (
 func ShowLab8() {
 	path := "lab/input.txt"
 	CreateFile(path)
-	var constants []byte
+	var data []byte
 
 	input := InputValue()
-	constants = []byte(input)
+	data = []byte(input)
 
-	WriteFile(path, constants)
+	WriteFile(path, data)
 	fmt.Println("Файл input.txt успешно создан")
 
 	var A []float64
