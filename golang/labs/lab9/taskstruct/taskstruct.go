@@ -1,4 +1,4 @@
-package taskStruct
+package TaskStruct
 
 type Task struct {
 	Description string `json:"description"`

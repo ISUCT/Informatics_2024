@@ -1,4 +1,4 @@
-package taskUtilis
+package TaskUtilis
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	structure "isuct.ru/informatics2022/labs/lab9/taskStruct"
+	structure "isuct.ru/informatics2022/labs/lab9/TaskStruct"
 )
 
 func CreateFile(filename string) (string, error) {

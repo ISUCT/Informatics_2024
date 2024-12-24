@@ -3,7 +3,7 @@ package lab9
 import (
 	"fmt"
 
-	"isuct.ru/informatics2022/labs/lab9/taskUtilis"
+	"isuct.ru/informatics2022/labs/lab9/TaskUtilis"
 )
 
 func RunLab9() {
@@ -11,7 +11,7 @@ func RunLab9() {
 	fmt.Print("Введите название файла: ")
 	fmt.Scanln(&filename)
 
-	tasks, err := taskUtilis.InitTasks(filename)
+	tasks, err := TaskUtilis.InitTasks(filename)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -35,27 +35,27 @@ func RunLab9() {
 			var description string
 			fmt.Print("Введите описание задачи: ")
 			fmt.Scan(&description)
-			taskUtilis.AddTask(&tasks, description)
+			TaskUtilis.AddTask(&tasks, description)
 		case 2:
-			taskUtilis.ShowTasks(tasks)
+			TaskUtilis.ShowTasks(tasks)
 		case 3:
 			var index int
 			fmt.Print("Введите номер задачи: ")
 			fmt.Scan(&index)
-			taskUtilis.UpdateTaskStatus(index, &tasks)
+			TaskUtilis.UpdateTaskStatus(index, &tasks)
 
 		case 4:
 			var index int
 			fmt.Print("Введите номер задачи: ")
 			fmt.Scan(&index)
-			taskUtilis.DeleteTask(index, &tasks)
+			TaskUtilis.DeleteTask(index, &tasks)
 		case 5:
 			var keyword string
 			fmt.Print("Введите ключевое слово для поиска: ")
 			fmt.Scan(&keyword)
-			taskUtilis.SearchTask(tasks, keyword)
+			TaskUtilis.SearchTask(tasks, keyword)
 		case 6:
-			taskUtilis.SaveTasks(filename, tasks)
+			TaskUtilis.SaveTasks(filename, tasks)
 			fmt.Println("Выход из программы...")
 			return
 		default:
