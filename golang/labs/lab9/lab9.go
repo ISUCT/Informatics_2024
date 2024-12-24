@@ -11,7 +11,7 @@ func RunLab9() {
 	fmt.Print("Введите название файла: ")
 	fmt.Scanln(&filename)
 
-	tasks, err := TaskUtilis.InitTasks(filename)
+	tasks, err := taskUtilis.InitTasks(filename)
 	if err != nil {
 		fmt.Println(err)
 		return
