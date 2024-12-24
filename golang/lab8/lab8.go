@@ -45,11 +45,11 @@ func Lab8_2() {
 	file, err := os.Create(file_name)
 
 	if err != nil {
-		fmt.Println("Не удалось создать фаид:", err)
+		fmt.Println("Не удалось создать файл:", err)
 		os.Exit(1)
 	}
 	file.WriteString(text)
-	fContent, err := ioutil.ReadFile("hello.txt")
+	fContent, err := ioutil.ReadFile(file_name)
 	if err != nil {
 		panic(err)
 	}
