@@ -18,7 +18,7 @@ func (c *Car) ChangePrice(x float64) {
 	(*c).price = x
 }
 
-func (c *Car) ChangeCharacteristic(newСolour string, newModel string) {
-	c.colour = newСolour
+func (c *Car) ChangeCharacteristic(newColour string, newModel string) {
+	c.colour = newColour
 	c.model = newModel
 }
