@@ -3,7 +3,7 @@ package lab9
 import (
 	"fmt"
 
-	"isuct.ru/informatics2022/labs/lab9/TaskUtilis"
+	"isuct.ru/informatics2022/labs/lab9/taskUtilis"
 )
 
 func RunLab9() {
@@ -35,27 +35,27 @@ func RunLab9() {
 			var description string
 			fmt.Print("Введите описание задачи: ")
 			fmt.Scan(&description)
-			TaskUtilis.AddTask(&tasks, description)
+			taskUtilis.AddTask(&tasks, description)
 		case 2:
-			TaskUtilis.ShowTasks(tasks)
+			taskUtilis.ShowTasks(tasks)
 		case 3:
 			var index int
 			fmt.Print("Введите номер задачи: ")
 			fmt.Scan(&index)
-			TaskUtilis.UpdateTaskStatus(index, &tasks)
+			taskUtilis.UpdateTaskStatus(index, &tasks)
 
 		case 4:
 			var index int
 			fmt.Print("Введите номер задачи: ")
 			fmt.Scan(&index)
-			TaskUtilis.DeleteTask(index, &tasks)
+			taskUtilis.DeleteTask(index, &tasks)
 		case 5:
 			var keyword string
 			fmt.Print("Введите ключевое слово для поиска: ")
 			fmt.Scan(&keyword)
-			TaskUtilis.SearchTask(tasks, keyword)
+			taskUtilis.SearchTask(tasks, keyword)
 		case 6:
-			TaskUtilis.SaveTasks(filename, tasks)
+			taskUtilis.SaveTasks(filename, tasks)
 			fmt.Println("Выход из программы...")
 			return
 		default:
