@@ -15,7 +15,6 @@ depguard:
       - isuct.ru/informatics2022/labs/lab4
       - isuct.ru/informatics2022/labs/lab9/taskStruct
       - isuct.ru/informatics2022/labs/lab9/taskUtilis
-      - isuct.ru/informatics2022/labs/lab9/taskInterface
   dupl:
     threshold: 500
   gci:
