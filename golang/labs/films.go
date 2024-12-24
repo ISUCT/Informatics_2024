@@ -5,8 +5,8 @@ import "fmt"
 type Media struct {
   name     string
   price    float64
-  genre    string
-  duration string
+  m.genre    string
+  m.duration string
 }
 
 func (m *Media) getPrice() float64 {
