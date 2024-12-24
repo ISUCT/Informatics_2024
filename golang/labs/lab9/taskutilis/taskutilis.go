@@ -1,4 +1,4 @@
-package taskutilis
+package taskUtilis
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	structure "isuct.ru/informatics2022/labs/lab9/taskstruct"
+	structure "isuct.ru/informatics2022/labs/lab9/taskStruct"
 )
 
 func CreateFile(filename string) (string, error) {
@@ -100,4 +100,17 @@ func SaveTasks(filename string, tasks []structure.Task) {
 	if err != nil {
 		fmt.Println("Ошибка при записи в файл:", err)
 	}
+}
+func InitTasks(filename string) ([]structure.Task, error) {
+	_, err := CreateFile(filename)
+	if err != nil {
+		return nil, fmt.Errorf("ошибка при создании/проверке файла: %w", err)
+	}
+
+	var tasks []structure.Task
+	err = LoadTasks(filename, &tasks)
+	if err != nil && !os.IsNotExist(err) {
+		return nil, fmt.Errorf("ошибка при загрузке данных: %w", err)
+	}
+	return tasks, nil
 }
