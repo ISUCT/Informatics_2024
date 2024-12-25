@@ -33,7 +33,7 @@ func (p *product) SetDiscount(percent float64) error {
 	return nil
 }
 
-func newProduct(id int, name string, price float64) product {
+func NewProduct(id int, name string, price float64) product {
 	return product{
 		id:       id,
 		name:     name,
