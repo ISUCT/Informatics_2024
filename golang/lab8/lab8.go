@@ -18,8 +18,8 @@ func CompleteLab8() {
 		log.Fatalf("(Completelab8) запись файла: %v", err)
 	}
 
-	searchText, errInput := InputText("текст для поиска")
-	if errInput != nil {
+	searchText, errInput := EnterText("текст для поиска")
+	if errEnter != nil {
 		log.Fatalf("(Completelab8) ввод текста для поиска: %v", errInput)
 	}
 	fmt.Print(SearchInFile(path, searchText))
