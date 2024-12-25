@@ -3,77 +3,37 @@ package lab8
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"strconv"
+
+	"isuct.ru/informatics2022/labs/lab4"
 )
 
-func logarifm(x, base float64) float64 {
-	return math.Log(x) / math.Log(base)
-}
+var filePath string = "../golang/labs/lab8/"
 
-func calculateY(a, b, x float64) float64 {
-	koren := math.Cbrt(x)
-	log5 := logarifm(x, 5)
-	logValue := math.Log(x - 1)
-
-	if logValue == 0 {
-		return math.NaN()
-	}
-
-	lgkub := math.Pow(logValue, 3)
-	return (a*koren - b*log5) / lgkub
-}
-
-func taskA(a, b, xn, xk, xd float64) ([]float64, []float64) {
-	var xResults, yResults []float64
-	for x := xn; x <= xk; x += xd {
-		y := calculateY(a, b, x)
-		xResults = append(xResults, x)
-		yResults = append(yResults, y)
-	}
-	return xResults, yResults
-}
-
-func taskB(a, b float64, xValues []float64) []float64 {
-	var yResults []float64
-	for _, x := range xValues {
-		y := calculateY(a, b, x)
-		yResults = append(yResults, y)
-	}
-	return yResults
-}
-
-func ReadTxt(filename string) ([]float64, error) {
-	file, err := os.Open(filename)
+func ReadDataFromLab4(filename string) ([]float64, error) {
+	f, err := os.Open(filePath + filename)
+	fmt.Println(err)
 	if err != nil {
-		return nil, fmt.Errorf("Ошибка при чтении файла %s: %w", filename, err)
+		return nil, fmt.Errorf("ошибка открытия файла")
 	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
+	fileScanner := bufio.NewScanner(f)
 	var values []float64
-
-	for scanner.Scan() {
-		line := scanner.Text()
-		value, err := strconv.ParseFloat(line, 64)
+	for fileScanner.Scan() {
+		chislo, err := strconv.ParseFloat(fileScanner.Text(), 64)
 		if err != nil {
-			return nil, fmt.Errorf("Ошибка при конвертации'%s': %w", line, err)
+			return nil, fmt.Errorf("ошибка при переводе числа")
 		}
-		values = append(values, value)
+		values = append(values, chislo)
 	}
-
-	if len(values) != 10 {
-		return nil, fmt.Errorf("Недостаточно данных, нужно 10 значений")
-	}
-
 	return values, nil
 }
 
 func RunLab8WithLab4() {
-	values, err := ReadTxt("labs/lab8/input.txt")
+	values, err := ReadDataFromLab4("input.txt")
 	if err != nil {
-		panic("Ошибка при чтении данных")
+		fmt.Printf("Ошибка при чтении данных: %v\n", err)
+		return
 	}
 
 	a := values[0]
@@ -82,9 +42,13 @@ func RunLab8WithLab4() {
 	xk := values[3]
 	dx := values[4]
 	arguments := values[5:]
-	fmt.Print("A:")
-	fmt.Println(taskA(a, b, xn, xk, dx))
 
-	fmt.Print("B:")
-	fmt.Println(taskB(a, b, arguments))
+	fmt.Print("A: ")
+	xResultsA, yResultsA := lab4.TaskA(a, b, xn, xk, dx)
+	fmt.Println("X:", xResultsA)
+	fmt.Println("Y:", yResultsA)
+
+	fmt.Print("B: ")
+	yResultsB := lab4.TaskB(a, b, arguments)
+	fmt.Println("Y:", yResultsB)
 }

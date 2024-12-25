@@ -4,24 +4,12 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
-
-func GetInput() string {
-	reader := bufio.NewReader(os.Stdin)
-
-	fmt.Print("Введите текст: ")
-	text, _ := reader.ReadString('\n')
-	text = strings.TrimSpace(text)
-
-	return text
-}
 
 func RunLab8() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Введите имя файла: ")
 	filename, _ := reader.ReadString('\n')
-	filename = strings.TrimSpace(filename)
 
 	filePath, err := CreateFile(filename)
 	if err != nil {
@@ -51,7 +39,6 @@ func RunLab8() {
 	var searchText string
 	fmt.Print("Текст для поиска: ")
 	searchText, _ = bufio.NewReader(os.Stdin).ReadString('\n')
-	searchText = strings.TrimSpace(searchText)
 
 	if SearchInFile(fileData, searchText) {
 		fmt.Println("Текст найден в файле")
