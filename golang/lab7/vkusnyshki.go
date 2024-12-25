@@ -1,12 +1,12 @@
 package lab7
 
-type vkusnyshki struct {
+type Vkusnyshki struct {
 	product
 }
 
-func Newvkusnyshki(id int, name string, price float64) *vkusnyshki {
-	f := &vkusnyshki{
-		product: newProduct(id, name, price),
+func NewVkusnyshki(id int, name string, price float64) *Vkusnyshki {
+	f := &Vkusnyshki{
+		product: NewProduct(id, name, price),
 	}
 	return f
 }
