@@ -58,11 +58,14 @@ func ReadyLab9() {
 
 		case 6:
 			err := SaveData(filename, tasks)
+
 			if err != nil {
-				fmt.Println("Всё пропало!!! Не удалось сохранить данные, ОШИБКА: КОД 6", err)
- } else {
-				fmt.Println("Ура!!! Данные успешно сохранены.")
+			  log.Println("Всё пропало!!! Не удалось сохранить данные, ОШИБКА: КОД 6", err)
+			  continue
 			}
+			
+			log.Println("Ура!!! Данные успешно сохранены.")
+			
 			return
 
 		default:
