@@ -77,13 +77,17 @@ func SearchInFile(path string, searchText string) (int, error) {
 		if byte(f) == '\n' {
 			lineNum++
 		}
-		if byte(f) == searchText[sign] {
-			log.Println("\t", f, "=", searchText[sign])
-			sign++
-		} else {
-			log.Println("\t", f, "!=", searchText[sign])
-			sign = 0
-		}
+	if sign == len(searchText) {
+	  return lineNum, nil
+	}
+	if byte(f) != searchText[sign] {
+	  log.Println("\t", f, "!=", searchText[sign])
+	  sign = 0
+	  continue
+	}
+	
+	log.Println("\t", f, "=", searchText[sign])
+	sign++
 		if sign == len(searchText) {
 			return lineNum, nil
 		}
