@@ -5,13 +5,13 @@ import (
 	"log"
 )
 
-func Completelab7() {
+func CompleteLab7() {
 	var err error
 
-	priora := Newbibika(0, "анаконда", 100000, Gold, 200)
-	sofa := Newmebel(1, "диван", 1000, Skin)
-	armchear := Newmebel(2, "кресло", 10, Wood)
-	shaurma := Newvkusnyshki(3, "шаурма", 5)
+	priora := NewBibika(0, "анаконда", 100000, Gold, 200)
+	sofa := NewMebel(1, "диван", 1000, Skin)
+	armchear := NewMebel(2, "кресло", 10, Wood)
+	shaurma := NewVkusnyshki(3, "шаурма", 5)
 
 	var ProductList []Product = []Product{
 		priora,
