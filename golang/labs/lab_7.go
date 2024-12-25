@@ -10,7 +10,7 @@ func CalculationSumProduct(listproducts []Product) float64 {
   return sum
 }
 
-func labs() {
+func lab_7() {
   film := &Media{price: 350.00, name: "Субстанция", genre: "Horror", duration: "98 minutes"}
   waffle := &Sweets{price: 300.00, name: "Венские вафли"}
   smartphone := &Phones{price: 39000.00, name: "Huawei 16 Pro'", brand: "Huawei", color: "White"}
