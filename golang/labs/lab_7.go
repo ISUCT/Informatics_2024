@@ -24,6 +24,7 @@ func RunLab7() {
   fmt.Printf("ФИЛЬМ: Название: %s, Жанр: %s, Длительность: %s \n", film.getName(), film.getGenre(), film.getDuration())
 
   smartphone.setBrand("Samsung")
+  smartphone.setColor("Ultra Black")
   smartphone.setPrice(79000.99)
   fmt.Printf("СМАРТФОН: Название: %s, Бренд: %s, Цвет: %s \n", smartphone.getName(), smartphone.getBrand(), smartphone.getColor())
 
