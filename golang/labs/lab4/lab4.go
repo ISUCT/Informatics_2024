@@ -1,4 +1,4 @@
-package labs
+package lab4
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func calculateY(a, b, x float64) float64 {
 	return (a*koren - b*log5) / lgkub
 }
 
-func taskA(a, b, xn, xk, xd float64) ([]float64, []float64) {
+func TaskA(a, b, xn, xk, xd float64) ([]float64, []float64) {
 	var xResults, yResults []float64
 	for x := xn; x <= xk; x += xd {
 		y := calculateY(a, b, x)
@@ -32,7 +32,7 @@ func taskA(a, b, xn, xk, xd float64) ([]float64, []float64) {
 	return xResults, yResults
 }
 
-func taskB(a, b float64, xValues []float64) []float64 {
+func TaskB(a, b float64, xValues []float64) []float64 {
 	var yResults []float64
 	for _, x := range xValues {
 		y := calculateY(a, b, x)
@@ -47,10 +47,10 @@ func Runlab4() {
 	xn := 1.5
 	xk := 3.5
 	xd := 0.4
-	xResultsA, yResultsA := taskA(a, b, xn, xk, xd)
+	xResultsA, yResultsA := TaskA(a, b, xn, xk, xd)
 	fmt.Println(xResultsA, yResultsA)
 
 	xValues := []float64{1.9, 2.15, 2.34, 2.74, 3.16}
-	yResultsB := taskB(a, b, xValues)
+	yResultsB := TaskB(a, b, xValues)
 	fmt.Println(xValues, yResultsB)
 }
