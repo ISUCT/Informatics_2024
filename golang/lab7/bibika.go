@@ -14,13 +14,13 @@ const (
 	Black Color = "чёрный"
 )
 
-type bibika struct {
+type Bibika struct {
 	product
 	color    Color
 	maxHorsepower float64
 }
 
-func (c *bibika) SetColor(color Color) error {
+func (c *Bibika) SetColor(color Color) error {
 	for _, standardColor := range []Color{Gold, Chrome, White, Black} {
 		if color == standardColor {
 			c.color = color
@@ -30,7 +30,7 @@ func (c *bibika) SetColor(color Color) error {
 	return ErrColor
 }
 
-func (c *bibika) SetHorsepower(maxHorsepower float64) error {
+func (c *Bibika) SetHorsepower(maxHorsepower float64) error {
 	if maxHorsepower < 0 || maxHorsepower > 1000 {
 		return ErrMaxHorsepower
 	}
@@ -38,8 +38,8 @@ func (c *bibika) SetHorsepower(maxHorsepower float64) error {
 	return nil
 }
 
-func NewBibika(id int, name string, price float64, color Color, maxHorsepower float64) *bibika {
-	c := &bibika{
+func NewBibika(id int, name string, price float64, color Color, maxHorsepower float64) *Bibika {
+	c := &Bibika{
 		product: newProduct(id, name, price),
 	}
 	c.SetColor(color)
