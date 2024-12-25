@@ -13,7 +13,7 @@ func CompleteLab8() {
 		log.Println(errCreateFile)
 	}
 
-	err := WriteFile(path)
+	err := WritelnFile(path)
 	if err != nil {
 		log.Fatalf("(Completelab8) запись файла: %v", err)
 	}
