@@ -38,7 +38,7 @@ func (c *bibika) SetHorsepower(maxHorsepower float64) error {
 	return nil
 }
 
-func Newbibika(id int, name string, price float64, color Color, maxHorsepower float64) *bibika {
+func NewBibika(id int, name string, price float64, color Color, maxHorsepower float64) *bibika {
 	c := &bibika{
 		product: newProduct(id, name, price),
 	}
