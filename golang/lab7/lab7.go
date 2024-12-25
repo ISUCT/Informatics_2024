@@ -4,14 +4,6 @@ import (
 	"fmt"
 )
 
-func CalculatePrice(list []Product) float64 {
-	var sum float64 = 0
-	for _, price := range list {
-		sum += price.GetPrice()
-	}
-	return sum
-}
-
 func RunLab7() {
 	product1 := &Clothes{2000, "серо-буро-малиновый", "XL"}
 	product2 := &Car{200000, "белый", "BMW"}

@@ -6,3 +6,11 @@ type Product interface {
 	ChangePrice(float64)
 	ChangeCharacteristic(string, string)
 }
+
+func CalculatePrice(list []Product) float64 {
+	var sum float64 = 0
+	for _, price := range list {
+		sum += price.GetPrice()
+	}
+	return sum
+}
