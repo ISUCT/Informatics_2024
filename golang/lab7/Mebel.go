@@ -28,9 +28,9 @@ func (f *mebel) SetMaterial(material Material) error {
 	return ErrMaterial
 }
 
-func NewMebel(id int, name string, price float64, material Material) *mebel {
+func NewMebel(id int, name string, price float64, material Material) *Mebel {
 	f := &Mebel{
-		product: newProduct(id, name, price),
+		product: NewProduct(id, name, price),
 	}
 	f.SetMaterial(material)
 	return f
