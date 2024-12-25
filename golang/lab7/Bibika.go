@@ -40,7 +40,7 @@ func (c *Bibika) SetHorsepower(maxHorsepower float64) error {
 
 func NewBibika(id int, name string, price float64, color Color, maxHorsepower float64) *Bibika {
 	c := &Bibika{
-		product: newProduct(id, name, price),
+		product: NewProduct(id, name, price),
 	}
 	c.SetColor(color)
 	c.SetHorsepower(maxHorsepower)
