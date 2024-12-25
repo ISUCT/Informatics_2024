@@ -28,7 +28,7 @@ func CreateFile(path string) error {
 	return nil
 }
 
-func WriteFile(path string) error {
+func WritelnFile(path string) error {
 	file, errOpenFile := os.OpenFile(path, os.O_WRONLY, 0666)
 	if errOpenFile != nil {
 		return fmt.Errorf("(WriteFile) открытие файла %s: %w", path, errOpenFile)
