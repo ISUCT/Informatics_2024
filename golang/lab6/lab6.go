@@ -4,12 +4,12 @@ import "fmt"
 
 func Lab6() {
 	Hero1 := Hero{
-		name:  "Ivan",
+		name:  "Иван",
 		class: "Человек",
 		lvl:   12,
 	}
 	fmt.Println("Старое имя:", Hero1.GetName())
-	Hero1.SetName("Vasya")
+	Hero1.SetName("Вася")
 	fmt.Println("Новое имя:", Hero1.GetName())
 	fmt.Println("Старый класс", Hero1.GetClass())
 	Hero1.SetClass("Робот")
