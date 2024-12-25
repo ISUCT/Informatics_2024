@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	"isuct.ru/informatics2022/lab4"
-)
 	fmt.Println("Нерабеев Кирилл Сергеевич")
+	lab6.Lab6()
 }
