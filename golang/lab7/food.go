@@ -38,3 +38,4 @@ func (f *Food) Get_info() [3]string {
 	arr := [3]string{f.name, f.brand, f.category}
 	return arr
 }
+
