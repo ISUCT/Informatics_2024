@@ -6,7 +6,7 @@ import (
 )
 
 // Вариант 5: Первое уравнение.
-// Функция для вычисления значения
+// Функция для вычисления значения:
 func CalculateY(a, elements float64) float64 {
 	numerator := math.Pow(math.Log10(math.Pow(a, 2)+elements), 2)
 	denominator := (a + elements) * (a + elements)
