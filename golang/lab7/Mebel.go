@@ -19,7 +19,7 @@ type mebel struct {
 }
 
 func (f *mebel) SetMaterial(material Material) error {
-	for _, standardmaterial := range []Material{Skin, Wood, Diamonds, Dsp} {
+	for _, standardMaterial := range []Material{Skin, Wood, Diamonds, Dsp} {
 		if material == standardMaterial {
 			f.material = material
 			return nil
