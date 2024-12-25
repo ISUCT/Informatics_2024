@@ -10,6 +10,6 @@ import (
 
 func main() {
 	lab4.Lab4()
-	lab8.Lab8_2()
+	lab8.Lab8()
 	fmt.Println("Нерабеев Кирилл Сергеевич")
 }
