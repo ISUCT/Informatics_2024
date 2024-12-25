@@ -16,8 +16,8 @@ func main() {
 	fmt.Println("5 минут полёт нормальный")
 	
 	lab4.RunLab4()
-	lab6.Completelab6()
+	lab6.CompleteLab6()
 	lab7.CompleteLab7()
-	lab8.Completelab8()
-	lab9.Readylab9()
+	lab8.CompleteLab8()
+	lab9.ReadyLab9()
 }
