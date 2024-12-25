@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-const ParamsPath = "lab8/input.txt"
+const ParamsPath = "lab8/enter.txt"
 
 func ReadFileForLab4() ([]float64, error) {
 	var link string = ParamsPath
