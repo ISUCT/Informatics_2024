@@ -20,7 +20,7 @@ type mebel struct {
 
 func (f *mebel) SetMaterial(material Material) error {
 	for _, standardmaterial := range []Material{Skin, Wood, Diamonds, Dsp} {
-		if material == standardmaterial {
+		if material == standardMaterial {
 			f.material = material
 			return nil
 		}
@@ -28,8 +28,8 @@ func (f *mebel) SetMaterial(material Material) error {
 	return ErrMaterial
 }
 
-func Newmebel(id int, name string, price float64, material Material) *mebel {
-	f := &mebel{
+func NewMebel(id int, name string, price float64, material Material) *mebel {
+	f := &Mebel{
 		product: newProduct(id, name, price),
 	}
 	f.SetMaterial(material)
