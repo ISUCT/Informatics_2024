@@ -35,7 +35,7 @@ func WritelnFile(path string) error {
 	}
 	defer file.Close()
 
-	text, err := InputText("текст который будет в файле")
+	text, err := EnterText("текст который будет в файле")
 	if err != nil {
 		return fmt.Errorf("(WriteFile) ввод: %w", err)
 	}
@@ -91,7 +91,7 @@ func SearchInFile(path string, searchText string) (int, error) {
 	return 0, errSearchInFile
 }
 
-func InputText(text string) (string, error) {
+func EnterText(text string) (string, error) {
 	var in *bufio.Reader = bufio.NewReader(os.Stdin)
 
 	fmt.Printf("Введите %v: ", text)
