@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func Readylab9() {
+func ReadyLab9() {
 	const filename = "tasks.json"
 
 	tasks, err := LoadData(filename)
