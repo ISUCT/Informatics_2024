@@ -20,7 +20,7 @@ func CompleteLab8() {
 
 	searchText, errEnter := EnterText("текст для поиска")
 	if errEnter != nil {
-		log.Fatalf("(Completelab8) ввод текста для поиска: %v", errInput)
+		log.Fatalf("(Completelab8) ввод текста для поиска: %v", errEnter)
 	}
 	fmt.Print(SearchInFile(path, searchText))
 }
