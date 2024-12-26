@@ -1,3 +1,5 @@
+package lab4
+
 import (
 	"fmt"
 	"math"
