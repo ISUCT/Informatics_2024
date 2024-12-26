@@ -25,6 +25,7 @@ func main() {
 	fmt.Println("\n8 лабороторная")
 	lab.ShowLab8()
 
+
 	fmt.Println("\n9 лабороторная")
 	lab9.ShowLab9()
 }
