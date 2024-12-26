@@ -1,11 +1,8 @@
 package lab9
 
-import (
-	"fmt"
-)
+import "fmt"
 
 const path string = "lab9/list.json"
-const menu string = "\nПожалуйста, введите номер операции, чтобы её выполнить\n1. Добавить задачу\n2. Показать все задачи\n3. Отметить задачу как выполненную\n4. Удалить задачу\n5. Поиск задачи\n6. Выйти"
 
 func ShowLab9() {
 	CreateFile(path)
@@ -14,7 +11,13 @@ func ShowLab9() {
 	var description string
 
 	for {
-		fmt.Println(menu)
+		fmt.Println("\nПожалуйста, введите номер операции, чтобы её выполнить")
+		fmt.Println("1. Добавить задачу")
+		fmt.Println("2. Показать все задачи")
+		fmt.Println("3. Отметить задачу как выполненную")
+		fmt.Println("4. Удалить задачу")
+		fmt.Println("5. Поиск задачи")
+		fmt.Println("6. Выйти")
 		fmt.Scan(&choice)
 		switch choice {
 		case 1:
@@ -49,3 +52,4 @@ func ShowLab9() {
 		}
 	}
 }
+
