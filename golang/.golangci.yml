@@ -1,11 +1,12 @@
 run:
   tests: false
-  skip-dirs:
-    - vendor
-  skip-files:
-    - \.pb\.go$
-    - \.pb\.validate\.go$
-    - \.pb\.gw\.go$
+  issues:
+    exclude-dirs:
+      - vendor
+    exclude-files:
+      - \.pb\.go$
+      - \.pb\.validate\.go$
+      - \.pb\.gw\.go$
 
 linters-settings:
   dupl:
@@ -17,6 +18,16 @@ linters-settings:
       - prefix(github.com/golangci/golangci-lint)
   lll:
     line-length: 160
+  depguard:
+    rules:
+      main:
+        allow:
+          - "isuct.ru/informatics2022/labs/lab4"
+          - "isuct.ru/informatics2022/labs/lab6"
+          - "isuct.ru/informatics2022/labs/lab7"
+          - "isuct.ru/informatics2022/labs/lab8"
+          - "isuct.ru/informatics2022/labs/lab9"
+          - "fmt"  # Разрешение для стандартной библиотеки
 
 linters:
   disable-all: true
@@ -69,9 +80,9 @@ linters:
 
 issues:
   exclude-rules:
-    - path: _test\.go
+    - path: _test\.go$
       linters:
         - gomnd
     - text: "File is not `goimports`-ed with -local github.com/golangci/golangci-lint"
       linters:
-        - goimports
+        - goimports  
