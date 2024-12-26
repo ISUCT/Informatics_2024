@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("Kulikov Ruslan Igorevich")
 	lab8.RunFileLab()
 	lab4.RunLab4()
-	lab6.RunLab6
+	lab6.RunLab6()
 	lab7.RunLab7()
 	lab9.RunLab9()
 }
