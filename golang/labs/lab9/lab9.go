@@ -2,6 +2,8 @@ package lab9
 
 import (
 	"fmt"
+
+	taskUtilis "isuct.ru/informatics2022/labs/lab9/taskUtilis"
 )
 
 func RunLab9() {
@@ -17,7 +19,7 @@ func RunLab9() {
 
 	for {
 		fmt.Println("\nМеню:")
-		fmt.Println("1. Добавить задачу")
+		fmt.Println("1). Добавить задачу")
 		fmt.Println("2. Показать все задачи")
 		fmt.Println("3. Отметить задачу как выполненную")
 		fmt.Println("4. Удалить задачу")
