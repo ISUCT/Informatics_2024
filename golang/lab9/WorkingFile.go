@@ -14,7 +14,6 @@ func CreateFile(path string) {
 	}
 
 	defer file.Close()
-
 }
 
 func WriteFile(path string, list *ToDoList) {
