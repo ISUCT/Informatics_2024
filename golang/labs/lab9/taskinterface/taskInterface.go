@@ -1,4 +1,4 @@
-package taskInterface
+package taskinterface
 
 type TaskInterface interface {
 	GetStatus() bool
