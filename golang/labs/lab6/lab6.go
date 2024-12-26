@@ -4,26 +4,38 @@ import (
 	"fmt"
 )
 
-type Sydno struct {
-	width, height, osadka, polnota float64
+type Mouse struct {
+	Name   string
+	Age    int
+	Weight float64
 }
 
-func (t Sydno) Size() (float64, float64, float64, float64) {
-	return t.width, t.height, t.osadka, t.polnota
+func NewMouse(name string, age int, weight float64) Mouse {
+	return Mouse{Name: name, Age: age, Weight: weight}
 }
 
-func (t Sydno) CalculateArea() float64 {
-	return t.height * t.width
+func (r *Mouse) GetAge() int {
+	return r.Age
 }
 
-func (t Sydno) Displacement() float64 {
-	return t.height * t.width * t.polnota
+func (r *Mouse) SetAge(age int) {
+	if age > 0 {
+		r.Age = age
+	}
+}
+
+func (r Mouse) Info() string {
+	return fmt.Sprintf("Имя: %s, Возраст: %d, Вес: %.2f кг", r.Name, r.Age, r.Weight)
 }
 
 func RunLab6() {
-	sydno := Sydno{2.45, 5.23, 7.34, 1.65}
-	width, height, osadka, polnota := sydno.Size()
-	fmt.Printf("Размеры судна: Ширина = %.2f, Высота = %.2f, Осадка судна = %.2f, Коэффициент полноты = %.2f\n", width, height, osadka, polnota)
-	fmt.Printf("Площадь судна: %.2f м²\n", sydno.CalculateArea())
-	fmt.Printf("Водоизмещение судна: %.2f м³\n", sydno.Displacement())
+	mouse := NewMouse("Гена", 2, 1.5)
+
+	fmt.Println(mouse.Info())
+
+	mouse.SetAge(3)
+
+	fmt.Printf("Обновленный возраст: %d\n", mouse.GetAge())
+
+	fmt.Println(mouse.Info())
 }

@@ -22,7 +22,7 @@ func RunLab7() {
 	}
 
 	for _, product := range products {
-		product.Setdiscount(20)
+		product.SetDiscount(20)
 	}
 	fmt.Println("Общая стоимость товаров после применения скидки 20%:", CalculateProductsSum(products), "рублей")
 

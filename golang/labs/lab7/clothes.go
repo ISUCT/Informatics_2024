@@ -18,7 +18,7 @@ func (c *Clothes) GetPrice() float64 {
 	return c.price
 }
 
-func (c *Clothes) Setdiscount(discount float64) {
+func (c *Clothes) SetDiscount(discount float64) {
 	c.price -= c.price * discount / 100
 }
 
