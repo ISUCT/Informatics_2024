@@ -15,7 +15,7 @@ func (c *Cosmetics) GetPrice() float64 {
 	return c.price
 }
 
-func (c *Cosmetics) Setdiscount(discount float64) {
+func (c *Cosmetics) SetDiscount(discount float64) {
 	c.price -= c.price * discount / 100
 }
 
