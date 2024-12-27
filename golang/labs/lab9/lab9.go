@@ -2,8 +2,6 @@ package lab9
 
 import (
 	"fmt"
-
-	taskUtilis "isuct.ru/informatics2022/labs/lab9/taskUtilis"
 )
 
 func RunLab9() {

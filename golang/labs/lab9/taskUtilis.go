@@ -1,12 +1,10 @@
-package taskutilis
+package lab9
 
 import (
 	"encoding/json"
 	"fmt"
 	"os"
 	"strings"
-
-	structure "isuct.ru/informatics2022/labs/lab9/taskstruct"
 )
 
 func CreateFile(filename string) (string, error) {
@@ -22,11 +20,11 @@ func CreateFile(filename string) (string, error) {
 	return filename, nil
 }
 
-func AddTask(tasks *[]structure.Task, description string) {
-	*tasks = append(*tasks, structure.Task{Description: description, Status: false})
+func AddTask(tasks *[]Task, description string) {
+	*tasks = append(*tasks, Task{Description: description, Status: false})
 }
 
-func LoadTasks(filename string, tasks *[]structure.Task) error {
+func LoadTasks(filename string, tasks *Task) error {
 	data, err := os.ReadFile(filename)
 	if os.IsNotExist(err) {
 		return nil
