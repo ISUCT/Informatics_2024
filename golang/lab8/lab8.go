@@ -87,7 +87,7 @@ func RunLab8Tasks() []string {
 	var Search string
 	fmt.Print("Введите значение для поиска: ")
 	fmt.Fscan(os.Stdin, &Search)
-	SearchInputFromFilee(NameFile, Search)
+	SearchInputFromFile(NameFile, Search)
 
 	return arr
 }
