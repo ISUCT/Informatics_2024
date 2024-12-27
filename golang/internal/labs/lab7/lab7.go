@@ -5,7 +5,6 @@ import (
 )
 
 func RunLab7() {
-
 	phone := &Electronic{name: "iPhone 14", price: 1000, description: "New iPhone"}
 	tshirt := &Clothing{name: "T-Shirt", price: 20, description: "Cotton T-Shirt", size: "M"}
 	phone.SetDescription("New iPhone 14 Pro Max")
@@ -26,5 +25,4 @@ func RunLab7() {
 	fmt.Println("Name of T-Shirt after changes:", tshirt.GetName())
 	fmt.Println("Description of T-Shirt after changes:", tshirt.GetDescription())
 	fmt.Println("Phone Characreristics after changes:", phone.GetDescription())
-
 }
