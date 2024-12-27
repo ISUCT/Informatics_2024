@@ -1,6 +1,6 @@
 package main
 
-import (
+import ("fmt"
 	"isuct.ru/informatics2022/labs_group/lab4"
 	"isuct.ru/informatics2022/labs_group/labs/lab6"
 	"isuct.ru/informatics2022/labs_group/labs/lab7"
