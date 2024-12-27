@@ -18,7 +18,7 @@ func CreateFile(filename string) (string, error) {
 	return filename, nil
 }
 
-func WriteDataToFile(filePath string) error {
+func WriteConsoleInputToFile(filePath string) error {
 	file, err := os.OpenFile(filePath, os.O_WRONLY, 0600)
 
 	if err != nil {
@@ -100,7 +100,7 @@ func RunLab8WorkWithFile() {
 
 	// Запись данных в файл
 	fmt.Println("Введите данные в файл (для завершения ввода введите q):")
-	err = WriteDataToFile(file)
+	err = WriteConsoleInputToFile(file)
 	if err != nil {
 		fmt.Println(err)
 		return

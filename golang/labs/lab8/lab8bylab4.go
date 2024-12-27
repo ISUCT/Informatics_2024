@@ -3,35 +3,11 @@ package lab8
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"strconv"
+
+	"isuct.ru/informatics2022/labs/lab4"
 )
-
-func calculate_y(x float64) float64 {
-	if math.Abs(x) >= 1 {
-		return math.Pow(1.2, x) - math.Pow(x, 1.2)
-	}
-	return math.Acos(x)
-}
-
-// Задача под А
-func Task_A(begin_x, end_x, delta_x float64) []float64 {
-	var answer_arr []float64
-	for x := begin_x; x < end_x; x += delta_x {
-		answer_arr = append(answer_arr, calculate_y(x))
-	}
-	return answer_arr
-}
-
-// Задача под B
-func Task_B(arguments []float64) []float64 {
-	var answer_arr []float64
-	for _, x := range arguments {
-		answer_arr = append(answer_arr, calculate_y(x))
-	}
-	return answer_arr
-}
 
 func ReadDataFromTxt(filename string) ([]float64, error) {
 	file, err := os.Open(filename)
@@ -66,10 +42,10 @@ func RunLab8ByLab4() {
 	end_x := values[1]
 	delta_x := values[2]
 	fmt.Println("Task A")
-	fmt.Println(Task_A(begin_x, end_x, delta_x))
+	fmt.Println(lab4.Task_A(begin_x, end_x, delta_x))
 
 	// Task_B
 	arguments := values[3:8]
 	fmt.Println("Task B")
-	fmt.Println(Task_B(arguments))
+	fmt.Println(lab4.Task_B(arguments))
 }
