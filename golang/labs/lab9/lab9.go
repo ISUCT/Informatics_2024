@@ -4,13 +4,6 @@ import (
 	"fmt"
 )
 
-type TaskInterface interface {
-	GetStatus() bool
-	GetDescription() string
-	SetStatus(bool)
-	SetDescription(string)
-}
-
 func RunLab9() {
 	var filename string
 	fmt.Print("Введите название файла: ")

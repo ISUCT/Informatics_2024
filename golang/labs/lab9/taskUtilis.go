@@ -24,7 +24,7 @@ func AddTask(tasks *[]Task, description string) {
 	*tasks = append(*tasks, Task{Description: description, Status: false})
 }
 
-func LoadTasks(filename string, tasks *Task) error {
+func LoadTasks(filename string, tasks *[]Task) error {
 	data, err := os.ReadFile(filename)
 	if os.IsNotExist(err) {
 		return nil
@@ -38,7 +38,7 @@ func LoadTasks(filename string, tasks *Task) error {
 	return nil
 }
 
-func DeleteTask(index int, tasks *[]structure.Task) {
+func DeleteTask(index int, tasks *[]Task) {
 	if index < 0 || index >= len(*tasks) {
 		fmt.Println("Неверный номер задачи.")
 		return
@@ -46,7 +46,7 @@ func DeleteTask(index int, tasks *[]structure.Task) {
 	*tasks = append((*tasks)[:index], (*tasks)[index+1:]...)
 }
 
-func ShowTasks(tasks []structure.Task) {
+func ShowTasks(tasks []Task) {
 	if len(tasks) == 0 {
 		fmt.Println("Список задач пуст.")
 		return
@@ -56,8 +56,8 @@ func ShowTasks(tasks []structure.Task) {
 	}
 }
 
-func SearchTask(tasks []structure.Task, keyword string) ([]structure.Task, error) {
-	results := []structure.Task{}
+func SearchTask(tasks []Task, keyword string) ([]Task, error) {
+	results := []Task{}
 	for _, task := range tasks {
 		if containsCI(task.Description, keyword) {
 			results = append(results, task)
@@ -68,13 +68,14 @@ func SearchTask(tasks []structure.Task, keyword string) ([]structure.Task, error
 	}
 	return results, nil
 }
+
 func containsCI(s, substr string) bool {
 	s = strings.ToLower(s)
 	substr = strings.ToLower(substr)
 	return strings.Contains(s, substr)
 }
 
-func UpdateTaskStatus(index int, tasks *[]structure.Task) {
+func UpdateTaskStatus(index int, tasks *[]Task) {
 	ShowTasks(*tasks)
 	index--
 	if index < 0 || index >= len(*tasks) {
@@ -88,7 +89,7 @@ func UpdateTaskStatus(index int, tasks *[]structure.Task) {
 	}
 }
 
-func SaveTasks(filename string, tasks []structure.Task) {
+func SaveTasks(filename string, tasks []Task) {
 	data, err := json.MarshalIndent(tasks, "", " ")
 	if err != nil {
 		fmt.Println("Ошибка при сохранении данных:", err)
@@ -99,13 +100,14 @@ func SaveTasks(filename string, tasks []structure.Task) {
 		fmt.Println("Ошибка при записи в файл:", err)
 	}
 }
-func InitTasks(filename string) ([]structure.Task, error) {
+
+func InitTasks(filename string) ([]Task, error) {
 	_, err := CreateFile(filename)
 	if err != nil {
 		return nil, fmt.Errorf("ошибка при создании/проверке файла: %w", err)
 	}
 
-	var tasks []structure.Task
+	var tasks []Task
 	err = LoadTasks(filename, &tasks)
 	if err != nil && !os.IsNotExist(err) {
 		return nil, fmt.Errorf("ошибка при загрузке данных: %w", err)
