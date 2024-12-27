@@ -1,4 +1,4 @@
-package lab8 
+package lab8Lab4
  
 import ( 
     "math"
