@@ -1,9 +1,9 @@
 package main
 
 import (
-	"isuct.ru/informatics2022/lab4"
-	"isuct.ru/informatics2022/labs/lab6"
-	"isuct.ru/informatics2022/labs/lab7"
+	"isuct.ru/informatics2022/labs_group/lab4"
+	"isuct.ru/informatics2022/labs_group/labs/lab6"
+	"isuct.ru/informatics2022/labs_group/labs/lab7"
 )
 
 func main() {
