@@ -1,9 +1,10 @@
-
 package lab4 
  
 import ( 
     "math"
     "fmt"
+	"strconv"
+    "isuct.ru/informatics2022/lab8"
 )
 func  CalculateExpression (a float64, x float64) float64 { 
     return math.Tan(math.Pow(math.Log10(a+x), 3)) / math.Pow(a+x, 2.0/7.0) 
@@ -24,9 +25,23 @@ func TaskB(a float64, x [5]float64) []float64 {
     } 
     return values
 }
+func GetInputForTask4() []float64 {
+	fmt.Println("Введите данные для Xi, Xk, delX и массив для задач A и B")
+	arr := lab8.RunLab8Tasks()
+	var input []float64
+	for _, values := range arr {
+		value, _ := strconv.ParseFloat(values, 64)
+		input = append(input, value)
+	}
+	return input
+}
+
 func RunLab4Tasks() {
-    a := 2.0
-    fmt.Println(TaskA(a, 1.08, 1.88, 0.16))
-	  var s = [5]float64{1.16, 1.35, 1.48, 1.52, 1.96}
-	  fmt.Println(TaskB(a,s))
+	const a float64 = 2.0
+	arr :=GetInputForTask4()
+	values := arr[3:]
+	ValuesA := TaskA(a, arr[0], arr[1], arr[2])
+	ValuesB := TaskB(a, values)
+	PrintValue(ValuesA)
+	PrintValue(ValuesB)
 }
