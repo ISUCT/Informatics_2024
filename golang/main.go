@@ -15,4 +15,5 @@ func main() {
     lab6.Runlab6()
     lab7.RunLab7Tasks()
     lab8.RunLab8Tasks()
+    lab8Lab4.RunLab8Lab4Tasks()
 }
