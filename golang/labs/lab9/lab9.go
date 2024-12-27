@@ -4,12 +4,19 @@ import (
 	"fmt"
 )
 
+type TaskInterface interface {
+	GetStatus() bool
+	GetDescription() string
+	SetStatus(bool)
+	SetDescription(string)
+}
+
 func RunLab9() {
 	var filename string
 	fmt.Print("Введите название файла: ")
 	fmt.Scanln(&filename)
 
-	tasks, err := taskUtilis.InitTasks(filename)
+	tasks, err := InitTasks(filename)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -33,27 +40,27 @@ func RunLab9() {
 			var description string
 			fmt.Print("Введите описание задачи: ")
 			fmt.Scan(&description)
-			taskUtilis.AddTask(&tasks, description)
+			AddTask(&tasks, description)
 		case 2:
-			taskUtilis.ShowTasks(tasks)
+			ShowTasks(tasks)
 		case 3:
 			var index int
 			fmt.Print("Введите номер задачи: ")
 			fmt.Scan(&index)
-			taskUtilis.UpdateTaskStatus(index, &tasks)
+			UpdateTaskStatus(index, &tasks)
 
 		case 4:
 			var index int
 			fmt.Print("Введите номер задачи: ")
 			fmt.Scan(&index)
-			taskUtilis.DeleteTask(index, &tasks)
+			DeleteTask(index, &tasks)
 		case 5:
 			var keyword string
 			fmt.Print("Введите ключевое слово для поиска: ")
 			fmt.Scan(&keyword)
-			taskUtilis.SearchTask(tasks, keyword)
+			SearchTask(tasks, keyword)
 		case 6:
-			taskUtilis.SaveTasks(filename, tasks)
+			SaveTasks(filename, tasks)
 			fmt.Println("Выход из программы...")
 			return
 		default:
