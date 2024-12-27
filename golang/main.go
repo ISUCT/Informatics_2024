@@ -5,7 +5,8 @@ import (
     "isuct.ru/informatics2022/lab4" 
     "isuct.ru/informatics2022/lab6" 
     "isuct.ru/informatics2022/lab7"
-    "isuct.ru/informatics2022/lab8" 
+    "isuct.ru/informatics2022/lab8"
+    "isuct.ru/informatics2022/lab8Lab4"
 )  
     
   
