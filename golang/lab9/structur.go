@@ -5,6 +5,6 @@ type ToDoList struct {
 }
 
 type Exercise struct {
-	Description string `json: "description"`
-	Status      string `json: "status"`
+	Description string `json:"description"`
+	Status      string `json:"status"`
 }
