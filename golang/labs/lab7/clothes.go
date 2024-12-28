@@ -32,7 +32,7 @@ func (c *Clothes) GetBrand() string {
 func (c *Clothes) GetSeason() string {
 	return c.season
 }
-func (c *Clothes) GetMaterial() string {
+func (c *Clothes) GetMat() string {
 	return c.material
 }
 func (c *Clothes) GetInf() string {
