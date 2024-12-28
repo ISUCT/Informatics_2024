@@ -23,6 +23,6 @@ func (f *Food) SetDiscount(discount float64) {
 func (f *Food) SetPrice(newPrice float64) {
 	f.price = newPrice
 }
-func (f *Food) GetInfo() string {
+func (f *Food) GetInf() string {
 	return fmt.Sprintf("название: %s, цена: %.2f, каллории: %d , бренд: %s", f.name, f.price, f.calories, f.brand)
 }
