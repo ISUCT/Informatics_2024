@@ -21,7 +21,7 @@ func Input() string {
 }
 
 func (l *ToDoList) AddExercise(description string, path string) {
-	task := Exercise{description: description, status: "не выполнена"}
+	task := Exercise{Description: description, Status: "не выполнена"}
 	for _, el := range l.Tasks {
 		if el == task {
 			fmt.Println("эта задача уже существует", description)
@@ -37,7 +37,7 @@ func (l *ToDoList) ShowTodoList() {
 	}
 
 	for i, task := range l.Tasks {
-		fmt.Printf("%d. %s, %s\n", i+1, task.description, task.status)
+		fmt.Printf("%d. %s, %s\n", i+1, task.Description, task.Status)
 	}
 }
 
@@ -47,7 +47,7 @@ func (l *ToDoList) StatusComplete(number int) {
 		return
 	}
 
-	l.Tasks[number-1].status = "выполнена"
+	l.Tasks[number-1].Status = "выполнена"
 }
 
 func (l *ToDoList) DeleteExercise(number int) {
@@ -61,7 +61,7 @@ func (l *ToDoList) DeleteExercise(number int) {
 
 func (l *ToDoList) SearchExercise(word string) string {
 	for i := range l.Tasks {
-		if strings.Contains(l.Tasks[i].description, word) {
+		if strings.Contains(l.Tasks[i].Description, word) {
 			task, err := json.Marshal(l.Tasks[i])
 			if err != nil {
 				fmt.Println("Ошибка при кодировании файла: ", err)
