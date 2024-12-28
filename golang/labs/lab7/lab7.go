@@ -11,23 +11,23 @@ func CalculateProductsSum(products []Product) float64 {
 }
 
 func RunLab7() {
-	potato := &Food{50.15, "картошка", "вкусвилл", 17}
-	lipstick := &Cosmetics{"помада", 1700, "Chanel"}
-	sweatshirt := &Clothes{"толстовка", 3000.99, "Levi`s", "хлопок", "осень"}
-	products := []Product{potato, lipstick, sweatshirt}
-	fmt.Println("Товары")
-	fmt.Println("Общая стоимость:", CalculateProductsSum(products), "рублей")
+	carrot := &Food{50.15, "морковь", "магнит", 17}
+	mascara := &Cosmetics{"тушь для ресниц", 1700, "loreal paris"}
+	shirt := &Clothes{"рубашка", 3000.99, "Levi`s", "синтетика", "весна"}
+	products := []Product{carrot, mascara, shirt}
+	fmt.Println("товары")
+	fmt.Println("общая стоимость:", CalculateProductsSum(products), "рублей")
 	for _, product := range products {
-		fmt.Println(product.GetInfo())
+		fmt.Println(product.GetInf())
 	}
 
 	for _, product := range products {
 		product.SetDiscount(20)
 	}
-	fmt.Println("Общая стоимость товаров после применения скидки 20%:", CalculateProductsSum(products), "рублей")
+	fmt.Println("общая стоимость товаров после применения скидки 20%:", CalculateProductsSum(products), "рублей")
 
-	fmt.Println("Информация про товар толстовка")
-	fmt.Println("материал:", sweatshirt.GetMaterial())
-	fmt.Println("сезон:", sweatshirt.GetSeason())
-	fmt.Println("бренд:", sweatshirt.GetBrand())
+	fmt.Println("информация про товар рубашка")
+	fmt.Println("материал:", shirt.GetMat())
+	fmt.Println("сезон:", shirt.GetSeason())
+	fmt.Println("бренд:", shirt.GetBrand())
 }

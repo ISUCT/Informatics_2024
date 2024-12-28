@@ -23,5 +23,5 @@ func (c *Cosmetics) SetPrice(newPrice float64) {
 	c.price = newPrice
 }
 func (c *Cosmetics) GetInfo() string {
-	return fmt.Sprintf("Название: %s, Бренд: %s, Цена: %.2f", c.name, c.brand, c.price)
+	return fmt.Sprintf("название: %s, бренд: %s, цена: %.2f", c.name, c.brand, c.price)
 }

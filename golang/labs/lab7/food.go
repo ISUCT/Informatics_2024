@@ -24,5 +24,5 @@ func (f *Food) SetPrice(newPrice float64) {
 	f.price = newPrice
 }
 func (f *Food) GetInfo() string {
-	return fmt.Sprintf("Название: %s, Цена: %.2f, Калорийность: %d , Бренд: %s", f.name, f.price, f.calories, f.brand)
+	return fmt.Sprintf("название: %s, цена: %.2f, каллории: %d , бренд: %s", f.name, f.price, f.calories, f.brand)
 }
