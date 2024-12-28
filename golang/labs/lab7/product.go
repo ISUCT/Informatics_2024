@@ -5,5 +5,5 @@ type Product interface {
 	SetPrice(newPrice float64)
 	GetPrice() float64
 	GetName() string
-	GetInfo() string
+	GetInf() string
 }
