@@ -2,9 +2,12 @@ package lab9
 
 import "fmt"
 
-const path string = "lab9/list.json"
-
 func ShowLab9() {
+	fmt.Println("Введите название файла")
+	var name string
+	fmt.Scan(&name)
+	path := "lab9/" + name + ".json"
+
 	CreateFile(path)
 	var choice int
 	TaskList := ToDoList{}
