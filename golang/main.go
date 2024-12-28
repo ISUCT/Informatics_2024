@@ -11,7 +11,10 @@ import (
 func main() {
 	fmt.Println("Медведева Виктория Александровна")
 
+
 	lab4.RunLab4()
 	lab6.RunLab6()
 	lab7.RunLab7()
+
+
 }
