@@ -4,31 +4,10 @@ import (
 	"fmt"
 )
 
-func CalculationSumProduct(listProducts []Product) string {
-	var sum float64 = 0
-	for _, product := range listProducts {
-		sum += product.GetPrice()
-	}
-	s := fmt.Sprintf("%.2f", sum)
-	return s
-}
-
 func Laba7() {
-	var jeans Product = &Clothes{name: "джинсы", price: 3000, material: "полиэстер"}
-	var chocolate Product = &Chocolate{name: "молочный шоколад", price: 70, brand: "Россия щедрая душа"}
-	var comic Product = &Book{name: "Sailor Moon", price: 700, varieties: "манга"}
-
-	if c, ok := jeans.(*Clothes); ok {
-		c.SetMaterial("вискоза")
-	} else {
-		fmt.Println("Ошибка приведения типа для Clothes")
-	}
-
-	if ch, ok := chocolate.(*Chocolate); ok {
-		ch.SetBrand("Alpen Gold")
-	} else {
-		fmt.Println("Ошибка приведения типа для Chocolate")
-	}
+	var jeans = &Clothes{name: "джинсы", price: 3000, material: "полиэстер"}
+	var chocolate = &Chocolate{name: "молочный шоколад", price: 70, brand: "Россия щедрая душа"}
+	var comic = &Book{name: "Sailor Moon", price: 700, varieties: "манга"}
 
 	comic.SetPrice(800)
 
