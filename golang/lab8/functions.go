@@ -8,7 +8,13 @@ import (
 	"strings"
 )
 
-const file_name = "hello.txt"
+var file_name string
+
+func GetName() {
+	fmt.Println("Введите имя файла:")
+	fmt.Fscan(os.Stdin, &file_name)
+	file_name += ".txt"
+}
 
 func SearchText() {
 	file, err := os.Open(file_name)
