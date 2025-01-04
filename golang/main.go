@@ -16,4 +16,5 @@ func main() {
 	lab6.CompleteLab6()
 	fmt.Println("Лабороторная 7:")
 	lab7.CompleteLab7()
+
 }
