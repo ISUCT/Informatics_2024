@@ -19,8 +19,8 @@ type furniture struct {
 }
 
 func (f *furniture) SetMaterial(material Material) error {
-	for _, standardmaterial := range []Material{Skin, Wood, Plywood, Dsp} {
-		if material == standardmaterial {
+	for _, standardMaterial := range []Material{Skin, Wood, Plywood, Dsp} {
+		if material == standardMaterial {
 			f.material = material
 			return nil
 		}
@@ -32,6 +32,8 @@ func NewFurniture(id int, name string, price float64, material Material) *furnit
 	f := &furniture{
 		product: newProduct(id, name, price),
 	}
-	f.SetMaterial(material)
+	if err := f.SetMaterial(material); err != nil {
+		return nil // Или обработка ошибки
+	}
 	return f
 }

@@ -9,9 +9,21 @@ func CompleteLab7() {
 	var err error
 
 	audi := NewCar(0, "ауди", 80000, Red, 240)
+	if audi == nil {
+		log.Fatal("Ошибка создания автомобиля")
+	}
+
 	desk := NewFurniture(1, "офисный стол", 1200, Wood)
+	if desk == nil {
+		log.Fatal("Ошибка создания стола")
+	}
+
 	chair := NewFurniture(2, "кресло", 300, Skin)
-	apple := Newfood(3, "огурец", 5)
+	if chair == nil {
+		log.Fatal("Ошибка создания кресла")
+	}
+
+	apple := NewFood(3, "огурец", 5)
 
 	var ProductList []Product = []Product{
 		audi,
@@ -20,21 +32,18 @@ func CompleteLab7() {
 		apple,
 	}
 
-	fmt.Printf("Общая стоимость товара до скидок: %.2f \n", GetTotalPrice(ProductList))
+	fmt.Printf("Общая стоимость товара до скидок: %.2f\n", GetTotalPrice(ProductList))
 	for _, product := range ProductList {
-		err = product.SetDiscount(10)
-		if err != nil {
+		if err = product.SetDiscount(10); err != nil {
 			log.Fatal(err)
 		}
 	}
-	fmt.Printf("Общая стоимость товара после скидок в 10 процентов: %.2f \n", GetTotalPrice(ProductList))
+	fmt.Printf("Общая стоимость товара после скидок в 10 процентов: %.2f\n", GetTotalPrice(ProductList))
 
-	err = audi.SetColor(White)
-	if err != nil {
+	if err = audi.SetColor(White); err != nil {
 		log.Fatal(err)
 	}
-	err = desk.SetMaterial(Plywood)
-	if err != nil {
+	if err = desk.SetMaterial(Plywood); err != nil {
 		log.Fatal(err)
 	}
 

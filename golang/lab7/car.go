@@ -42,7 +42,11 @@ func NewCar(id int, name string, price float64, color Color, maxSpeed float64) *
 	c := &car{
 		product: newProduct(id, name, price),
 	}
-	c.SetColor(color)
-	c.SetSpeed(maxSpeed)
+	if err := c.SetColor(color); err != nil {
+		return nil // Или обработка ошибки
+	}
+	if err := c.SetSpeed(maxSpeed); err != nil {
+		return nil // Или обработка ошибки
+	}
 	return c
 }
