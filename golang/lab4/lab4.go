@@ -1,4 +1,4 @@
-package laba4
+package lab4
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func CompleteTaskA(xMin, xMax, xDelta float64) []float64 {
 	return result
 }
 
-func CompleteTaskB(x []float64) []float64 { // Удалили лишний аргумент float64
+func CompleteTaskB(x []float64) []float64 {
 	var result []float64
 	for _, i := range x {
 		result = append(result, CalculateFunction(i))
@@ -26,7 +26,7 @@ func CompleteTaskB(x []float64) []float64 { // Удалили лишний ар�
 	return result
 }
 
-func CompleteLaba4() {
+func CompleteLab4() {
 	var xMin float64 = 1.25
 	var xMax float64 = 3.25
 	var xDelta float64 = 0.4
@@ -34,6 +34,6 @@ func CompleteLaba4() {
 
 	var resultA []float64 = CompleteTaskA(xMin, xMax, xDelta)
 	fmt.Println(resultA)
-	var resultB []float64 = CompleteTaskB(x) // Удалили лишний аргумент x
+	var resultB []float64 = CompleteTaskB(x)
 	fmt.Println(resultB)
 }
