@@ -21,10 +21,10 @@ func (f *Dress) ApplyDiscount(x float64) {
 	(*f).Price = (f.Price) * (x)
 }
 
-func (f *Dress) SetNewPrice(x float64) {
+func (f *Dress) UpdatePrice(x float64) {
 	(*f).Price = x
 }
 
-func (f *Dress) SetNewDescription(x string) {
+func (f *Dress) UpdateDescription(x string) {
 	(*f).Fabric = x
 }

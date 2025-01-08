@@ -19,10 +19,10 @@ func (f *Microwave_oven) ApplyDiscount(x float64) {
 	(*f).Price = (f.Price) * (x)
 }
 
-func (f *Microwave_oven) SetNewPrice(x float64) {
+func (f *Microwave_oven) UpdatePrice(x float64) {
 	(*f).Price = x
 }
 
-func (f *Microwave_oven) SetNewDescription(x string) {
+func (f *Microwave_oven) UpdateDescription(x string) {
 	(*f).Name = x
 }

@@ -1,8 +1,11 @@
-package Lab4
+package lab4
 
 import (
-	"math"
 	"fmt"
+	"math"
+	"strconv"
+
+	"isuct.ru/informatics2022/lab8"
 )
 
 func Calculate(a,b,x float64) float64 {
@@ -18,19 +21,41 @@ func TaskA(a, b, x1, x2, dx float64) []float64 {
 	return y
 }
 
-func TaskB(a float64, b float64, x[5] float64) []float64 {
-	var y []float64
+func TaskB(a float64, b float64, x[] float64) []float64 {
+	var arr []float64
 	for _, value := range x {
-		y = append(y, Calculate(a,b,value))
+		arr = append(arr, Calculate(a,b, value))
 	}
-	return y
+	return arr
 }
 
+func PrintValue(Values []float64) {
+	for _, value := range Values {
+		fmt.Println(value)
+	}
+}
+
+func ReadFileTask4() []float64 {
+	fmt.Println("Введите X1, X2, dX для задачи A и список значений для задачи B")
+	arr := lab8.RunLab8()
+	var numbers []float64
+	for _, values := range arr {
+		value, _ := strconv.ParseFloat(values, 64)
+		numbers = append(numbers, value)
+	}
+	return numbers
+}
+
+
 func RunLab4 () {
-	a := 1.1
-	b := 0.09
-	
-	fmt.Println(TaskA(a,b,1.2,2.2,0.2))
-	var s = [5]float64{1.21,1.76,2.53,3.48,4.52}
-	fmt.Println(TaskB(a, b, s))
+	const a = 1.1
+	const b = 0.09
+	arr := ReadFileTask4()
+	slice := arr[3:]
+
+	ValuesA := TaskA(a, b, arr[0], arr[1], arr[2])
+	ValuesB := TaskB(a, b, slice)
+
+	PrintValue(ValuesA)
+	PrintValue(ValuesB)
 }

@@ -20,10 +20,10 @@ func (f *CatFood) ApplyDiscount(x float64) {
 	(*f).Price = (f.Price) * (x)
 }
 
-func (f *CatFood) SetNewPrice(x float64) {
+func (f *CatFood) UpdatePrice(x float64) {
 	(*f).Price = x
 }
 
-func (f *CatFood) SetNewDescription(x string) {
+func (f *CatFood) UpdateDescription(x string) {
 	(*f).Name = x
 }

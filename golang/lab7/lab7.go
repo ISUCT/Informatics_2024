@@ -6,8 +6,8 @@ type Product interface {
 	GetDescription()
 	GetPrice() float64
 	ApplyDiscount(discount float64)
-	SetNewPrice(newPrice float64)
-	SetNewDescription(newDescription string)
+	UpdatePrice(newPrice float64)
+	UpdateDescription(newDescription string)
 }
 
 func CalculatePrice(list []Product) float64 {
@@ -28,19 +28,19 @@ func RunLab7() {
 	Dress.GetDescription()
 
 	var purchase []Product = []Product{CatFood, Microwave_oven, Dress}
-	sum := CalculatePrice(purchase)
-	fmt.Println("Общая стоимость списка товаров:", sum)
+	totalCost := CalculatePrice(purchase)
+	fmt.Println("Общая стоимость списка товаров:", totalCost)
 
-	CatFood.SetNewPrice(9400)
-	Microwave_oven.SetNewDescription("Samsung")
+	CatFood.UpdatePrice(9400)
+	Microwave_oven.UpdateDescription("Samsung")
 	Microwave_oven.ApplyDiscount(0.1)
 	Dress.ApplyDiscount(0.2)
-	Dress.SetNewDescription("хлопка")
+	Dress.UpdateDescription("хлопка")
 
 	CatFood.GetDescription()
 	Microwave_oven.GetDescription()
 	Dress.GetDescription()
 
-	sum = CalculatePrice(purchase)
-	fmt.Println("Общая стоимость списка товаров с учетом всех скидок:", sum)
+	totalCost = CalculatePrice(purchase)
+	fmt.Println("Общая стоимость списка товаров с учетом всех скидок:", totalCost)
 }
