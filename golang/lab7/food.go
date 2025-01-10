@@ -39,3 +39,5 @@ func (f *Food) Get_info() [3]string {
 	return arr
 }
 
+
+
