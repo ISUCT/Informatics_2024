@@ -11,17 +11,26 @@ func CalculateY(x, a, b float64) float64 {
 	arccosArg := x*x - b*b
 	arcsinArg := x*x - a*a
 
+	fmt.Printf("x: %f, a: %f, b: %f\n", x, a, b)
+	fmt.Printf("arccosArg: %f, arcsinArg: %f\n", arccosArg, arcsinArg)
+
 	if arccosArg < -1 || arccosArg > 1 || arcsinArg < -1 || arcsinArg > 1 {
+		fmt.Println("Out of range")
 		return math.NaN()
 	}
 
 	asinValue := math.Asin(arcsinArg)
+	fmt.Printf("asinValue: %f\n", asinValue)
 
 	if math.Abs(asinValue) < epsilon {
+		fmt.Println("asinValue too small")
 		return math.NaN()
 	}
 
-	return math.Acos(arccosArg) / asinValue
+	result := math.Acos(arccosArg) / asinValue
+	fmt.Printf("Result: %f\n", result)
+
+	return result
 }
 
 func Task_A(begin_x, end_x, delta_x, a, b float64) []float64 {
