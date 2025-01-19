@@ -16,6 +16,7 @@ func CalculateY(x, a, b float64) float64 {
 	}
 
 	asinValue := math.Asin(arcsinArg)
+
 	if math.Abs(asinValue) < epsilon {
 		return math.NaN()
 	}
