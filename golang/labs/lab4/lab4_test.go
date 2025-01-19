@@ -1,7 +1,6 @@
 package function
 
 import (
-	"fmt"
 	"math"
 	"testing"
 )
@@ -33,3 +32,6 @@ func TestCalculateYWithoutNaN(t *testing.T) {
 			if math.Abs(got-test.out) > 1e-9 { // small tolerance for floating point comparison
 				t.Errorf("Test failed for x=%f, a=%f, b=%f: got %f, want %f", test.x, test.a, test.b, got, test.out)
 			}
+		}
+	}
+}
