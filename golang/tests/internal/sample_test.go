@@ -12,3 +12,4 @@ func TestSumm(t *testing.T) {
 		t.Fatalf(`Summ(2,3) = %d, want 5, error`, summ)
 	}
 }
+
