@@ -34,9 +34,9 @@ func (b *Book) GetDetails() string {
 }
 
 type Electronics struct {
-	name   string
-	brand  string
-	price  float64
+	name  string
+	brand string
+	price float64
 }
 
 func (e *Electronics) GetPrice() float64 {
@@ -45,13 +45,15 @@ func (e *Electronics) GetPrice() float64 {
 
 func (e *Electronics) SetPrice(price float64) {
 	e.price = price
+}
 
-	percent := 
+func (e *Electronics) ApplyDiscount(percent float64) {
 	e.price -= e.price * percent / 100
 }
 func (e *Electronics) GetDetails() string {
 	return fmt.Sprintf("Electronics: %s, Brand: %s, Price: %.2f", e.name, e.brand, e.price)
 }
+
 func CalculateTotalPrice(products []Product) float64 {
 	total := 0.0
 	for _, product := range products {
